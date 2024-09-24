@@ -2,5 +2,13 @@
   "HomePage": {
     "title": "سلام",
     "about": "برو به صفحه ی درباره ما"
+  },
+  "LoginPage": {
+    "title": "صفحه ورود",
+    "Required": "اجباری",
+    "error_max": "نمی تواند بیشتر از {max} ",
+    "phone_number": "شماره تلفن",
+    "password": "رمز عبور",
+    "submit": "تایید"
   }
 }
