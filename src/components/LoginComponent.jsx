@@ -13,13 +13,22 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useTranslations } from "next-intl";
-import Lottie from "lottie-react";
 
-// import { DotLottieReact } from "@lottiefiles/dotlottie-react";
-import MyLottie from "../assets/lottieFiles/user-avatar-animated.json";
-import { Timer } from "lucide-react";
+import Lottie, { useLottie } from "lottie-react";
+
+import AvatarLottie from "../assets/lottieFiles/user-avatar-animated-jumping.json";
 
 export default function LoginComponent() {
+  // Lottie
+  const options = {
+    animationData: AvatarLottie,
+    loop: true,
+    speed: 0.00002,
+  };
+
+  const { View } = useLottie(options);
+
+  //
   const t = useTranslations();
   const formSchema = z.object({
     phone_number: z
@@ -51,19 +60,12 @@ export default function LoginComponent() {
       ></div>
 
       <div className="flex flex-col border border-black h-full w-full max-w-[720px] justify-center items-center p-4">
-        {/* <DotLottieReact
-        className="border border-black"
-          src='../assets/lottieFiles/user-avatar-animated.json'
-          loop
-          autoplay
-        /> */}
-
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
             className="flex flex-col border border-blue-400 h-full w-full max-w-[400px] min-w-[60%]  items-center  justify-around "
           >
-            <Lottie animationData={MyLottie} loop className="w-[50%] border " />
+            <div className="w-[50%] border ">{View}</div>
             <div className="flex flex-col w-full h-fit justify-center items-center space-y-4">
               <FormField
                 control={form.control}
