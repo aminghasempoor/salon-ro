@@ -5,10 +5,11 @@
   },
   "LoginPage": {
     "title": "صفحه ورود",
-    "Required": "اجباری",
+    "Required": "ضروری",
     "error_max": "نمی تواند بیشتر از {max} ",
     "phone_number": "شماره تلفن",
     "password": "رمز عبور",
-    "submit": "تایید"
+    "submit": "تایید",
+    "login":"ورود"
   }
 }

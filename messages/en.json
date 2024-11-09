@@ -9,6 +9,7 @@
     "error_max": "can not be more than {max}",
     "phone_number": "Phone Number",
     "password": "Password",
-    "submit": "Submit"
+    "submit": "Submit",
+    "login":"Login"
   }
 }
