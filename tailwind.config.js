@@ -11,7 +11,7 @@ module.exports = {
       colors: {
         PrimaryColor: {
           100: "#5E2419",
-          
+
           White: "#FFFFFF",
         },
         SecondaryColor: {
@@ -71,7 +71,7 @@ module.exports = {
         "480px": "480px",
         "720px": "720px",
         "960px": "960px",
-        "1080": "1080px",
+        1080: "1080px",
       },
       animation: {
         "background-animation": "background-animation 25s ease infinite both",
@@ -407,6 +407,11 @@ module.exports = {
             opacity: "1",
           },
         },
+      },
+      fontFamily: {
+        iranSans: ["iranSans", "sans-serif"],
+        MorabbaMedium: ["Morabba-medium", "sans-serif"],
+        Vazirmatn: ["Vazirmatn", "sans-serif"],
       },
     },
   },

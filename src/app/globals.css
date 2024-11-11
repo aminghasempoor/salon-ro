@@ -5,15 +5,17 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;   
+    --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
     --card: 0 0% 100%;
     --card-foreground: 240 10% 3.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
-    --primary: #5E2419;  /* customized*/
+    --primary: #5E2419;
+    /* customized*/
     --primary-foreground: 355.7 100% 97.3%;
-    --secondary: #E7AB9C; /* customized*/
+    --secondary: #E7AB9C;
+    /* customized*/
     --secondary-foreground: 240 5.9% 10%;
     --muted: 240 4.8% 95.9%;
     --muted-foreground: 240 3.8% 46.1%;
@@ -66,8 +68,23 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
 }
 
+@font-face {
+  font-family: 'iranSans';
+  src: url('../assets/fonts/iransansdn.woff');
+}
+
+@font-face {
+  font-family: 'Morabba-medium';
+  src: url('../assets/fonts/Morabba-Medium.woff');
+}
+
+@font-face {
+  font-family: 'Vazirmatn';
+  src: url('../assets/fonts/Vazirmatn[wght].ttf');
+}
