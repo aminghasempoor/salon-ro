@@ -1,4 +1,9 @@
 {
+  "Global": {
+    "appName": "Salon Ro",
+    "back": "back",
+    "motto": "\"Easy in, great out.\""
+  },
   "HomePage": {
     "title": "Hello world!",
     "about": "Go to the about page"
@@ -9,6 +14,7 @@
     "error_max": "can not be more than {max}",
     "phone_number": "Phone Number",
     "password": "Password",
-    "submit": "Submit"
+    "submit": "Submit",
+    "login": "Login"
   }
 }

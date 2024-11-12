@@ -1,14 +1,20 @@
 {
+  "Global": {
+    "appName": "سالن رو",
+    "back":"بازگشت",
+    "motto":"\"آراستگی آسان تر از همیشه\""
+  },
   "HomePage": {
     "title": "سلام",
     "about": "برو به صفحه ی درباره ما"
   },
   "LoginPage": {
     "title": "صفحه ورود",
-    "Required": "اجباری",
+    "Required": "ضروری",
     "error_max": "نمی تواند بیشتر از {max} ",
     "phone_number": "شماره تلفن",
     "password": "رمز عبور",
-    "submit": "تایید"
+    "submit": "تایید",
+    "login": "ورود"
   }
 }

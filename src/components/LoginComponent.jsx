@@ -1,62 +1,201 @@
-"use client"
-import { z } from "zod"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import {Form, FormControl, FormField, FormItem, FormLabel, FormMessage} from "@/components/ui/form";
-import {Button} from "@/components/ui/button";
-import {Input} from "@/components/ui/input";
-import {useTranslations} from "next-intl";
+"use client";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { useTranslations } from "next-intl";
 
+import Lottie, { useLottie } from "lottie-react";
 
-export default function LoginComponent(){
-    const t = useTranslations()
-    const formSchema = z.object({
-        phone_number: z.string().min(1,{message : `${t("LoginPage.Required")}`}).max(11, {message : `${t("LoginPage.error_max", {max : 11})}`}),
-        password: z.string().min(1, {message : `${t("LoginPage.Required")}`}).max(10),
-    })
-    const form = useForm({
-        resolver: zodResolver(formSchema),
-        mode: "onBlur",
-        defaultValues: {
-            phone_number: "",
-            password: "",
-        },
-    })
-    function onSubmit(values) {
-        console.log(values)
-    }
+// import AvatarLottie from "../assets/lottieFiles/user-avatar-animated-jumping.json";
+import AvatarLottie from "../assets/lottieFiles/gradient-background.json";
+import { useState } from "react";
+import { ArrowBigLeft, LogIn, Smartphone, Undo2 } from "lucide-react";
 
-    return(
+import LogoTextSVG from "@/core/components/SVGs/LogoTextSVG";
+import LoginLeftSideBackground from "@/core/components/SVGs/LoginLeftSideBackground";
+import LogoFullSVG from "../core/components/SVGs/LogoFullSVG";
+import LogoSVG from "@/core/components/SVGs/LogoSVG";
+import Link from "next/link";
+
+export default function LoginComponent() {
+  // Lottie
+  const options = {
+    animationData: AvatarLottie,
+    loop: true,
+  };
+
+  const { View } = useLottie(options);
+
+  //
+  const t = useTranslations();
+  const formSchema = z.object({
+    phone_number: z
+      .string()
+      .min(1, { message: `${t("LoginPage.Required")}` })
+      .max(11, { message: `${t("LoginPage.error_max", { max: 11 })}` }),
+    password: z
+      .string()
+      .min(1, { message: `${t("LoginPage.Required")}` })
+      .max(10),
+  });
+  const form = useForm({
+    resolver: zodResolver(formSchema),
+    mode: "onBlur",
+    defaultValues: {
+      phone_number: "",
+      password: "",
+    },
+  });
+  function onSubmit(values) {
+    console.log(values);
+  }
+
+  return (
+    <div className="flex flex-col-reverse 720px:grid 720px:grid-cols-2 h-[100svh] w-full items-center justify-center bg-[#955B5020] font-Vazirmatn ">
+      <div
+        id="rightSide"
+        className="relative flex flex-col  h-full w-full  justify-center items-center p-4 "
+      >
+        <div
+          id="Header"
+          className="absolute top-0 px-8 py-4 flex flex-row justify-between items-center w-full mb-2 gap-4 "
+        >
+          <Link
+          href={"/"}
+          
+            id="logoText"
+            className="flex w-[160px] 720px:w-[200px] rounded-lg  p-3 h-fit hover:bg-[#E7AB9C]/40 bg-[#E7AB9C]/15 "
+         
+          >
+            <LogoTextSVG />
+          </Link>
+          <Button
+            id="backBtn720px"
+            variant="secondary"
+            className="hidden h-fit py-2.5  px-6   720px:flex gap-2 hover:bg-[#E7AB9C]/40 bg-[#E7AB9C]/15"
+            onClick={() => {
+              alert("Needs Route");
+            }}
+          >
+            {`${t("Global.back")}`}
+            <Undo2 />
+          </Button>
+          <Button
+            id="backBtn"
+            variant="secondary"
+            className="flex p-2 px-4   720px:hidden hover:bg-[#E7AB9C]/40 bg-[#E7AB9C]/15"
+            onClick={() => {
+              alert("Needs Route");
+            }}
+          >
+            <Undo2 />
+          </Button>
+        </div>
         <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col justify-center items-center space-y-4">
-                <FormField
-                    control={form.control}
-                    name="phone_number"
-                    render={({ field }) => (
-                        <FormItem>
-                             <FormLabel>{`${t("LoginPage.phone_number")}`}</FormLabel>
-                             <FormControl>
-                                 <Input placeholder={`${t("LoginPage.phone_number")}`} {...field} />
-                            </FormControl>
-                             <FormMessage />
-                        </FormItem>
-                    )}
-                />
-                <FormField
-                    control={form.control}
-                    name="password"
-                    render={({ field }) => (
-                        <FormItem>
-                             <FormLabel>{`${t("LoginPage.password")}`}</FormLabel>
-                             <FormControl>
-                                 <Input placeholder={`${t("LoginPage.password")}`} {...field} />
-                            </FormControl>
-                             <FormMessage />
-                        </FormItem>
-                    )}
-                />
-                <Button type="submit">{`${t("LoginPage.submit")}`}</Button>
-            </form>
+          <form
+            onSubmit={form.handleSubmit(onSubmit)}
+            className="flex flex-col  h-full w-full max-w-[400px] min-w-[50%]  items-center justify-between  720px:justify-center space-y-12 pb-20"
+          >
+            <div
+              id="logo"
+              className=" 720px:hidden flex w-full max-w-[540px] h-[180px] 720px:h-fit p-8 mt-16 "
+            >
+              <LogoSVG />
+            </div>
+            <div className="flex flex-col w-full h-fit justify-center items-center space-y-8 ">
+              <div className="flex flex-col place-self-start  mb-12 ">
+                <h1 className="font-black text-[2rem] 720px:text-5xl 720px:mb-4   ">{`${t(
+                  "Global.appName"
+                )}`}</h1>
+                <p>{`${t("Global.motto")}`}</p>
+              </div>
+              <FormField
+                control={form.control}
+                name="phone_number"
+                render={({ field }) => (
+                  <FormItem className="flex flex-col w-full space-y-4">
+                    <div className="flex flex-row justify-between ">
+                      <FormLabel className="text-black">{`${t(
+                        "LoginPage.phone_number"
+                      )}`}</FormLabel>
+                      <FormMessage className="px-4 text-red-800 font-bold animate-pulse" />
+                    </div>
+                    <FormControl>
+                      <Input
+                        placeholder={`${t("LoginPage.phone_number")}`}
+                       
+                        {...field}
+                      />
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="password"
+                render={({ field }) => (
+                  <FormItem className="flex flex-col w-full space-y-4">
+                    <div className="flex flex-row justify-between">
+                      <FormLabel className="text-black">{`${t(
+                        "LoginPage.password"
+                      )}`}</FormLabel>
+                      <FormMessage className="px-4 text-red-800 underline underline-offset-4 " />
+                    </div>
+
+                    <FormControl>
+                      <Input
+                        className=""
+                        //type={passwordType ? "password" : "text"}
+                        placeholder={`${t("LoginPage.password")}`}
+                        {...field}
+                      />
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
+            </div>
+            {/* bg-SecondaryColor text-PrimaryColor-100 */}
+            <Button
+              className=" flex  w-full h-12 gap-2 bg-PrimaryColor-100 hover:bg-PrimaryColor-100/80 text-SecondaryColor "
+              type="submit"
+              onClick={() => {
+                console.log("phone_number:",form.control._fields.phone_number._f.value);
+                console.log("password:",form.control._fields.password._f.value);
+              }}
+            >
+              {`${t("LoginPage.login")}`}
+              <LogIn />
+            </Button>
+          </form>
         </Form>
-    )
+      </div>
+      <div
+        id="leftSide"
+        className="relative hidden 720px:flex flex-col invisible 720px:visible 720px:h-full w-full  justify-center items-center p-4 overflow-hidden"
+      >
+        <div
+          id="background 1"
+          className="absolute  flex items-center  justify-center  z-[1] top-0 right-0 left-0 bottom-0  opacity-60 m-16 rounded-[1rem] overflow-hidden object-fill "
+        >
+          <LoginLeftSideBackground />
+        </div>
+        <div
+          id="leftSideFullLogo"
+          className="flex  z-[2] w-full max-w-[540px] h-[200px] 720px:h-fit p-12 "
+        >
+          <LogoFullSVG />
+        </div>
+      </div>
+    </div>
+  );
 }
