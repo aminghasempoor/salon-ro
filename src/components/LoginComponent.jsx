@@ -19,9 +19,12 @@ import LogoFullSVG from "../core/components/SVGs/LogoFullSVG";
 import LogoSVG from "@/core/components/SVGs/LogoSVG";
 import Link from "next/link";
 import {loginFormSchema} from "@/lib/utils/schemas";
+import {ModeToggle} from "@/components/ModeToggle";
+import {useState} from "react";
 
 export default function LoginComponent() {
   const t = useTranslations();
+  const[passwordType, setPasswordType] = useState("password")
   const form = useForm({
     resolver: zodResolver(loginFormSchema(t)),
     mode: "onBlur",
@@ -72,6 +75,7 @@ export default function LoginComponent() {
            href={"/"}>
             <Undo2 />
           </Link>
+          <ModeToggle/>
         </div>
         <Form {...form}>
           <form
@@ -95,7 +99,7 @@ export default function LoginComponent() {
                 render={({ field }) => (
                   <FormItem className="flex flex-col w-full space-y-4">
                     <div className="flex flex-row justify-between">
-                      <FormLabel className="text-black">{t("LoginPage.phone_number")}</FormLabel>
+                      <FormLabel>{t("LoginPage.phone_number")}</FormLabel>
                       <FormMessage className="px-4 text-red-800 font-bold animate-pulse" />
                     </div>
                     <FormControl>
@@ -113,13 +117,13 @@ export default function LoginComponent() {
                 render={({ field }) => (
                   <FormItem className="flex flex-col w-full space-y-4">
                     <div className="flex flex-row justify-between">
-                      <FormLabel className="text-black">{t("LoginPage.password")}</FormLabel>
+                      <FormLabel>{t("LoginPage.password")}</FormLabel>
                       <FormMessage className="px-4 text-red-800 underline underline-offset-4"/>
                     </div>
                     <FormControl>
                       <Input
                         className=""
-                        //type={passwordType ? "password" : "text"}
+                        type={"password"}
                         placeholder={`${t("LoginPage.password")}`}
                         {...field}
                       />
