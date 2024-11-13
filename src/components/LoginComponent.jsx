@@ -21,9 +21,14 @@ import Link from "next/link";
 import {loginFormSchema} from "@/lib/utils/schemas";
 import {ModeToggle} from "@/components/ModeToggle";
 import {useState} from "react";
+import useRequest from "@/lib/hooks/useRequest";
+import {GET_USER_TOKEN} from "@/core/utils/route";
+import useUserStore from "@/lib/utils/UserStore";
 
 export default function LoginComponent() {
   const t = useTranslations();
+  const {setToken} = useUserStore()
+  const requestServer = useRequest({notification: {success : true, show : true}})
   const[passwordType, setPasswordType] = useState("password")
   const form = useForm({
     resolver: zodResolver(loginFormSchema(t)),
@@ -33,8 +38,22 @@ export default function LoginComponent() {
       password: "",
     },
   });
-  function onSubmit(values) {
-    console.log(values);
+  async function onSubmit(values) {
+    try {
+      await requestServer("/api/fake-sign-in", "post", {
+        data: {
+          email: values.phone_number,
+          password: values.password,
+        },
+        success: {
+          notification: {show: true}
+        }
+      }).then((response)=>{
+        setToken(response.data.token)
+      });
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   return (
