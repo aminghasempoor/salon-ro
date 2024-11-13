@@ -7,7 +7,7 @@ export default function Home() {
   return (
       <div>
           <h1>{t('HomePage.title')}</h1>
-          <Button><Link href="/about">{t('HomePage.about')}</Link></Button>
+          <Button><Link href="/">{t('HomePage.about')}</Link></Button>
       </div>
   );
 }
