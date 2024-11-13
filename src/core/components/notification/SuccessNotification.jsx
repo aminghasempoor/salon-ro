@@ -4,7 +4,6 @@ import {Check} from "lucide-react";
 // import {ToastAction} from "@/components/ui/toast";
 
 const SuccessNotification = (pushToastList, notificationType, status) => {
-
     const toastId =
         toast(
             {
@@ -30,6 +29,7 @@ const SuccessNotification = (pushToastList, notificationType, status) => {
             }
         );
     pushToastList("success", 'SuccessToastId');
+    console.log(toastLists)
 };
 
 export default SuccessNotification;

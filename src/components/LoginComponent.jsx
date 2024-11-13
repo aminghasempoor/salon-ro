@@ -24,10 +24,12 @@ import {useState} from "react";
 import useRequest from "@/lib/hooks/useRequest";
 import {GET_USER_TOKEN} from "@/core/utils/route";
 import useUserStore from "@/lib/utils/UserStore";
+import ToastStore from "@/lib/utils/ToastStore ";
 
 export default function LoginComponent() {
   const t = useTranslations();
   const {setToken} = useUserStore()
+  const { toastLists } = ToastStore();
   const requestServer = useRequest({notification: {success : true, show : true}})
   const[passwordType, setPasswordType] = useState("password")
   const form = useForm({

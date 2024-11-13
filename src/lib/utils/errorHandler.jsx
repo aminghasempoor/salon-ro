@@ -23,7 +23,7 @@ export const errorResponse = (pushToastList, dismissToastList, response, clearTo
 }
 
 const errorServer = (pushToastList, response, notification) => {
-    if (notification) Notifications(pushToastList, "success", response.status, "");
+    if (notification) Notifications(pushToastList, "warning", response.status, "");
 }
 const errorClient = (pushToastList, response, clearToken, notification) => {
     switch (response.status) {

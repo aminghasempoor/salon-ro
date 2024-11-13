@@ -3,6 +3,7 @@ import {NextIntlClientProvider} from "next-intl";
 import {getMessages} from "next-intl/server";
 import {notFound} from "next/navigation";
 import {ThemeProvider} from "@/lib/utils/theme-provider";
+import {Toaster} from "@/components/ui/toaster";
 
 export const metadata = {
     title: "Gheychi Project",
@@ -32,6 +33,7 @@ export default async function RootLayout({children, params}) {
                         <main>
                         {children}
                         </main>
+                        <Toaster />
                     </ThemeProvider>
                 </NextIntlClientProvider>
             </body>

@@ -1,8 +1,9 @@
-"use client"
 import {toast} from "@/hooks/use-toast";
 import {Check} from "lucide-react";
+import {useTranslations} from "next-intl";
 
-const ErrorNotification = (pushToastList, notificationType, status, message) => {
+const PendingNotification = (pushToastList, notificationType) => {
+    const t = useTranslations();
     const toastId = toast(
         {
             title : "You're Request has been sent",
@@ -12,11 +13,8 @@ const ErrorNotification = (pushToastList, notificationType, status, message) => 
                         <Check />
                         <div className="flex">
                             <h6 className={"pr-2"}>
-                                {message || "hello"}
+                                {t("Notifications.pending")}
                             </h6>
-                            <h1 className="text-green-600"> {/* Use your class for success color */}
-                                {status}
-                            </h1>
                         </div>
                     </div>
                 </div>
@@ -26,4 +24,4 @@ const ErrorNotification = (pushToastList, notificationType, status, message) => 
     pushToastList(notificationType, toastId);
 };
 
-export default ErrorNotification;
+export default PendingNotification;
