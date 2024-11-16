@@ -15,6 +15,10 @@
     "phone_number": "Phone Number",
     "password": "Password",
     "submit": "Submit",
-    "login": "Login"
+    "login": "Login",
+    "remember": "remember me",
+    "forget": "forgot everything?",
+    "noAccount": "no account?",
+    "createHere": "create here!"
   }
 }
