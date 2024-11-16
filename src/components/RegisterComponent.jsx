@@ -12,16 +12,16 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useTranslations } from "next-intl";
-import { LogIn, Undo2 } from "lucide-react";
+import { SendHorizontal, Undo2 } from "lucide-react";
 import LogoTextSVG from "@/core/components/SVGs/LogoTextSVG";
 import LoginLeftSideBackground from "@/core/components/SVGs/LoginLeftSideBackground";
 import LogoFullSVG from "../core/components/SVGs/LogoFullSVG";
-import LogoSVG from "@/core/components/SVGs/LogoSVG";
+
 import Link from "next/link";
 import { loginFormSchema } from "@/lib/utils/schemas";
 import { ModeToggle } from "@/components/ModeToggle";
 import { useState } from "react";
-import { useTheme } from "next-themes";
+
 import { Checkbox } from "./ui/checkbox";
 export default function RegisterComponent() {
   const t = useTranslations();
@@ -31,7 +31,8 @@ export default function RegisterComponent() {
     mode: "onBlur",
     defaultValues: {
       phone_number: "",
-      password: "",
+      name: "",
+      last_name: "",
     },
   });
   function onSubmit(values) {
@@ -81,7 +82,7 @@ export default function RegisterComponent() {
             <div className="hidden lg:flex w-full  h-fit">
               <LogoTextSVG />
             </div>
-            <div className="w-full flex flex-col  gap-16 ">
+            <div className="w-full flex flex-col  gap-16 mb-8 ">
               <div className="flex flex-col w-full h-fit justify-center items-center lg:gap-16 gap-8  ">
                 <div className="flex flex-col place-self-start   gap-4">
                   <h1 className="font-black text-[2rem] lg:text-5xl ">
@@ -92,17 +93,17 @@ export default function RegisterComponent() {
                 <div className="flex flex-col w-full gap-8">
                   <FormField
                     control={form.control}
-                    name="phone_number"
+                    name="name"
                     render={({ field }) => (
                       <FormItem className="flex flex-col w-full space-y-4 ">
                         <div className="flex flex-row justify-between">
-                          <FormLabel>{t("LoginPage.phone_number")}</FormLabel>
+                          <FormLabel>{t("RegisterPage.name")}</FormLabel>
                           <FormMessage className="px-4 text-Light-Required dark:text-Dark-Required font-bold " />
                         </div>
                         <FormControl>
                           <Input
                             className="border-2 "
-                            placeholder={t("LoginPage.phone_number")}
+                            placeholder={t("RegisterPage.name")}
                             {...field}
                           />
                         </FormControl>
@@ -111,56 +112,63 @@ export default function RegisterComponent() {
                   />
                   <FormField
                     control={form.control}
-                    name="password"
+                    name="last_name"
                     render={({ field }) => (
-                      <FormItem className="flex flex-col  w-full space-y-4">
-                        <div className="flex flex-row justify-between ">
-                          <FormLabel>{t("LoginPage.password")}</FormLabel>
+                      <FormItem className="flex flex-col w-full space-y-4 ">
+                        <div className="flex flex-row justify-between">
+                          <FormLabel>{t("RegisterPage.last_name")}</FormLabel>
                           <FormMessage className="px-4 text-Light-Required dark:text-Dark-Required font-bold " />
                         </div>
                         <FormControl>
                           <Input
-                            className="border-2"
-                            type={"password"}
-                            placeholder={`${t("LoginPage.password")}`}
+                            className="border-2 "
+                            placeholder={t("RegisterPage.last_name")}
                             {...field}
                           />
                         </FormControl>
                       </FormItem>
                     )}
                   />
-                  <div className="flex justify-between items-center w-full h-fit text-[.875rem] font-medium mb-4">
-                    <div className="flex items-center justify-center gap-2 ">
-                      <Checkbox id="terms" className=""  onCheckedChange={()=>{alert("value")}}/>
-                      <label htmlFor="terms" className="cursor-pointer pt-1">
-                        {`${t("LoginPage.remember")}`}
-                      </label>
-                    </div>
-                    <Link
-                      href={"/forget"}
-                      className="pt-1 text-Light-InputBoxColor dark:text-Dark-InputBoxColor hover:dark:text-Light-InputBoxColor hover:text-Dark-InputBoxColor"
-                    >
-                      {`${t("LoginPage.forget")}`}
-                    </Link>
-                  </div>
+                  <FormField
+                    control={form.control}
+                    name="phone_number"
+                    render={({ field }) => (
+                      <FormItem className="flex flex-col w-full space-y-4 ">
+                        <div className="flex flex-row justify-between">
+                          <FormLabel>
+                            {t("RegisterPage.phone_number")}
+                          </FormLabel>
+                          <FormMessage className="px-4 text-Light-Required dark:text-Dark-Required font-bold " />
+                        </div>
+                        <FormControl>
+                          <Input
+                            className="border-2 "
+                            placeholder={t("RegisterPage.phone_number")}
+                            {...field}
+                          />
+                        </FormControl>
+                      </FormItem>
+                    )}
+                  />
                 </div>
               </div>
             </div>
-            <div className="h-fit w-full flex flex-col lg:gap-5 gap-4 items-center ">
+            <div className="h-fit w-full flex flex-col lg:gap-5 gap-4 items-center  ">
               <Button
                 className=" flex w-full h-12 gap-2 bg-Light-SubmitBtnColor dark:bg-Dark-SubmitBtnColor  hover:bg-opacity-70 hover:dark:bg-opacity-70 text-Light-SubmitBtnTextColor dark:text-Dark-SubmitBtnTextColor"
                 type="submit"
+                dir="rtl"
               >
-                {t("LoginPage.login")}
-                <LogIn />
+                <SendHorizontal />
+                {t("RegisterPage.ask_otp")}
               </Button>
               <Link
                 href={"/register"}
                 className="flex gap-1 text-[.875rem] font-bold"
               >
-                <p>{`${t("LoginPage.noAccount")}`}</p>
+                <p>{`${t("RegisterPage.haveAccount")}`}</p>
                 <p className="text-Light-HaveNoAccount dark:text-Dark-HaveNoAccount">{`${t(
-                  "LoginPage.createHere"
+                  "RegisterPage.loginHere"
                 )}`}</p>
               </Link>
             </div>
