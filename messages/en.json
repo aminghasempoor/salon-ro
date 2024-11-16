@@ -20,5 +20,18 @@
     "forget": "forgot everything?",
     "noAccount": "no account?",
     "createHere": "create here!"
+  },
+  "RegisterPage": {
+    "title": "Register Page",
+    "Required": "Required",
+    "error_max": "can not be more than {max}",
+    "phone_number": "Phone Number",
+    "submit": "Submit",
+    "login": "Login",
+    "loginHere": "Login here!",
+    "haveAccount": "Have account?",
+    "name": "Surname",
+    "last_name": "Last Name",
+    "ask_otp": "verification code"
   }
 }
