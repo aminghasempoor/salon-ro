@@ -16,16 +16,15 @@ import { LogIn, Undo2 } from "lucide-react";
 import LogoTextSVG from "@/core/components/SVGs/LogoTextSVG";
 import LoginLeftSideBackground from "@/core/components/SVGs/LoginLeftSideBackground";
 import LogoFullSVG from "../core/components/SVGs/LogoFullSVG";
-import LogoSVG from "@/core/components/SVGs/LogoSVG";
 import Link from "next/link";
-import { loginFormSchema } from "@/lib/utils/schemas";
-import { ModeToggle } from "@/components/ModeToggle";
-import { useState } from "react";
-import { useTheme } from "next-themes";
-import { Checkbox } from "./ui/checkbox";
+import {loginFormSchema} from "@/lib/utils/schemas";
+import {ModeToggle} from "@/components/ModeToggle";
+import {useState} from "react";
+import {Checkbox} from "@/components/ui/checkbox";
+
 export default function LoginComponent() {
   const t = useTranslations();
-  const [passwordType, setPasswordType] = useState("password");
+  const[passwordType, setPasswordType] = useState("password")
   const form = useForm({
     resolver: zodResolver(loginFormSchema(t)),
     mode: "onBlur",
@@ -34,8 +33,22 @@ export default function LoginComponent() {
       password: "",
     },
   });
-  function onSubmit(values) {
-    console.log(values);
+  async function onSubmit(values) {
+    try {
+      await requestServer("/api/fake-sign-in", "post", {
+        data: {
+          email: values.phone_number,
+          password: values.password,
+        },
+        success: {
+          notification: {show: true}
+        }
+      }).then((response)=>{
+        setToken(response.data.token)
+      });
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   return (
@@ -66,6 +79,7 @@ export default function LoginComponent() {
           >
             <Undo2 />
           </Link>
+          <ModeToggle/>
         </div>
         <Form {...form}>
           <form
