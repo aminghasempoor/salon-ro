@@ -17,14 +17,14 @@ import LogoTextSVG from "@/core/components/SVGs/LogoTextSVG";
 import LoginLeftSideBackground from "@/core/components/SVGs/LoginLeftSideBackground";
 import LogoFullSVG from "../core/components/SVGs/LogoFullSVG";
 import Link from "next/link";
-import {loginFormSchema} from "@/lib/utils/schemas";
-import {ModeToggle} from "@/components/ModeToggle";
-import {useState} from "react";
-import {Checkbox} from "@/components/ui/checkbox";
+import { loginFormSchema } from "@/lib/utils/schemas";
+import { ModeToggle } from "@/components/ModeToggle";
+import { useState } from "react";
+import { Checkbox } from "@/components/ui/checkbox";
 
 export default function LoginComponent() {
   const t = useTranslations();
-  const[passwordType, setPasswordType] = useState("password")
+  const [passwordType, setPasswordType] = useState("password");
   const form = useForm({
     resolver: zodResolver(loginFormSchema(t)),
     mode: "onBlur",
@@ -41,13 +41,13 @@ export default function LoginComponent() {
           password: values.password,
         },
         success: {
-          notification: {show: true}
-        }
-      }).then((response)=>{
-        setToken(response.data.token)
+          notification: { show: true },
+        },
+      }).then((response) => {
+        setToken(response.data.token);
       });
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   }
 
@@ -79,7 +79,6 @@ export default function LoginComponent() {
           >
             <Undo2 />
           </Link>
-          <ModeToggle/>
         </div>
         <Form {...form}>
           <form
@@ -145,7 +144,13 @@ export default function LoginComponent() {
                   />
                   <div className="flex justify-between items-center w-full h-fit text-[.875rem] font-medium mb-4">
                     <div className="flex items-center justify-center gap-2 ">
-                      <Checkbox id="terms" className=""  onCheckedChange={()=>{alert("value")}}/>
+                      <Checkbox
+                        id="terms"
+                        className=""
+                        onCheckedChange={() => {
+                          alert("value");
+                        }}
+                      />
                       <label htmlFor="terms" className="cursor-pointer pt-1">
                         {`${t("LoginPage.remember")}`}
                       </label>
