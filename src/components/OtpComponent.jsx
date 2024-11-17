@@ -20,6 +20,16 @@ import Link from "next/link";
 import { RegisterFormSchema } from "@/lib/utils/schemas";
 import { ModeToggle } from "@/components/ModeToggle";
 import { useState } from "react";
+
+import { REGEXP_ONLY_DIGITS_AND_CHARS } from "input-otp";
+
+import {
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSeparator,
+  InputOTPSlot,
+} from "@/components/ui/input-otp";
+
 export default function OtpComponent() {
   const t = useTranslations();
   const [passwordType, setPasswordType] = useState("password");
@@ -51,7 +61,7 @@ export default function OtpComponent() {
             id="backBtn720px"
             variant="secondary"
             className="hidden h-fit py-2  px-6   lg:flex gap-2  bg-Light-BackBtnColor hover:bg-Light-BackBtnHover dark:bg-Dark-BackBtnColor dark:hover:bg-Dark-BackBtnHover rounded-lg font-bold "
-            href={"/"}
+            href={"/register"}
           >
             {`${t("Global.back")}`}
             <Undo2 />
@@ -60,7 +70,7 @@ export default function OtpComponent() {
             id="backBtn"
             variant="secondary"
             className="flex p-2   lg:hidden hover:bg-[#E7AB9C]/40 bg-[#E7AB9C]/15 rounded-lg"
-            href={"/"}
+            href={"/register"}
           >
             <Undo2 />
           </Link>
@@ -87,29 +97,58 @@ export default function OtpComponent() {
                   </h1>
                   <p>{t("Global.motto")}</p>
                 </div>
-                <div className="flex flex-col w-full border"> 
-                  <div className="flex w-full">message</div>
-                  <div className="flex w-full justify-center">otps</div>
-                  <div className="flex justify-end border w-full">timer</div>
+                <div className="flex flex-col w-full gap-10 ">
+                  <FormLabel className="flex w-full items-start text-[1.25rem] font-bold">
+                    {t("OtpPage.otp")}
+                  </FormLabel>
+
+                  <div className="flex w-full justify-center gap-2 " dir="ltr">
+                    <InputOTP maxLength={5} pattern={"^\\d+$"}>
+                      <InputOTPGroup>
+                        <InputOTPSlot index={0} />
+                      </InputOTPGroup>
+                      <InputOTPGroup>
+                        <InputOTPSlot index={1} />
+                      </InputOTPGroup>
+                      <InputOTPGroup>
+                        <InputOTPSlot index={2} />
+                      </InputOTPGroup>
+                      <InputOTPGroup>
+                        <InputOTPSlot index={3} />
+                      </InputOTPGroup>
+                      <InputOTPGroup>
+                        <InputOTPSlot index={4} />
+                      </InputOTPGroup>
+                    </InputOTP>
+                  </div>
+                  <Button
+                    className="flex rounded-[12px] border-2 px-4 py-2 min-w-24 max-w-32 w-fit items-center justify-center place-self-end text-[0.75rem] font-bold text-center bg-transparent text-Light-TextColor dark:text-Dark-TextColor hover:bg-Light-BackBtnColor hover:dark:bg-Dark-BackBtnColor"
+                    disabled={false}
+                  >
+                    {t("OtpPage.timer")}
+                  </Button>
                 </div>
               </div>
             </div>
             <div className="h-fit w-full flex flex-col lg:gap-5 gap-4 items-center  ">
+              <div className="flex  justify-center text-[1.5rem] font-bold text-Light-Required dark:text-Dark-Required">
+                نیاز به امین
+                <FormMessage className="px-4 text-Light-Required dark:text-Dark-Required font-bold " />
+              </div>
               <Button
                 className=" flex w-full h-12 gap-2 bg-Light-SubmitBtnColor dark:bg-Dark-SubmitBtnColor  hover:bg-opacity-70 hover:dark:bg-opacity-70 text-Light-SubmitBtnTextColor dark:text-Dark-SubmitBtnTextColor"
                 type="submit"
                 dir="rtl"
               >
                 <SendHorizontal />
-                {t("RegisterPage.ask_otp")}
+                {t("OtpPage.submit")}
               </Button>
               <Link
                 href={"/register"}
                 className="flex gap-1 text-[.875rem] font-bold"
               >
-                <p>{`${t("RegisterPage.haveAccount")}`}</p>
                 <p className="text-Light-HaveNoAccount dark:text-Dark-HaveNoAccount">{`${t(
-                  "RegisterPage.loginHere"
+                  "OtpPage.change_number"
                 )}`}</p>
               </Link>
             </div>
