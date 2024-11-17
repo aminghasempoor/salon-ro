@@ -16,11 +16,11 @@ import { LogIn, Undo2 } from "lucide-react";
 import LogoTextSVG from "@/core/components/SVGs/LogoTextSVG";
 import LoginLeftSideBackground from "@/core/components/SVGs/LoginLeftSideBackground";
 import LogoFullSVG from "../core/components/SVGs/LogoFullSVG";
-import LogoSVG from "@/core/components/SVGs/LogoSVG";
 import Link from "next/link";
 import {loginFormSchema} from "@/lib/utils/schemas";
 import {ModeToggle} from "@/components/ModeToggle";
 import {useState} from "react";
+import {Checkbox} from "@/components/ui/checkbox";
 
 export default function LoginComponent() {
   const t = useTranslations();
