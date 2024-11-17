@@ -11,13 +11,13 @@ export function ModeToggle() {
         <>
             {theme === "light"
                 ? (
-                    <Button variant="ghost" size="icon" onClick={() => setTheme("dark")}>
-                        <Moon className={"text-blue-950"}/>
+                    <Button className="bg-Light-BackBtnColor" variant="ghost" size="icon" onClick={() => setTheme("dark")}>
+                        <Moon className={"text-Light-TextColor "}/>
                     </Button>
                 )
                 : (
-                    <Button variant="ghost" size="icon" onClick={() => setTheme("light")}>
-                        <Sun className={"text-amber-400"}/>
+                    <Button className="bg-Dark-BackBtnColor" variant="ghost" size="icon" onClick={() => setTheme("light")}>
+                        <Sun className={"text-Dark-TextColor "}/>
                     </Button>
                 )
             }
