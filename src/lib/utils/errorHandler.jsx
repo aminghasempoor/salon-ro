@@ -11,38 +11,38 @@ export const errorRequest = (dismissToastList, notification) => {
     }
 }
 
-export const errorResponse = (pushToastList, dismissToastList, response, clearToken, notification) => {
+export const errorResponse = (pushToastList, dismissToastList, response, clearToken, t, notification) => {
     if (notification) {
         dismissToastList(["pending", "warning", "error", "success"])
     }
     if (isServerError(response.status)) {
-        errorServer(pushToastList, response, notification)
+        errorServer(pushToastList, response, t, notification)
     } else if (isClientError(response.status)) {
-        errorClient(pushToastList, response, clearToken, notification)
+        errorClient(pushToastList, response, clearToken, t, notification)
     }
 }
 
-const errorServer = (pushToastList, response, notification) => {
-    if (notification) Notifications(pushToastList, "warning", response.status, "");
+const errorServer = (pushToastList, response, t, notification) => {
+    if (notification) Notifications(pushToastList, "warning", t, response.status);
 }
-const errorClient = (pushToastList, response, clearToken, notification) => {
+const errorClient = (pushToastList, response, clearToken, t, notification) => {
     switch (response.status) {
         case 401:
             clearToken()
-            if (notification) Notifications(pushToastList, "error", response.status, "");
+            if (notification) Notifications(pushToastList, "error", t, response.status);
             break;
         case 422:
             if ('type' in response.data) {
-                errorLogic(pushToastList, response, notification)
+                errorLogic(pushToastList, response, t, notification)
                 break;
             }
-            errorValidation(pushToastList, response, notification)
+            errorValidation(pushToastList, response, t, notification)
             break;
         case 429:
-            if (notification) Notifications(pushToastList, "error", response.status, "");
+            if (notification) Notifications(pushToastList, "error", t, response.status);
             break
         default:
-            if (notification) Notifications(pushToastList, "error", response.status, "Request failed with status code :");
+            if (notification) Notifications(pushToastList, "error", t, response.status);
             break
     }
 }
@@ -50,28 +50,29 @@ const errorClient = (pushToastList, response, clearToken, notification) => {
 const isServerError = status => status >= 500 && status <= 599;
 const isClientError = status => status >= 400 && status <= 499;
 
-const errorLogic = (pushToastList, response, notification) => {
+const errorLogic = (pushToastList, response, t, notification) => {
     if (notification) {
         if (Array.isArray(response.data.message)) {
             response.data.message.map((item) => {
-                Notifications(pushToastList, "error", response.status, item);
+                Notifications(pushToastList, "error", t, response.status, item);
             });
         } else
             Notifications(
                 pushToastList,
                 "error",
+                t,
                 response.status,
                 response.data.message
             );
     }
 }
-const errorValidation = (pushToastList, response, notification) => {
+const errorValidation = (pushToastList, response, t, notification) => {
     if (notification) {
         const errorsMap = Object.keys(response.data.errors)
         const errorsArray = response.data.errors
 
         errorsMap.map((item) => {
-            Notifications(pushToastList, "error", response.status, errorsArray[item][0]);
+            Notifications(pushToastList, "error", t, response.status, errorsArray[item][0]);
         })
     }
 }

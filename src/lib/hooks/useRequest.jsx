@@ -5,6 +5,7 @@ import Notifications from "@/core/components/notification";
 import {successRequest} from "@/lib/utils/successHandler";
 import {errorRequest, errorResponse, errorSetting} from "@/lib/utils/errorHandler";
 import ToastStore from "@/lib/utils/ToastStore ";
+import {useTranslations} from "next-intl";
 
 const defaultOptions = {
     auth: false,
@@ -26,6 +27,7 @@ const defaultOptions = {
     },
 }
 const useRequest = (initOptions) => {
+    const t = useTranslations();
     const {token, clearToken} = useUserStore()
     const { pushToastList, dismissToastList } = ToastStore();
     let _options = {...defaultOptions, ...initOptions}
@@ -42,23 +44,23 @@ const useRequest = (initOptions) => {
         return new Promise((resolve) => {
             if (_options.notification && _options.failed.notification.show && _options.pending) {
                 dismissToastList(["pending", "warning", "error", "success"]);
-                Notifications(pushToastList, "pending", "", "");
+                Notifications(pushToastList, "pending", "", t);
             }
 
             axios({
                 url: url, method: method, data: _options.data, ..._options.requestOptions
             })
                 .then(response => {
-                    successRequest(pushToastList, dismissToastList, response, _options)
+                    successRequest(pushToastList, dismissToastList, response, t, _options)
                     resolve(response)
                 })
                 .catch(error => {
                     if (error.response) {
-                        errorResponse(pushToastList, dismissToastList, error.response, clearToken, _options.notification && _options.failed.notification.show)
+                        errorResponse(pushToastList, dismissToastList, error.response, clearToken, t, _options.notification && _options.failed.notification.show)
                     } else if (error.request) {
-                        errorRequest(dismissToastList, _options.notification && _options.failed.notification.show)
+                        errorRequest(dismissToastList, t, _options.notification && _options.failed.notification.show)
                     } else {
-                        errorSetting(dismissToastList, _options.notification && _options.failed.notification.show)
+                        errorSetting(dismissToastList, t, _options.notification && _options.failed.notification.show)
                     }
                 })
         });

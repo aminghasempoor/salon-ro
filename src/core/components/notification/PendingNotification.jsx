@@ -1,9 +1,7 @@
 import {toast} from "@/hooks/use-toast";
 import {Check} from "lucide-react";
-import {useTranslations} from "next-intl";
 
-const PendingNotification = (pushToastList, notificationType) => {
-    const t = useTranslations();
+const PendingNotification = (pushToastList, notificationType, t) => {
     const toastId = toast(
         {
             title : "You're Request has been sent",
@@ -23,5 +21,4 @@ const PendingNotification = (pushToastList, notificationType) => {
     );
     pushToastList(notificationType, toastId);
 };
-
 export default PendingNotification;

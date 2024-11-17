@@ -1,9 +1,7 @@
 import {toast} from "@/hooks/use-toast";
 import {Check} from "lucide-react";
-import {useTranslations} from "next-intl";
 
-const WarningNotification = (pushToastList, notificationType, status) => {
-    const t = useTranslations();
+const WarningNotification = (pushToastList, notificationType, t, status) => {
     const toastId = toast(
         {
             title : "You're Request has been sent",
@@ -29,5 +27,4 @@ const WarningNotification = (pushToastList, notificationType, status) => {
     );
     pushToastList(notificationType, toastId);
 };
-
 export default WarningNotification;

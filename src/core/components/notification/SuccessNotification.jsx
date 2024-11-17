@@ -3,7 +3,7 @@ import {toast} from "@/hooks/use-toast";
 import {Check} from "lucide-react";
 // import {ToastAction} from "@/components/ui/toast";
 
-const SuccessNotification = (pushToastList, notificationType, status) => {
+const SuccessNotification = (pushToastList, notificationType, t, status) => {
     const toastId =
         toast(
             {

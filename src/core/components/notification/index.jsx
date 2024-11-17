@@ -3,23 +3,23 @@ import ErrorNotification from "./ErrorNotification";
 import PendingNotification from "@/core/components/notification/PendingNotification";
 import WarningNotification from "@/core/components/notification/WarningNotification";
 
-const Notifications = (pushToastList, notificationType, status, message) => {
+const Notifications = (pushToastList, notificationType, t, status, message) => {
     switch (notificationType) {
         case "pending":
-            PendingNotification(pushToastList, notificationType);
+            PendingNotification(pushToastList, notificationType, t);
             break;
         case "warning":
-            WarningNotification(pushToastList, notificationType, status);
+            WarningNotification(pushToastList, notificationType, t, status);
             break;
         case "error":
             if (message) {
-                ErrorNotification(pushToastList, notificationType, status, message)
+                ErrorNotification(pushToastList, notificationType, t, status, message)
             } else {
-                ErrorNotification(pushToastList, notificationType, status)
+                ErrorNotification(pushToastList, notificationType, t, status)
             }
             break;
         case "success":
-            SuccessNotification(pushToastList, notificationType, status);
+            SuccessNotification(pushToastList, notificationType, t, status);
             break;
     }
 };

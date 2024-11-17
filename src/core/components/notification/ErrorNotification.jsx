@@ -2,7 +2,7 @@
 import {toast} from "@/hooks/use-toast";
 import {Check} from "lucide-react";
 
-const ErrorNotification = (pushToastList, notificationType, status, message) => {
+const ErrorNotification = (pushToastList, notificationType, t, status, message) => {
     const toastId = toast(
         {
             title : "You're Request has been sent",
