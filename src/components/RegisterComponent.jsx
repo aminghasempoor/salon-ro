@@ -16,18 +16,15 @@ import { SendHorizontal, Undo2 } from "lucide-react";
 import LogoTextSVG from "@/core/components/SVGs/LogoTextSVG";
 import LoginLeftSideBackground from "@/core/components/SVGs/LoginLeftSideBackground";
 import LogoFullSVG from "../core/components/SVGs/LogoFullSVG";
-
 import Link from "next/link";
-import { loginFormSchema } from "@/lib/utils/schemas";
+import {RegisterFormSchema} from "@/lib/utils/schemas";
 import { ModeToggle } from "@/components/ModeToggle";
 import { useState } from "react";
-
-import { Checkbox } from "./ui/checkbox";
 export default function RegisterComponent() {
   const t = useTranslations();
   const [passwordType, setPasswordType] = useState("password");
   const form = useForm({
-    resolver: zodResolver(loginFormSchema(t)),
+    resolver: zodResolver(RegisterFormSchema(t)),
     mode: "onBlur",
     defaultValues: {
       phone_number: "",
