@@ -2,7 +2,7 @@
   "Global": {
     "appName": "سالن رو",
     "back": "بازگشت",
-    "motto": "\"آراستگی آسان تر از همیشه\""
+    "motto": "\"آراستگی، آسان تر از همیشه\""
   },
   "HomePage": {
     "title": "سلام",
@@ -30,5 +30,18 @@
     "forget": "فراموش کردی؟",
     "noAccount": "اکانت نداری؟",
     "createHere": "اینجا بساز!"
+  },
+  "RegisterPage": {
+    "title": "صفحه ساخت حساب",
+    "Required": "ضروری",
+    "error_max": "نمی تواند بیشتر از {max} ",
+    "phone_number": "شماره تلفن",
+    "submit": "تایید",
+    "login": "ورود",
+    "loginHere": "بفرمایید داخل!",
+    "haveAccount": "اکانت داری؟",
+    "name": "نام",
+    "last_name": "نام خانوادگی",
+    "ask_otp": "رمز یکبار مصرف"
   }
 }
