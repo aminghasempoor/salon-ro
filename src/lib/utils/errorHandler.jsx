@@ -1,11 +1,11 @@
 import Notifications from "@/core/components/notification";
 
-export const errorSetting = (dismissToastList, notification) => {
+export const errorSetting = (dismissToastList, t, notification) => {
     if (notification) {
         dismissToastList(["pending", "warning", "error", "success"])
     }
 }
-export const errorRequest = (dismissToastList, notification) => {
+export const errorRequest = (dismissToastList, t, notification) => {
     if (notification) {
         dismissToastList(["pending", "warning", "error", "success"])
     }

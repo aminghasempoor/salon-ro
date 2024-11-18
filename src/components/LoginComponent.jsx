@@ -21,9 +21,11 @@ import { loginFormSchema } from "@/lib/utils/schemas";
 import { ModeToggle } from "@/components/ModeToggle";
 import { useState } from "react";
 import { Checkbox } from "@/components/ui/checkbox";
+import useRequest from "@/lib/hooks/useRequest";
 
 export default function LoginComponent() {
   const t = useTranslations();
+  const requestServer = useRequest({ notification: true });
   const [passwordType, setPasswordType] = useState("password");
   const form = useForm({
     resolver: zodResolver(loginFormSchema(t)),
