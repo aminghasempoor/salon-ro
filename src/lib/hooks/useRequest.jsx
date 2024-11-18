@@ -44,7 +44,7 @@ const useRequest = (initOptions) => {
         return new Promise((resolve) => {
             if (_options.notification && _options.failed.notification.show && _options.pending) {
                 dismissToastList(["pending", "warning", "error", "success"]);
-                Notifications(pushToastList, "pending", "", t);
+                Notifications(pushToastList, "pending", t);
             }
 
             axios({

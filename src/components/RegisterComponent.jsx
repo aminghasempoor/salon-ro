@@ -20,37 +20,53 @@ import Link from "next/link";
 import {RegisterFormSchema} from "@/lib/utils/schemas";
 import { ModeToggle } from "@/components/ModeToggle";
 import { useState } from "react";
+import useRequest from "@/lib/hooks/useRequest";
 export default function RegisterComponent() {
   const t = useTranslations();
+  const requestServer = useRequest({ notification: true });
   const [passwordType, setPasswordType] = useState("password");
   const form = useForm({
     resolver: zodResolver(RegisterFormSchema(t)),
     mode: "onBlur",
     defaultValues: {
       phone_number: "",
-      name: "",
+      user_name: "",
       last_name: "",
     },
   });
-  function onSubmit(values) {
-    console.log(values);
+  async function onSubmit(values) {
+    try {
+      await requestServer("/api/fake-sign-up", "post", {
+        data: {
+          email: values.phone_number,
+          password: values.password,
+        },
+        success: {
+          notification: { show: true },
+        },
+      }).then((response) => {
+        setToken(response.data.token);
+      });
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (
     <div className="flex flex-col-reverse lg:grid lg:grid-cols-2 h-[100svh] w-full items-center justify-center font-Vazirmatn ">
       <div
         id="rightSide"
-        className="relative flex flex-col  h-full w-full  justify-center items-center p-4  "
+        className="relative flex flex-col h-full w-full justify-center items-center p-4"
       >
         <div
           id="Header"
-          className="absolute top-0 px-8 py-4 flex flex-row justify-between items-center w-full mb-2 gap-4 "
+          className="absolute top-0 px-8 py-4 flex flex-row justify-between items-center w-full mb-2 gap-4"
         >
           <ModeToggle />
           <Link
             id="backBtn720px"
             variant="secondary"
-            className="hidden h-fit py-2  px-6   lg:flex gap-2  bg-Light-BackBtnColor hover:bg-Light-BackBtnHover dark:bg-Dark-BackBtnColor dark:hover:bg-Dark-BackBtnHover rounded-lg font-bold "
+            className="hidden h-fit py-2 px-6 lg:flex gap-2 bg-Light-BackBtnColor hover:bg-Light-BackBtnHover dark:bg-Dark-BackBtnColor dark:hover:bg-Dark-BackBtnHover rounded-lg font-bold"
             href={"/"}
           >
             {`${t("Global.back")}`}
@@ -59,7 +75,7 @@ export default function RegisterComponent() {
           <Link
             id="backBtn"
             variant="secondary"
-            className="flex p-2   lg:hidden hover:bg-[#E7AB9C]/40 bg-[#E7AB9C]/15 rounded-lg"
+            className="flex p-2 lg:hidden hover:bg-[#E7AB9C]/40 bg-[#E7AB9C]/15 rounded-lg"
             href={"/"}
           >
             <Undo2 />
@@ -68,21 +84,21 @@ export default function RegisterComponent() {
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
-            className="flex flex-col  h-full w-full max-w-[500px] min-w-[60%]  items-center justify-between  lg:pb-20 pb-8 lg:ring-2 lg:ring-Light-Pri100  lg:dark:ring-Dark-Pri100 lg:my-20 lg:p-16 rounded-2xl"
+            className="flex flex-col h-full w-full max-w-[500px] min-w-[60%]  items-center justify-between lg:pb-20 pb-8 lg:ring-2 lg:ring-Light-Pri100 lg:dark:ring-Dark-Pri100 lg:my-20 lg:p-16 rounded-2xl"
           >
             <div
               id="logo"
-              className="lg:hidden flex w-full  max-w-[400px] lg:h-fit p-4 lg:mt-16 mt-8"
+              className="lg:hidden flex w-full max-w-[400px] lg:h-fit p-4 lg:mt-16 mt-8"
             >
               <LogoFullSVG />
             </div>
-            <div className="hidden lg:flex w-full  h-fit">
+            <div className="hidden lg:flex w-full h-fit">
               <LogoTextSVG />
             </div>
-            <div className="w-full flex flex-col  gap-16 mb-8 ">
-              <div className="flex flex-col w-full h-fit justify-center items-center lg:gap-16 gap-8  ">
-                <div className="flex flex-col place-self-start   gap-4">
-                  <h1 className="font-black text-[2rem] lg:text-5xl ">
+            <div className="w-full flex flex-col gap-16 mb-8">
+              <div className="flex flex-col w-full h-fit justify-center items-center lg:gap-16 gap-8">
+                <div className="flex flex-col place-self-start gap-4">
+                  <h1 className="font-black text-[2rem] lg:text-5xl">
                     {t("Global.appName")}
                   </h1>
                   <p>{t("Global.motto")}</p>
@@ -90,17 +106,17 @@ export default function RegisterComponent() {
                 <div className="flex flex-col w-full gap-8">
                   <FormField
                     control={form.control}
-                    name="name"
+                    name="user_name"
                     render={({ field }) => (
-                      <FormItem className="flex flex-col w-full space-y-4 ">
+                      <FormItem className="flex flex-col w-full space-y-4">
                         <div className="flex flex-row justify-between">
-                          <FormLabel>{t("RegisterPage.name")}</FormLabel>
-                          <FormMessage className="px-4 text-Light-Required dark:text-Dark-Required font-bold " />
+                          <FormLabel>{t("RegisterPage.user_name")}</FormLabel>
+                          <FormMessage className="px-4 text-Light-Required dark:text-Dark-Required font-bold" />
                         </div>
                         <FormControl>
                           <Input
                             className="border-2 "
-                            placeholder={t("RegisterPage.name")}
+                            placeholder={t("RegisterPage.user_name")}
                             {...field}
                           />
                         </FormControl>
@@ -114,7 +130,7 @@ export default function RegisterComponent() {
                       <FormItem className="flex flex-col w-full space-y-4 ">
                         <div className="flex flex-row justify-between">
                           <FormLabel>{t("RegisterPage.last_name")}</FormLabel>
-                          <FormMessage className="px-4 text-Light-Required dark:text-Dark-Required font-bold " />
+                          <FormMessage className="px-4 text-Light-Required dark:text-Dark-Required font-bold" />
                         </div>
                         <FormControl>
                           <Input
@@ -130,12 +146,12 @@ export default function RegisterComponent() {
                     control={form.control}
                     name="phone_number"
                     render={({ field }) => (
-                      <FormItem className="flex flex-col w-full space-y-4 ">
+                      <FormItem className="flex flex-col w-full space-y-4">
                         <div className="flex flex-row justify-between">
                           <FormLabel>
                             {t("RegisterPage.phone_number")}
                           </FormLabel>
-                          <FormMessage className="px-4 text-Light-Required dark:text-Dark-Required font-bold " />
+                          <FormMessage className="px-4 text-Light-Required dark:text-Dark-Required font-bold" />
                         </div>
                         <FormControl>
                           <Input
@@ -150,9 +166,9 @@ export default function RegisterComponent() {
                 </div>
               </div>
             </div>
-            <div className="h-fit w-full flex flex-col lg:gap-5 gap-4 items-center  ">
+            <div className="h-fit w-full flex flex-col lg:gap-5 gap-4 items-center">
               <Button
-                className=" flex w-full h-12 gap-2 bg-Light-SubmitBtnColor dark:bg-Dark-SubmitBtnColor  hover:bg-opacity-70 hover:dark:bg-opacity-70 text-Light-SubmitBtnTextColor dark:text-Dark-SubmitBtnTextColor"
+                className="flex w-full h-12 gap-2 bg-Light-SubmitBtnColor dark:bg-Dark-SubmitBtnColor hover:bg-opacity-70 hover:dark:bg-opacity-70 text-Light-SubmitBtnTextColor dark:text-Dark-SubmitBtnTextColor"
                 type="submit"
                 dir="rtl"
               >
@@ -160,13 +176,11 @@ export default function RegisterComponent() {
                 {t("RegisterPage.ask_otp")}
               </Button>
               <Link
-                href={"/register"}
+                href={"/login"}
                 className="flex gap-1 text-[.875rem] font-bold"
               >
-                <p>{`${t("RegisterPage.haveAccount")}`}</p>
-                <p className="text-Light-HaveNoAccount dark:text-Dark-HaveNoAccount">{`${t(
-                  "RegisterPage.loginHere"
-                )}`}</p>
+                <p>{t("RegisterPage.haveAccount")}</p>
+                <p className="text-Light-HaveNoAccount dark:text-Dark-HaveNoAccount">{t("RegisterPage.loginHere")}</p>
               </Link>
             </div>
           </form>
@@ -174,11 +188,11 @@ export default function RegisterComponent() {
       </div>
       <div
         id="leftSide"
-        className="relative hidden lg:flex flex-col invisible lg:visible lg:h-full max-h-[90%] w-full justify-center items-center   overflow-hidden "
+        className="relative hidden lg:flex flex-col invisible lg:visible lg:h-full max-h-[90%] w-full justify-center items-center overflow-hidden"
       >
         <div
           id="background 1"
-          className="absolute  flex items-center  justify-center  z-[1] w-fit h-fit  max-w-[90%]  aspect-square  opacity-70  rounded-[1rem] overflow-hidden dark:mix-blend-plus-lighter  "
+          className="absolute flex items-center justify-center z-[1] w-fit h-fit max-w-[90%] aspect-square opacity-70 rounded-[1rem] overflow-hidden dark:mix-blend-plus-lighter"
         >
           <LoginLeftSideBackground />
         </div>

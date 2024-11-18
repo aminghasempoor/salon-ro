@@ -40,7 +40,7 @@
     "login": "Login",
     "loginHere": "Login here!",
     "haveAccount": "Have account?",
-    "name": "Surname",
+    "user_name": "User Name",
     "last_name": "Last Name",
     "ask_otp": "verification code"
   },
