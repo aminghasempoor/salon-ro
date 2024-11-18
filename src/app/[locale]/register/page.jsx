@@ -1,8 +1,8 @@
-import RegisterComponent from "@/components/RegisterComponent";
 import React from "react";
+import OtpComponent from "@/components/OtpComponent";
 
 const page = () => {
-  return <RegisterComponent />;
+  return <OtpComponent />;
 };
 
 export default page;

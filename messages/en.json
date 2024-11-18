@@ -48,6 +48,7 @@
     "otp": "Enter the verification code:",
     "timer": "Resend?",
     "change_number": "Change number",
+    "Required": "Required",
     "submit": "Submit"
   }
 }

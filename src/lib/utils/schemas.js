@@ -24,3 +24,21 @@ export const RegisterFormSchema = (t) =>
             .string()
             .min(1, { message: t("RegisterPage.Required") })
     });
+export const OtpFormSchema = (t) =>
+    z.object({
+        otp_1: z
+            .string()
+            .min(1, { message: t("OtpPage.Required") }),
+        otp_2: z
+            .string()
+            .min(1, { message: t("OtpPage.Required") }),
+        otp_3: z
+            .string()
+            .min(1, { message: t("OtpPage.Required") }),
+        otp_4: z
+            .string()
+            .min(1, { message: t("OtpPage.Required") }),
+        otp_5: z
+            .string()
+            .min(1, { message: t("OtpPage.Required") }),
+    });
