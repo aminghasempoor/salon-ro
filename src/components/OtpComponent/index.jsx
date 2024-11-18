@@ -10,7 +10,6 @@ export default function OtpComponent() {
     const initialTimerValue = 30;
     const [timer, setTimer] = useState(initialTimerValue);
     // End For Resend Token
-    console.log(otpToken)
     if (!otpToken) {
         return (
             <SendUserDataComponent

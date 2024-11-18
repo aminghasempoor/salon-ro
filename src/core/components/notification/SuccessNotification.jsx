@@ -28,8 +28,7 @@ const SuccessNotification = (pushToastList, notificationType, t, status) => {
                 // )
             }
         );
-    pushToastList("success", 'SuccessToastId');
-    console.log(toastLists)
+    pushToastList("success", toastId);
 };
 
 export default SuccessNotification;

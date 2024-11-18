@@ -12,7 +12,7 @@ const ErrorNotification = (pushToastList, notificationType, t, status, message) 
                         <Check />
                         <div className="flex">
                             <h6 className={"pr-2"}>
-                                {message || "hello"}
+                                {message}
                             </h6>
                             <h1 className="text-green-600"> {/* Use your class for success color */}
                                 {status}

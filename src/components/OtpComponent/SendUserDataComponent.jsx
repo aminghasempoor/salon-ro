@@ -35,9 +35,6 @@ export default function SendUserDataComponent({setOtpToken, setPhoneNumber, Phon
     });
 
     function onSubmit(values) {
-        setPhoneNumber(values.phone_number);
-        setOtpToken(true);
-        setTimer(initialTimerValue);
         requestServer("/api/fake-otp", "post", {
             data: {
                 phone_number: values.phone_number,
@@ -48,8 +45,9 @@ export default function SendUserDataComponent({setOtpToken, setPhoneNumber, Phon
                 notification: {show: true},
             },
         }).then(function (response) {
-            console.log("success")
-
+            setPhoneNumber(values.phone_number);
+            setOtpToken(true);
+            setTimer(initialTimerValue);
         }).catch(function (error) {
             console.log(error)
         })

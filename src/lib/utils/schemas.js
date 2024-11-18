@@ -26,19 +26,7 @@ export const RegisterFormSchema = (t) =>
     });
 export const OtpFormSchema = (t) =>
     z.object({
-        otp_1: z
-            .string()
-            .min(1, { message: t("OtpPage.Required") }),
-        otp_2: z
-            .string()
-            .min(1, { message: t("OtpPage.Required") }),
-        otp_3: z
-            .string()
-            .min(1, { message: t("OtpPage.Required") }),
-        otp_4: z
-            .string()
-            .min(1, { message: t("OtpPage.Required") }),
-        otp_5: z
-            .string()
-            .min(1, { message: t("OtpPage.Required") }),
+        pin: z.string().min(5, {
+            message: "Your one-time password must be 5 characters.",
+        }),
     });
