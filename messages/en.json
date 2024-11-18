@@ -47,6 +47,7 @@
   "OtpPage": {
     "otp": "Enter the verification code:",
     "timer": "Resend?",
+    "pin_required": "Your one-time password must be 5 characters.",
     "change_number": "Change number",
     "Required": "Required",
     "submit": "Submit"

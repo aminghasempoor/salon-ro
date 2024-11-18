@@ -27,6 +27,6 @@ export const RegisterFormSchema = (t) =>
 export const OtpFormSchema = (t) =>
     z.object({
         pin: z.string().min(5, {
-            message: "Your one-time password must be 5 characters.",
+            message: t("OtpPage.pin_required"),
         }),
     });
