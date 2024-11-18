@@ -4,7 +4,7 @@ const LoginLeftSideBackground = () => {
   return (
     <svg id="visual" viewBox="0 0 2000 2000" width="2000" height="2000"
     version="1.1">
-      <g stroke-width="1" stroke-linejoin="bevel">
+      <g strokeWidth="1" strokeLinejoin="bevel">
           <path d="M1000 1000L1000 900L900 900Z" fill="#894f43" stroke="#894f43"></path>
           <path d="M900 900L900 1000L1000 1000Z" fill="#894f43" stroke="#894f43"></path>
           <path d="M1000 900L900 800L900 900Z" fill="#b5796c" stroke="#b5796c"></path>
