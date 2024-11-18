@@ -17,7 +17,7 @@ export const RegisterFormSchema = (t) =>
             .string()
             .min(1, { message: t("RegisterPage.Required") })
             .max(11, { message: t("RegisterPage.error_max", { max: 11 }) }),
-        name: z
+        user_name: z
             .string()
             .min(1, { message: t("RegisterPage.Required") }),
         last_name: z
