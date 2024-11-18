@@ -24,3 +24,9 @@ export const RegisterFormSchema = (t) =>
             .string()
             .min(1, { message: t("RegisterPage.Required") })
     });
+export const OtpFormSchema = (t) =>
+    z.object({
+        pin: z.string().min(5, {
+            message: t("OtpPage.pin_required"),
+        }),
+    });
