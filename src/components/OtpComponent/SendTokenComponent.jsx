@@ -1,68 +1,56 @@
 "use client";
-import {zodResolver} from "@hookform/resolvers/zod";
-import {useForm} from "react-hook-form";
-import {
-    Form, FormControl, FormDescription, FormField, FormItem,
-    FormLabel,
-    FormMessage,
-} from "@/components/ui/form";
-import {Button} from "@/components/ui/button";
-import {useTranslations} from "next-intl";
-import {SendHorizontal, Undo2} from "lucide-react";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Button } from "@/components/ui/button";
+import { useTranslations } from "next-intl";
+import { SendHorizontal, Undo2 } from "lucide-react";
 import LogoTextSVG from "@/core/components/SVGs/LogoTextSVG";
 import LoginLeftSideBackground from "@/core/components/SVGs/LoginLeftSideBackground";
 import LogoFullSVG from "@/core/components/SVGs/LogoFullSVG";
 import Link from "next/link";
-import {OtpFormSchema} from "@/lib/utils/schemas";
-import {ModeToggle} from "@/components/ModeToggle";
-import {useState} from "react";
-import {
-    InputOTP,
-    InputOTPGroup,
-    InputOTPSlot,
-} from "@/components/ui/input-otp";
+import { OtpFormSchema } from "@/lib/utils/schemas";
+import { ModeToggle } from "@/components/ModeToggle";
+import { useState } from "react";
+import { InputOTP, InputOTPGroup, InputOTPSlot } from "@/components/ui/input-otp";
 import useRequest from "@/lib/hooks/useRequest";
 import useUserStore from "@/lib/utils/UserStore";
 
-export default function SendTokenComponent({PhoneNumber, setOtpToken, timer, setTimer, initialTimerValue}) {
+export default function SendTokenComponent({ PhoneNumber, setOtpToken, timer, setTimer, initialTimerValue }) {
     const t = useTranslations();
-    const {setToken} = useUserStore()
-    const requestServer = useRequest({notification: true});
+    const { setToken } = useUserStore();
+    const requestServer = useRequest({ notification: true });
     const [passwordType, setPasswordType] = useState("password");
     const form = useForm({
         resolver: zodResolver(OtpFormSchema(t)),
         mode: "onBlur",
         defaultValues: {
             phone_number: PhoneNumber,
-            pin: ""
+            pin: "",
         },
     });
 
     function onSubmit(values) {
         console.log("Form values submitted:", values); // Debug
         requestServer("/api/fake-sign-up", "post", {
-            data: {phone_number: PhoneNumber, otp: values.pin},
-            success: {notification: {show: true}},
+            data: { phone_number: PhoneNumber, otp: values.pin },
+            success: { notification: { show: true } },
         }).then((response) => {
             setToken(response.data.token);
-            setOtpToken(response.data.token)
+            setOtpToken(response.data.token);
         });
     }
 
-    console.log(form.formState.defaultValues)
+    console.log(form.formState.defaultValues);
 
     return (
-        <div
-            className="flex flex-col-reverse lg:grid lg:grid-cols-2 h-[100svh] w-full items-center justify-center font-Vazirmatn">
-            <div
-                id="rightSide"
-                className="relative flex flex-col h-full w-full justify-center items-center p-4"
-            >
+        <div className="flex flex-col-reverse lg:grid lg:grid-cols-2 h-[100svh] w-full items-center justify-center font-Vazirmatn">
+            <div id="rightSide" className="relative flex flex-col h-full w-full justify-center items-center p-4">
                 <div
                     id="Header"
                     className="absolute top-0 px-8 py-4 flex flex-row justify-between items-center w-full mb-2 gap-4"
                 >
-                    <ModeToggle/>
+                    <ModeToggle />
                     <Link
                         id="backBtn720px"
                         variant="secondary"
@@ -70,7 +58,7 @@ export default function SendTokenComponent({PhoneNumber, setOtpToken, timer, set
                         href={"/register"}
                     >
                         {t("Global.back")}
-                        <Undo2/>
+                        <Undo2 />
                     </Link>
                     <Link
                         id="backBtn"
@@ -78,7 +66,7 @@ export default function SendTokenComponent({PhoneNumber, setOtpToken, timer, set
                         className="flex p-2 lg:hidden hover:bg-[#E7AB9C]/40 bg-[#E7AB9C]/15 rounded-lg"
                         href={"/register"}
                     >
-                        <Undo2/>
+                        <Undo2 />
                     </Link>
                 </div>
                 <Form {...form}>
@@ -86,28 +74,23 @@ export default function SendTokenComponent({PhoneNumber, setOtpToken, timer, set
                         onSubmit={form.handleSubmit(onSubmit)}
                         className="flex flex-col h-full w-full max-w-[500px] min-w-[60%] items-center justify-between lg:pb-20 pb-8 lg:ring-2 lg:ring-Light-Pri100 lg:dark:ring-Dark-Pri100 lg:my-20 lg:p-16 rounded-2xl"
                     >
-                        <div
-                            id="logo"
-                            className="lg:hidden flex w-full max-w-[400px] lg:h-fit p-4 lg:mt-16 mt-8"
-                        >
-                            <LogoFullSVG/>
+                        <div id="logo" className="lg:hidden flex w-full max-w-[400px] lg:h-fit p-4 lg:mt-16 mt-8">
+                            <LogoFullSVG />
                         </div>
                         <div className="hidden lg:flex w-full h-fit">
-                            <LogoTextSVG/>
+                            <LogoTextSVG />
                         </div>
                         <div className="w-full flex flex-col gap-16 mb-4">
                             <div className="flex flex-col w-full h-fit justify-center items-center lg:gap-16 gap-8  ">
                                 <div className="flex flex-col place-self-start gap-4">
-                                    <h1 className="font-black text-[2rem] lg:text-5xl">
-                                        {t("Global.appName")}
-                                    </h1>
+                                    <h1 className="font-black text-[2rem] lg:text-5xl">{t("Global.appName")}</h1>
                                     <p>{t("Global.motto")}</p>
                                 </div>
                                 <div className="flex flex-col w-full gap-10 ">
                                     <FormField
                                         control={form.control}
                                         name="pin"
-                                        render={({field}) => (
+                                        render={({ field }) => (
                                             <FormItem>
                                                 <FormLabel className="flex w-full items-start text-[1.25rem] font-bold">
                                                     {t("OtpPage.otp")}
@@ -115,18 +98,18 @@ export default function SendTokenComponent({PhoneNumber, setOtpToken, timer, set
                                                 <FormControl>
                                                     <InputOTP maxLength={5} pattern={"^\\d+$"} {...field}>
                                                         <InputOTPGroup>
-                                                            <InputOTPSlot index={0}/>
-                                                            <InputOTPSlot index={1}/>
-                                                            <InputOTPSlot index={2}/>
-                                                            <InputOTPSlot index={3}/>
-                                                            <InputOTPSlot index={4}/>
+                                                            <InputOTPSlot index={0} />
+                                                            <InputOTPSlot index={1} />
+                                                            <InputOTPSlot index={2} />
+                                                            <InputOTPSlot index={3} />
+                                                            <InputOTPSlot index={4} />
                                                         </InputOTPGroup>
                                                     </InputOTP>
                                                 </FormControl>
                                                 <FormDescription>
                                                     Please enter the one-time password sent to your phone.
                                                 </FormDescription>
-                                                <FormMessage/>
+                                                <FormMessage />
                                             </FormItem>
                                         )}
                                     />
@@ -135,7 +118,7 @@ export default function SendTokenComponent({PhoneNumber, setOtpToken, timer, set
                                         type="submit"
                                         dir="rtl"
                                     >
-                                        <SendHorizontal/>
+                                        <SendHorizontal />
                                         {t("OtpPage.submit")}
                                     </Button>
                                 </div>
@@ -154,7 +137,9 @@ export default function SendTokenComponent({PhoneNumber, setOtpToken, timer, set
                                 onClick={() => setOtpToken(false)}
                                 className="flex gap-1 text-[.875rem] font-bold"
                             >
-                                <p className="text-Light-HaveNoAccount dark:text-Dark-HaveNoAccount">{t("OtpPage.change_number")}</p>
+                                <p className="text-Light-HaveNoAccount dark:text-Dark-HaveNoAccount">
+                                    {t("OtpPage.change_number")}
+                                </p>
                             </Button>
                         </div>
                     </form>
@@ -168,13 +153,10 @@ export default function SendTokenComponent({PhoneNumber, setOtpToken, timer, set
                     id="background 1"
                     className="absolute flex items-center justify-center z-[1] w-fit h-fit max-w-[90%] aspect-square opacity-70 rounded-[1rem] overflow-hidden dark:mix-blend-plus-lighter"
                 >
-                    <LoginLeftSideBackground/>
+                    <LoginLeftSideBackground />
                 </div>
-                <div
-                    id="leftSideFullLogo"
-                    className="flex z-[2] w-full max-w-[540px] h-[200px] lg:h-fit p-12"
-                >
-                    <LogoFullSVG type={"background"}/>
+                <div id="leftSideFullLogo" className="flex z-[2] w-full max-w-[540px] h-[200px] lg:h-fit p-12">
+                    <LogoFullSVG type={"background"} />
                 </div>
             </div>
         </div>

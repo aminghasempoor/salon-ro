@@ -1,11 +1,11 @@
-"use client"
-import {useEffect} from "react";
-import {useRouter} from "next/navigation";
+"use client";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 import userStore from "@/lib/utils/UserStore";
 
-const WithoutAuthMiddleware = ({children}) => {
-    const {isAuth, initAuthState} = userStore();
-    const router = useRouter()
+const WithoutAuthMiddleware = ({ children }) => {
+    const { isAuth, initAuthState } = userStore();
+    const router = useRouter();
 
     useEffect(() => {
         if (!isAuth || !initAuthState) return;
@@ -16,7 +16,7 @@ const WithoutAuthMiddleware = ({children}) => {
             clearTimeout(timer);
         };
     }, [isAuth]);
-    if (!initAuthState) return null
+    if (!initAuthState) return null;
     return isAuth ? (
         <h1>hello</h1> // without Auth middleware
     ) : (

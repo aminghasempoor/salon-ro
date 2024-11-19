@@ -13,9 +13,9 @@ const Notifications = (pushToastList, notificationType, t, status, message) => {
             break;
         case "error":
             if (message) {
-                ErrorNotification(pushToastList, notificationType, t, status, message)
+                ErrorNotification(pushToastList, notificationType, t, status, message);
             } else {
-                ErrorNotification(pushToastList, notificationType, t, status)
+                ErrorNotification(pushToastList, notificationType, t, status);
             }
             break;
         case "success":
