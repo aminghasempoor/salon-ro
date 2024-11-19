@@ -22,9 +22,11 @@ import {
     InputOTPSlot,
 } from "@/components/ui/input-otp";
 import useRequest from "@/lib/hooks/useRequest";
+import useUserStore from "@/lib/utils/UserStore";
 
 export default function SendTokenComponent({PhoneNumber, setOtpToken, timer, setTimer, initialTimerValue}) {
     const t = useTranslations();
+    const {setToken} = useUserStore()
     const requestServer = useRequest({notification: true});
     const [passwordType, setPasswordType] = useState("password");
     const form = useForm({
@@ -41,7 +43,10 @@ export default function SendTokenComponent({PhoneNumber, setOtpToken, timer, set
         requestServer("/api/fake-sign-up", "post", {
             data: {phone_number: PhoneNumber, otp: values.pin},
             success: {notification: {show: true}},
-        }).then(response => setOtpToken(response.data.token));
+        }).then((response) => {
+            setToken(response.data.token);
+            setOtpToken(response.data.token)
+        });
     }
 
     console.log(form.formState.defaultValues)

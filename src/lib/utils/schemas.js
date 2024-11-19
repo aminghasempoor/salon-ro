@@ -8,6 +8,7 @@ export const loginFormSchema = (t) =>
         password: z
             .string()
             .min(1, { message: t("LoginPage.Required") })
+            .min(6, {message : t("LoginPage.minimum_character") })
             .max(10),
     });
 

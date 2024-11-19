@@ -22,9 +22,11 @@ import { ModeToggle } from "@/components/ModeToggle";
 import { useState } from "react";
 import { Checkbox } from "@/components/ui/checkbox";
 import useRequest from "@/lib/hooks/useRequest";
+import useUserStore from "@/lib/utils/UserStore";
 
 export default function LoginComponent() {
   const t = useTranslations();
+  const {setToken} = useUserStore()
   const requestServer = useRequest({ notification: true });
   const [passwordType, setPasswordType] = useState("password");
   const form = useForm({
@@ -39,7 +41,7 @@ export default function LoginComponent() {
     try {
       await requestServer("/api/fake-sign-in", "post", {
         data: {
-          email: values.phone_number,
+          phone_number: values.phone_number,
           password: values.password,
         },
         success: {
