@@ -6,6 +6,7 @@ import {GET_USER_ROUTE} from "@/core/utils/route";
 const useUserStore = create((set, get) => ({
     isAuth: false,
     userChangedLanguage: false,
+    initAuthState: false,
     token: localStorage.getItem("_token") || null,
     user: {},
 

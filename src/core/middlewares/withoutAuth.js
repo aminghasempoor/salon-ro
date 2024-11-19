@@ -5,7 +5,6 @@ import userStore from "@/lib/utils/UserStore";
 
 const WithoutAuthMiddleware = ({children}) => {
     const {isAuth, initAuthState} = userStore();
-    console.log({isAuth, initAuthState})
     const router = useRouter()
 
     useEffect(() => {

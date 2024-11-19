@@ -25,6 +25,7 @@
     "phone_number": "شماره تلفن",
     "password": "رمز عبور",
     "submit": "تایید",
+    "minimum_character": "رمز عبور حداقل باید 6 کاراکتر باشد",
     "login": "ورود",
     "remember": "مرا به خاطر بسپار",
     "forget": "فراموش کردی؟",
