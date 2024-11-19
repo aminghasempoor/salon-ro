@@ -1,7 +1,5 @@
 import LoginComponent from "@/components/LoginComponent";
 
-export default function Login(){
-    return(
-        <LoginComponent />
-    )
+export default function Login() {
+    return <LoginComponent />;
 }
