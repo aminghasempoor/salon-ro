@@ -7,7 +7,7 @@ export default function OtpComponent() {
     const [PhoneNumber, setPhoneNumber] = useState("");
 
     // For Resend Token (read ResendToken Component Doc)
-    const initialTimerValue = 30;
+    const initialTimerValue = 3;
     const [timer, setTimer] = useState(initialTimerValue);
     // End For Resend Token
     if (!otpToken) {

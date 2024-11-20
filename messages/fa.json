@@ -1,4 +1,7 @@
 {
+  "resend_code": "ارسال مجدد کد ؟",
+  "Resend_code_in": "ارسال مجدد کد در",
+  "seconds_later": "ثانیه دیگر",
   "Global": {
     "appName": "سالن رو",
     "back": "بازگشت",

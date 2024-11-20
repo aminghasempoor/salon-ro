@@ -1,4 +1,7 @@
 {
+  "resend_code": "resend code ?",
+  "Resend_code_in": "Resend code in",
+  "seconds_later": "seconds later",
   "Global": {
     "appName": "Salon Ro",
     "back": "back",
