@@ -95,7 +95,7 @@ export default function SendTokenComponent({ PhoneNumber, setOtpToken, timer, se
                                                 </FormLabel>
                                                 <FormControl>
                                                     <div className="flex w-full justify-center gap-2 " dir="ltr">
-                                                        <InputOTP maxLength={5} pattern={"^\\d+$"}>
+                                                        <InputOTP maxLength={5} {...field} pattern={"^\\d+$"}>
                                                             <InputOTPGroup>
                                                                 <InputOTPSlot index={0} />
                                                             </InputOTPGroup>
