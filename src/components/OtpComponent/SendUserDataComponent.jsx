@@ -83,7 +83,7 @@ export default function SendUserDataComponent({
                 <Form {...form}>
                     <form
                         onSubmit={form.handleSubmit(onSubmit)}
-                        className="flex flex-col h-full w-full max-w-[500px] min-w-[60%]  items-center justify-between lg:pb-20 pb-8 lg:ring-2 lg:ring-Light-Pri100 lg:dark:ring-Dark-Pri100 lg:my-20 lg:p-16 rounded-2xl"
+                        className="flex flex-col h-full w-full max-w-[500px] min-w-[60%]  items-center justify-between lg:pb-20 pb-8 lg:ring-2 lg:ring-Light-Pri100 lg:dark:ring-Dark-Pri100 lg:my-20 lg:p-16 rounded-2xl "
                     >
                         <div id="logo" className="lg:hidden flex w-full max-w-[400px] lg:h-fit p-4 lg:mt-16 mt-8">
                             <LogoFullSVG />
@@ -158,7 +158,7 @@ export default function SendUserDataComponent({
                                 </div>
                             </div>
                         </div>
-                        <div className="h-fit w-full flex flex-col lg:gap-5 gap-4 items-center">
+                        <div className="h-fit w-full flex flex-col lg:gap-5 gap-4 items-center ">
                             <Button
                                 className="flex w-full h-12 gap-2 bg-Light-SubmitBtnColor dark:bg-Dark-SubmitBtnColor hover:bg-opacity-70 hover:dark:bg-opacity-70 text-Light-SubmitBtnTextColor dark:text-Dark-SubmitBtnTextColor"
                                 type="submit"

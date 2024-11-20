@@ -43,7 +43,7 @@
     "haveAccount": "Have account?",
     "user_name": "User Name",
     "last_name": "Last Name",
-    "ask_otp": "verification code"
+    "ask_otp": "receive verification code"
   },
   "OtpPage": {
     "otp": "Enter the verification code:",
