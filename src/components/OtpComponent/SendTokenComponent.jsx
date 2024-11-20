@@ -39,8 +39,7 @@ export default function SendTokenComponent({ PhoneNumber, setOtpToken, timer, se
     }
 
     return (
-        <div
-            className="flex flex-col-reverse lg:grid lg:grid-cols-2 h-[100svh] w-full items-center justify-center font-Vazirmatn">
+        <div className="flex flex-col-reverse lg:grid lg:grid-cols-2 h-[100svh] w-full items-center justify-center font-Vazirmatn">
             <div id="rightSide" className="relative flex flex-col h-full w-full justify-center items-center p-4">
                 <div
                     id="Header"
@@ -115,9 +114,8 @@ export default function SendTokenComponent({ PhoneNumber, setOtpToken, timer, se
                                                     </div>
                                                 </FormControl>
                                             </div>
-                                            <div
-                                                className="h-fit w-full flex flex-col justify-end lg:gap-5 gap-4 items-center  ">
-                                                <FormMessage className=" w-full items-center justify-center content-center"/>
+                                            <div className="h-fit w-full flex flex-col justify-end lg:gap-5 gap-4 items-center  ">
+                                                <FormMessage className=" w-full items-center justify-center content-center" />
                                                 <Button
                                                     className="flex w-full h-12 gap-2 bg-Light-SubmitBtnColor dark:bg-Dark-SubmitBtnColor hover:bg-opacity-70 hover:dark:bg-opacity-70 text-Light-SubmitBtnTextColor dark:text-Dark-SubmitBtnTextColor"
                                                     type="submit"

@@ -31,8 +31,8 @@ const ResendToken = ({ initialTimerValue, timer, setTimer, PhoneNumber, disabled
             auth: false,
             data: {
                 phone_number: PhoneNumber,
-                last_name : "asd", // should delete
-                user_name : "sss" // should delete
+                last_name: "asd", // should delete
+                user_name: "sss", // should delete
             },
         })
             .then(function (response) {
@@ -61,7 +61,7 @@ const ResendToken = ({ initialTimerValue, timer, setTimer, PhoneNumber, disabled
             ) : (
                 <Button
                     color="success"
-                    disabled={resendingOtp}  // Disable button while resending OTP
+                    disabled={resendingOtp} // Disable button while resending OTP
                     onClick={handleResendClick}
                     className="flex rounded-[12px] border-2 px-4 py-2 w-fit items-center justify-center place-self-end text-[0.75rem] font-bold text-center bg-transparent text-Light-TextColor dark:text-Dark-TextColor hover:bg-Light-BackBtnColor hover:dark:bg-Dark-BackBtnColor"
                 >
