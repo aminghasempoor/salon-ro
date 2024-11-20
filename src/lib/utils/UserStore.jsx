@@ -1,11 +1,12 @@
-"use client"
-import {create} from "zustand";
+"use client";
+import { create } from "zustand";
 import axios from "axios";
-import {GET_USER_ROUTE} from "@/core/utils/route";
+import { GET_USER_ROUTE } from "@/core/utils/route";
 
 const useUserStore = create((set, get) => ({
     isAuth: false,
     userChangedLanguage: false,
+    initAuthState: false,
     token: localStorage.getItem("_token") || null,
     user: {},
 
@@ -15,7 +16,7 @@ const useUserStore = create((set, get) => ({
 
     changeUserLanguage: (language) =>
         set((state) => ({
-            user: { ...state.user, user_language: language }
+            user: { ...state.user, user_language: language },
         })),
 
     changeAuthState: (isAuth) => set({ isAuth }),
@@ -59,7 +60,7 @@ const useUserStore = create((set, get) => ({
             return;
         }
         await get().getUser();
-    }
+    },
 }));
 
 export default useUserStore;

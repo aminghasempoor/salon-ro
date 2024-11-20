@@ -1,6 +1,4 @@
 const LoginNavbar = () => {
-    return (
-        <></>
-    )
-}
-export default LoginNavbar
+    return <></>;
+};
+export default LoginNavbar;

@@ -1,27 +1,32 @@
-import { NextResponse } from 'next/server';
+import { NextResponse } from "next/server";
 
 export async function POST(req) {
     try {
         // Parse the request body to extract email, password, and confirmPassword
         const { otp, phone_number } = await req.json();
         // Validation for missing fields
-        if ( !phone_number || !otp) {
-            return NextResponse.json({ message: 'Missing fields' }, { status: 400 });
+        if (!phone_number || !otp) {
+            return NextResponse.json({ message: "Missing fields" }, { status: 400 });
         }
 
         // Validate password strength (optional but recommended)
         if (phone_number.length < 11 || otp.length !== 5) {
-            return NextResponse.json({ message: 'Phone Number should be 11 characters long or Otp should be 5' }, { status: 400 });
+            return NextResponse.json(
+                { message: "Phone Number should be 11 characters long or Otp should be 5" },
+                { status: 400 }
+            );
         }
 
         // Simulate successful response (you can add additional logic as needed)
-        return NextResponse.json({
-            message: 'registered successfully',
-            token: "93|8cq5b0th9mLE5s5PRplIGTXdOyDiLPVSMd2JV7uX"
-        }, { status: 200 });
-
+        return NextResponse.json(
+            {
+                message: "registered successfully",
+                token: "93|8cq5b0th9mLE5s5PRplIGTXdOyDiLPVSMd2JV7uX",
+            },
+            { status: 200 }
+        );
     } catch (error) {
         // Catch and handle any unexpected errors
-        return NextResponse.json({ message: 'Invalid request format or server error' }, { status: 500 });
+        return NextResponse.json({ message: "Invalid request format or server error" }, { status: 500 });
     }
 }

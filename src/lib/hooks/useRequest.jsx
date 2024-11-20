@@ -1,17 +1,17 @@
-"use client"
+"use client";
 import axios from "axios";
 import useUserStore from "@/lib/utils/UserStore";
 import Notifications from "@/core/components/notification";
-import {successRequest} from "@/lib/utils/successHandler";
-import {errorRequest, errorResponse, errorSetting} from "@/lib/utils/errorHandler";
+import { successRequest } from "@/lib/utils/successHandler";
+import { errorRequest, errorResponse, errorSetting } from "@/lib/utils/errorHandler";
 import ToastStore from "@/lib/utils/ToastStore ";
-import {useTranslations} from "next-intl";
+import { useTranslations } from "next-intl";
 
 const defaultOptions = {
     auth: false,
     data: {},
     requestOptions: {
-        headers: {}
+        headers: {},
     },
     notification: true,
     pending: true,
@@ -25,21 +25,23 @@ const defaultOptions = {
             show: true,
         },
     },
-}
+};
 const useRequest = (initOptions) => {
     const t = useTranslations();
-    const {token, clearToken} = useUserStore()
+    const { token, clearToken } = useUserStore();
     const { pushToastList, dismissToastList } = ToastStore();
-    let _options = {...defaultOptions, ...initOptions}
+    let _options = { ...defaultOptions, ...initOptions };
 
-    function requestServer(url = '', method = 'get', options) {
-        _options = {..._options, ...options}
-        if (_options.auth) _options = {
-            ..._options, requestOptions: {
-                ..._options.requestOptions,
-                headers: {..._options.requestOptions.headers, authorization: `Bearer ${token}`}
-            }
-        }
+    function requestServer(url = "", method = "get", options) {
+        _options = { ..._options, ...options };
+        if (_options.auth)
+            _options = {
+                ..._options,
+                requestOptions: {
+                    ..._options.requestOptions,
+                    headers: { ..._options.requestOptions.headers, authorization: `Bearer ${token}` },
+                },
+            };
 
         return new Promise((resolve) => {
             if (_options.notification && _options.failed.notification.show && _options.pending) {
@@ -48,24 +50,34 @@ const useRequest = (initOptions) => {
             }
 
             axios({
-                url: url, method: method, data: _options.data, ..._options.requestOptions
+                url: url,
+                method: method,
+                data: _options.data,
+                ..._options.requestOptions,
             })
-                .then(response => {
-                    successRequest(pushToastList, dismissToastList, response, t, _options)
-                    resolve(response)
+                .then((response) => {
+                    successRequest(pushToastList, dismissToastList, response, t, _options);
+                    resolve(response);
                 })
-                .catch(error => {
+                .catch((error) => {
                     if (error.response) {
-                        errorResponse(pushToastList, dismissToastList, error.response, clearToken, t, _options.notification && _options.failed.notification.show)
+                        errorResponse(
+                            pushToastList,
+                            dismissToastList,
+                            error.response,
+                            clearToken,
+                            t,
+                            _options.notification && _options.failed.notification.show
+                        );
                     } else if (error.request) {
-                        errorRequest(dismissToastList, t, _options.notification && _options.failed.notification.show)
+                        errorRequest(dismissToastList, t, _options.notification && _options.failed.notification.show);
                     } else {
-                        errorSetting(dismissToastList, t, _options.notification && _options.failed.notification.show)
+                        errorSetting(dismissToastList, t, _options.notification && _options.failed.notification.show);
                     }
-                })
+                });
         });
     }
-    return requestServer
-}
+    return requestServer;
+};
 
-export default useRequest
+export default useRequest;

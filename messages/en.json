@@ -26,6 +26,7 @@
     "password": "Password",
     "submit": "Submit",
     "login": "Login",
+    "minimum_character": "Password should be at least 6 characters long",
     "remember": "remember me",
     "forget": "forgot everything?",
     "noAccount": "no account?",
