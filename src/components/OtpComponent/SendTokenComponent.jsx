@@ -15,9 +15,11 @@ import { useState } from "react";
 import { InputOTP, InputOTPGroup, InputOTPSlot } from "@/components/ui/input-otp";
 import useRequest from "@/lib/hooks/useRequest";
 import useUserStore from "@/lib/utils/UserStore";
+import ResendToken from "@/core/components/ResendToken";
 
 export default function SendTokenComponent({ PhoneNumber, setOtpToken, timer, setTimer, initialTimerValue }) {
     const t = useTranslations();
+    const [resendingOtp, setResendingOtp] = useState(false);
     const requestServer = useRequest({ notification: true });
     const [passwordType, setPasswordType] = useState("password");
     const form = useForm({
@@ -30,17 +32,15 @@ export default function SendTokenComponent({ PhoneNumber, setOtpToken, timer, se
     });
 
     function onSubmit(values) {
-        console.log("Form values submitted:", values); // Debug
         requestServer("/api/fake-sign-up", "post", {
             data: { phone_number: PhoneNumber, otp: values.pin },
             success: { notification: { show: true } },
         }).then((response) => setOtpToken(response.data.token));
     }
 
-    console.log(form.formState.defaultValues);
-
     return (
-        <div className="flex flex-col-reverse lg:grid lg:grid-cols-2 h-[100svh] w-full items-center justify-center font-Vazirmatn">
+        <div
+            className="flex flex-col-reverse lg:grid lg:grid-cols-2 h-[100svh] w-full items-center justify-center font-Vazirmatn">
             <div id="rightSide" className="relative flex flex-col h-full w-full justify-center items-center p-4">
                 <div
                     id="Header"
@@ -114,18 +114,10 @@ export default function SendTokenComponent({ PhoneNumber, setOtpToken, timer, se
                                                         </InputOTP>
                                                     </div>
                                                 </FormControl>
-
-                                                <Button
-                                                    className="flex rounded-[12px] border-2 px-4 py-2 min-w-24 max-w-32 w-fit items-center justify-center place-self-end text-[0.75rem] font-bold text-center bg-transparent text-Light-TextColor dark:text-Dark-TextColor hover:bg-Light-BackBtnColor hover:dark:bg-Dark-BackBtnColor"
-                                                    disabled={false}
-                                                    onClick={() => setOtpToken(false)}
-                                                >
-                                                    {t("OtpPage.timer")}
-                                                </Button>
                                             </div>
-
-                                            <div className="h-fit w-full flex flex-col justify-end lg:gap-5 gap-4 items-center  ">
-                                                <FormMessage className=" w-full items-center justify-center content-center" />
+                                            <div
+                                                className="h-fit w-full flex flex-col justify-end lg:gap-5 gap-4 items-center  ">
+                                                <FormMessage className=" w-full items-center justify-center content-center"/>
                                                 <Button
                                                     className="flex w-full h-12 gap-2 bg-Light-SubmitBtnColor dark:bg-Dark-SubmitBtnColor hover:bg-opacity-70 hover:dark:bg-opacity-70 text-Light-SubmitBtnTextColor dark:text-Dark-SubmitBtnTextColor"
                                                     type="submit"
@@ -134,14 +126,25 @@ export default function SendTokenComponent({ PhoneNumber, setOtpToken, timer, se
                                                     <SendHorizontal />
                                                     {t("OtpPage.submit")}
                                                 </Button>
-                                                <div
-                                                    variant={"ghost"}
-                                                    onClick={() => setOtpToken(false)}
-                                                    className="flex gap-1 text-[.875rem] font-bold h-fit p-0"
-                                                >
-                                                    <p className="text-Light-HaveNoAccount dark:text-Dark-HaveNoAccount">
-                                                        {t("OtpPage.change_number")}
-                                                    </p>
+                                                <div className="flex justify-between items-center gap-1">
+                                                    <ResendToken
+                                                        resendingOtp={resendingOtp}
+                                                        setResendingOtp={setResendingOtp}
+                                                        initialTimerValue={initialTimerValue}
+                                                        timer={timer}
+                                                        setTimer={setTimer}
+                                                        PhoneNumber={PhoneNumber}
+                                                        disabled={form.formState.isSubmitting}
+                                                    />
+                                                    <Button
+                                                        variant={"ghost"}
+                                                        onClick={() => setOtpToken(false)}
+                                                        className="flex gap-1 text-[.875rem] font-bold h-fit p-2"
+                                                    >
+                                                        <p className="text-Light-HaveNoAccount dark:text-Dark-HaveNoAccount">
+                                                            {t("OtpPage.change_number")}
+                                                        </p>
+                                                    </Button>
                                                 </div>
                                             </div>
                                         </FormItem>
