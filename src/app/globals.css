@@ -37,7 +37,8 @@
         /* customized*/
         --ring: 0 0% 0%;
         /* customized*/
-        --radius: 0.75rem;
+        --radius: 8px;
+          /* customized*/
         --chart-1: 12 76% 61%;
         --chart-2: 173 58% 39%;
         --chart-3: 197 37% 24%;

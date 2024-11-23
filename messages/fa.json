@@ -5,7 +5,8 @@
   "Global": {
     "appName": "سالن رو",
     "back": "بازگشت",
-    "motto": "\"آراستگی، آسان تر از همیشه\""
+    "motto": "\"آراستگی، آسان تر از همیشه\"",
+     "language":"English"
   },
   "HomePage": {
     "title": "سلام",
