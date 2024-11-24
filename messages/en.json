@@ -5,7 +5,8 @@
   "Global": {
     "appName": "Salon Ro",
     "back": "back",
-    "motto": "\"Easy in, great out.\""
+    "motto": "\"Easy in, great out.\"",
+    "language":"فارسی"
   },
   "HomePage": {
     "title": "Hello world!",
