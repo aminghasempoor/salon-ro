@@ -1,0 +1,60 @@
+{
+  "resend_code": "ارسال مجدد کد ؟",
+  "Resend_code_in": "ارسال مجدد کد در",
+  "seconds_later": "ثانیه دیگر",
+  "Global": {
+    "appName": "سالن رو",
+    "back": "بازگشت",
+    "motto": "\"آراستگی، آسان تر از همیشه\"",
+     "language":"English"
+  },
+  "HomePage": {
+    "title": "سلام",
+    "about": "برو به صفحه ی درباره ما"
+  },
+  "Notifications": {
+    "code": "کد",
+    "error": "خطا",
+    "warning": "خطا",
+    "success": "موفق",
+    "error_static_text": "عملیات شما با خطا مواجه شد",
+    "warning_static_text": "خطا سرور",
+    "success_static_text": "عملیات شما با موفقیت انجام شد",
+    "pending": "در حال انجام..."
+  },
+  "LoginPage": {
+    "title": "صفحه ورود",
+    "Required": "ضروری",
+    "error_max": "نمی تواند بیشتر از {max} ",
+    "phone_number": "شماره تلفن",
+    "password": "رمز عبور",
+    "submit": "تایید",
+    "minimum_character": "رمز عبور حداقل باید 6 کاراکتر باشد",
+    "login": "ورود",
+    "remember": "مرا به خاطر بسپار",
+    "forget": "فراموش کردی؟",
+    "noAccount": "اکانت نداری؟",
+    "createHere": "اینجا بساز!"
+  },
+  "RegisterPage": {
+    "title": "صفحه ساخت حساب",
+    "Required": "ضروری",
+    "error_max": "نمی تواند بیشتر از {max} ",
+    "phone_number": "شماره تلفن",
+    "submit": "تایید",
+    "login": "ورود",
+    "loginHere": "بفرمایید داخل!",
+    "haveAccount": "اکانت داری؟",
+    "user_name": "نام",
+    "last_name": "نام خانوادگی",
+    "ask_otp": "دریافت رمز یکبار مصرف"
+  },
+  "OtpPage": {
+    "otp": "رمز یکبار مصرف را وارد کنید:",
+    "timer": "ارسال مجدد؟",
+    "pin_required": "کد ارسال شده میبایست 5 رقم باشد.",
+    "Required": "ضروری",
+    "change_number": "تغییر شماره تلفن",
+    "submit": "تایید"
+  }
+}
