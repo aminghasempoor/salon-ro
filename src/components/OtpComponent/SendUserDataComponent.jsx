@@ -13,7 +13,6 @@ import Link from "next/link";
 import { RegisterFormSchema } from "@/lib/utils/schemas";
 import { ModeToggle } from "@/components/ModeToggle";
 import useRequest from "@/lib/hooks/useRequest";
-import LanguageBtn from "@/core/components/language/LanguageBtn";
 
 export default function SendUserDataComponent({
     setOtpToken,
@@ -57,14 +56,14 @@ export default function SendUserDataComponent({
 
     return (
         <div className="flex flex-col-reverse lg:grid lg:grid-cols-2 h-[100svh] w-full items-center justify-center font-Vazirmatn">
-            <div id="rightSide" className="relative flex flex-col h-full w-full justify-center items-center p-4">
+            <div id="rightSide" className="relative flex flex-col h-full w-full justify-center items-center p-4 ">
                 <div
                     id="Header"
                     className="absolute top-0 px-2 py-2 flex flex-row justify-between items-center w-full h-fit gap-4 z-10 "
                 >
                     <div className="flex items-center justify-center h-fit w-fit gap-4">
                         <ModeToggle />
-                        <LanguageBtn className={"text-Light-TextColor dark:text-Dark-TextColor"} />
+                        <Button variant="ghost">EN/FA</Button>
                     </div>
 
                     <Link
@@ -79,7 +78,7 @@ export default function SendUserDataComponent({
                 <Form {...form}>
                     <form
                         onSubmit={form.handleSubmit(onSubmit)}
-                        className="mt-16 gap-4 flex flex-col h-full w-full lg:max-w-[400px]   items-center  pb-8 justify-between"
+                        className="mt-16 gap-4 flex flex-col h-full w-full lg:max-w-[400px]   items-center  pb-8 justify-between lg:justify-center lg:gap-16"
                     >
                         <div className="w-full flex flex-col gap-16">
                             <div className="w-full flex flex-col place-self-start gap-4 items-center">
@@ -88,14 +87,12 @@ export default function SendUserDataComponent({
                             </div>
                             <div className="flex flex-col w-full h-fit justify-center items-center lg:gap-16 gap-8 ">
                                 <div className="flex flex-col w-full gap-2 ">
-                                    <FormField
+                                    {/* <FormField
                                         control={form.control}
                                         name="user_name"
                                         render={({ field }) => (
                                             <FormItem className="flex flex-col w-full ">
-                                                <div className="flex flex-row justify-between">
-                                                    {/* <FormLabel>{t("RegisterPage.phone_number")}</FormLabel> */}
-                                                </div>
+                                                <div className="flex flex-row justify-between"></div>
                                                 <FormControl>
                                                     <Input
                                                         className="border-2 "
@@ -127,7 +124,7 @@ export default function SendUserDataComponent({
                                                 </div>
                                             </FormItem>
                                         )}
-                                    />
+                                    /> */}
                                     <FormField
                                         control={form.control}
                                         name="phone_number"
