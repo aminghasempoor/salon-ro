@@ -6,7 +6,7 @@ import Link from "next/link";
 const Header = () => {
     return (
         <div
-            className="lg:sticky fixed z-10 top-0 right-0 flex w-full h-18 justify-between items-center bg-Light-BackgroundColor/80  dark:bg-Dark-BackgroundColor/80 backdrop-blur-[10px] shadow-sm shadow-Light-Sec100/30 rounded-b-lg   p-4  "
+            className="lg:sticky fixed z-10 top-0 right-0 flex w-full h-18 justify-between items-center bg-Light-BackgroundColor  dark:bg-Dark-BackgroundColor  shadow-sm shadow-Light-Sec100/30 lg:rounded-b-lg   p-4  "
             dir="ltr"
         >
             <Link
