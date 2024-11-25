@@ -64,7 +64,7 @@ export default function LoginComponent() {
                 <Form {...form}>
                     <form
                         onSubmit={form.handleSubmit(onSubmit)}
-                        className="mt-16 gap-4 flex flex-col h-full w-full lg:max-w-[400px]   items-center  pb-8 "
+                        className="mt-16 gap-4 flex flex-col h-full w-full lg:max-w-[400px] justify-evenly items-center pb-8"
                     >
                         <div className="w-full flex flex-col gap-16 ">
                             <div className="flex flex-col w-full h-fit justify-center items-center lg:gap-16 gap-8">
