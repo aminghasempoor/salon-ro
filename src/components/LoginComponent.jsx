@@ -26,26 +26,26 @@ export default function LoginComponent() {
             password: "",
         },
     });
-    async function onSubmit(values) {
-        try {
-            await requestServer("/api/fake-sign-in", "post", {
-                data: {
-                    phone_number: values.phone_number,
-                    password: values.password,
-                },
-                success: {
-                    notification: { show: true },
-                },
-            }).then((response) => {
-                setToken(response.data.token);
-            });
-        } catch (error) {
+
+    function onSubmit(values) {
+        requestServer("/api/fake-sign-in", "post", {
+            data: {
+                phone_number: values.phone_number,
+                password: values.password,
+            },
+            success: {
+                notification: { show: true },
+            },
+        }).then((response) => {
+            setToken(response.data.token);
+        }).catch(function(error) {
             console.log(error);
-        }
+        });
     }
 
     return (
-        <div className="flex flex-col-reverse lg:grid lg:grid-cols-2 h-[100svh] w-full items-center justify-center font-Vazirmatn">
+        <div
+            className="flex flex-col-reverse lg:grid lg:grid-cols-2 h-[100svh] w-full items-center justify-center font-Vazirmatn">
             <div id="rightSide" className="relative flex flex-col h-full w-full justify-center items-center p-4">
                 <div
                     id="Header"
@@ -86,7 +86,8 @@ export default function LoginComponent() {
                                                     />
                                                 </FormControl>
                                                 <div className="w-full h-3 ">
-                                                    <FormMessage className="px-4 text-Light-Required dark:text-Dark-Required font-bold" />
+                                                    <FormMessage
+                                                        className="px-4 text-Light-Required dark:text-Dark-Required font-bold" />
                                                 </div>
                                             </FormItem>
                                         )}
@@ -105,12 +106,14 @@ export default function LoginComponent() {
                                                     />
                                                 </FormControl>
                                                 <div className="w-full h-3">
-                                                    <FormMessage className="px-4 text-Light-Required dark:text-Dark-Required font-bold" />
+                                                    <FormMessage
+                                                        className="px-4 text-Light-Required dark:text-Dark-Required font-bold" />
                                                 </div>
                                             </FormItem>
                                         )}
                                     />
-                                    <div className="flex justify-between items-center w-full h-fit text-[.875rem] font-medium mb-4 mt-4">
+                                    <div
+                                        className="flex justify-between items-center w-full h-fit text-[.875rem] font-medium mb-4 mt-4">
                                         <div className="flex items-center justify-center gap-2">
                                             <Checkbox id="terms" />
                                             <label htmlFor="terms" className="cursor-pointer pt-1">

@@ -1,26 +1,23 @@
 "use client";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useTranslations } from "next-intl";
-import { ArrowLeft, Earth, SendHorizontal, Undo2 } from "lucide-react";
-import LogoTextSVG from "@/core/components/SVGs/LogoTextSVG";
-import LoginLeftSideBackground from "@/core/components/SVGs/LoginLeftSideBackground";
-import LogoFullSVG from "@/core/components/SVGs/LogoFullSVG";
+import { ArrowLeft, SendHorizontal } from "lucide-react";
 import Link from "next/link";
 import { RegisterFormSchema } from "@/lib/utils/schemas";
 import { ModeToggle } from "@/components/ModeToggle";
 import useRequest from "@/lib/hooks/useRequest";
 
 export default function SendUserDataComponent({
-    setOtpToken,
-    setPhoneNumber,
-    PhoneNumber,
-    setTimer,
-    initialTimerValue,
-}) {
+                                                  setOtpToken,
+                                                  setPhoneNumber,
+                                                  PhoneNumber,
+                                                  setTimer,
+                                                  initialTimerValue,
+                                              }) {
     const t = useTranslations();
     const requestServer = useRequest({ notification: true });
     const form = useForm({
@@ -28,8 +25,6 @@ export default function SendUserDataComponent({
         mode: "onBlur",
         defaultValues: {
             phone_number: PhoneNumber,
-            user_name: "",
-            last_name: "",
         },
     });
 
@@ -37,39 +32,37 @@ export default function SendUserDataComponent({
         requestServer("/api/fake-otp", "post", {
             data: {
                 phone_number: values.phone_number,
-                user_name: values.user_name,
-                last_name: values.last_name,
             },
             success: {
                 notification: { show: true },
             },
         })
-            .then(function (response) {
+            .then(function(response) {
                 setPhoneNumber(values.phone_number);
                 setOtpToken(true);
                 setTimer(initialTimerValue);
             })
-            .catch(function (error) {
+            .catch(function(error) {
                 console.log(error);
             });
     }
 
     return (
-        <div className="flex flex-col-reverse lg:grid lg:grid-cols-2 h-[100svh] w-full items-center justify-center font-Vazirmatn">
-            <div id="rightSide" className="relative flex flex-col h-full w-full justify-center items-center p-4 ">
+        <div
+            className="flex flex-col-reverse lg:grid lg:grid-cols-2 h-[100svh] w-full items-center justify-center font-Vazirmatn">
+            <div id="rightSide" className="relative flex flex-col h-full w-full justify-center items-center p-4">
                 <div
                     id="Header"
-                    className="absolute top-0 px-2 py-2 flex flex-row justify-between items-center w-full h-fit gap-4 z-10 "
+                    className="absolute top-0 px-2 py-2 flex flex-row justify-between items-center w-full h-fit gap-4 z-10"
                 >
                     <div className="flex items-center justify-center h-fit w-fit gap-4">
                         <ModeToggle />
                         <Button variant="ghost">EN/FA</Button>
                     </div>
-
                     <Link
                         id="backBtn"
                         variant="secondary"
-                        className="flex p-3  lg hover:bg-[#E7AB9C]/40  rounded-lg"
+                        className="flex p-3 lg hover:bg-[#E7AB9C]/40 rounded-lg"
                         href={"/"}
                     >
                         <ArrowLeft />
@@ -78,7 +71,7 @@ export default function SendUserDataComponent({
                 <Form {...form}>
                     <form
                         onSubmit={form.handleSubmit(onSubmit)}
-                        className="mt-16  flex flex-col h-full w-full lg:max-w-[400px]   items-center  pb-8 justify-center gap-16"
+                        className="mt-16 flex flex-col h-full w-full lg:max-w-[400px] items-center pb-8 justify-center gap-16"
                     >
                         <div className="w-full flex flex-col gap-16">
                             <div className="w-full flex flex-col place-self-start gap-4 items-center">
@@ -86,51 +79,12 @@ export default function SendUserDataComponent({
                                 <p>{t("Global.motto")}</p>
                             </div>
                             <div className="flex flex-col w-full h-fit justify-center items-center lg:gap-16 gap-8 ">
-                                <div className="flex flex-col w-full gap-2 ">
-                                    {/* <FormField
-                                        control={form.control}
-                                        name="user_name"
-                                        render={({ field }) => (
-                                            <FormItem className="flex flex-col w-full ">
-                                                <div className="flex flex-row justify-between"></div>
-                                                <FormControl>
-                                                    <Input
-                                                        className="border-2 "
-                                                        placeholder={t("RegisterPage.user_name")}
-                                                        {...field}
-                                                    />
-                                                </FormControl>
-                                                <div className="w-full h-3 ">
-                                                    <FormMessage className="px-4 text-Light-Required dark:text-Dark-Required font-bold" />
-                                                </div>
-                                            </FormItem>
-                                        )}
-                                    />
-                                    <FormField
-                                        control={form.control}
-                                        name="last_name"
-                                        render={({ field }) => (
-                                            <FormItem className="flex flex-col w-full  ">
-                                                <div className="flex flex-row justify-between"></div>
-                                                <FormControl>
-                                                    <Input
-                                                        className="border-2 "
-                                                        placeholder={t("RegisterPage.last_name")}
-                                                        {...field}
-                                                    />
-                                                </FormControl>
-                                                <div className="w-full h-3 ">
-                                                    <FormMessage className="px-4 text-Light-Required dark:text-Dark-Required font-bold" />
-                                                </div>
-                                            </FormItem>
-                                        )}
-                                    /> */}
+                                <div className="flex flex-col w-full gap-2">
                                     <FormField
                                         control={form.control}
                                         name="phone_number"
                                         render={({ field }) => (
                                             <FormItem className="flex flex-col w-full ">
-                                                <div className="flex flex-row justify-between"></div>
                                                 <FormControl>
                                                     <Input
                                                         className="border-2 "
@@ -138,7 +92,8 @@ export default function SendUserDataComponent({
                                                         {...field}
                                                     />
                                                 </FormControl>
-                                                <FormMessage className="px-4 text-Light-Required dark:text-Dark-Required font-bold" />
+                                                <FormMessage
+                                                    className="px-4 text-Light-Required dark:text-Dark-Required font-bold" />
                                             </FormItem>
                                         )}
                                     />
@@ -170,8 +125,8 @@ export default function SendUserDataComponent({
             >
                 <div
                     id="background 1"
-                    className="absolute flex items-center justify-center z-[1] w-full h-full    overflow-hidden bg-[url(https://www.fresha.com/assets/_next/static/images/Image3-fd3ccd7b3d9946a42a9baf567e5cb7eb.webp)] bg-cover bg-center "
-                ></div>
+                    className="absolute flex items-center justify-center z-[1] w-full h-full overflow-hidden bg-[url(https://www.fresha.com/assets/_next/static/images/Image3-fd3ccd7b3d9946a42a9baf567e5cb7eb.webp)] bg-cover bg-center"
+                />
             </div>
         </div>
     );

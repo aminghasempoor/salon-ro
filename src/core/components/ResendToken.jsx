@@ -54,7 +54,7 @@ const ResendToken = ({ initialTimerValue, timer, setTimer, PhoneNumber, disabled
                     color="success"
                     disabled
                     onClick={handleResendClick}
-                    className="flex rounded-[12px] border-2 px-4 py-2 w-fit items-center justify-center place-self-end text-[0.75rem] font-bold text-center bg-transparent text-Light-TextColor dark:text-Dark-TextColor hover:bg-Light-BackBtnColor hover:dark:bg-Dark-BackBtnColor"
+                    className="flex rounded-[12px] px-4 py-2 w-fit items-center justify-center place-self-end text-[0.75rem] font-bold text-center bg-transparent text-Light-TextColor dark:text-Dark-TextColor hover:bg-Light-BackBtnColor hover:dark:bg-Dark-BackBtnColor"
                 >
                     {t("Resend_code_in")} {timer} {t("seconds_later")}
                 </Button>
@@ -63,7 +63,7 @@ const ResendToken = ({ initialTimerValue, timer, setTimer, PhoneNumber, disabled
                     color="success"
                     disabled={resendingOtp} // Disable button while resending OTP
                     onClick={handleResendClick}
-                    className="flex rounded-[12px] border-2 px-4 py-2 w-fit items-center justify-center place-self-end text-[0.75rem] font-bold text-center bg-transparent text-Light-TextColor dark:text-Dark-TextColor hover:bg-Light-BackBtnColor hover:dark:bg-Dark-BackBtnColor"
+                    className="flex rounded-[12px] px-4 py-2 w-fit items-center justify-center place-self-end text-[0.75rem] font-bold text-center bg-transparent text-Light-TextColor dark:text-Dark-TextColor hover:bg-Light-BackBtnColor hover:dark:bg-Dark-BackBtnColor"
                 >
                     {t("resend_code")}
                 </Button>

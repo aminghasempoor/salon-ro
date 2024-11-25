@@ -18,8 +18,6 @@ export const RegisterFormSchema = (t) =>
             .string()
             .min(1, { message: t("RegisterPage.Required") })
             .max(11, { message: t("RegisterPage.error_max", { max: 11 }) }),
-        user_name: z.string().min(1, { message: t("RegisterPage.Required") }),
-        last_name: z.string().min(1, { message: t("RegisterPage.Required") }),
     });
 export const OtpFormSchema = (t) =>
     z.object({

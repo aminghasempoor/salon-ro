@@ -3,9 +3,9 @@ import { NextResponse } from "next/server";
 export async function POST(req) {
     // Parse the request body to extract email, password, and confirmPassword
     const otp = Math.floor(10000 + Math.random() * 90000); // Generate 5-digit OTP
-    const { user_name, last_name, phone_number } = await req.json();
+    const { phone_number } = await req.json();
     // Validation for missing fields
-    if (!user_name || !last_name || !phone_number) {
+    if (!phone_number) {
         return NextResponse.json({ message: "Missing fields" }, { status: 400 });
     }
 
@@ -22,7 +22,4 @@ export async function POST(req) {
         },
         { status: 200 }
     );
-
-    // Catch and handle any unexpected errors
-    return NextResponse.json({ message: "Invalid request format or server error" }, { status: 500 });
 }
