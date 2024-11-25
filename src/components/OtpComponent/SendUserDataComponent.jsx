@@ -157,9 +157,9 @@ export default function SendUserDataComponent({
                                 <SendHorizontal />
                                 {t("RegisterPage.ask_otp")}
                             </Button>
-                            <div className="flex flex-col items-center text-[.875rem] font-bold ">
+                            <div className="flex items-center text-[.875rem] font-bold">
                                 <p>{t("RegisterPage.haveAccount")}</p>
-                                <Link href={"/register"} className="text-URLColor px-4">
+                                <Link href={"/login"} className="text-Light-HaveNoAccount px-1.5">
                                     {t("RegisterPage.loginHere")}
                                 </Link>
                             </div>
