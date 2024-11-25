@@ -3,7 +3,7 @@ import { Button } from "../ui/button";
 import Link from "next/link";
 import Header from "./Header";
 import FirstScene from "./FirstScene";
-import Recommends from "./Recommends";
+import RecommendsScene from "./RecommendsScene";
 
 const FirstPageComponent = () => {
     return (
@@ -11,7 +11,7 @@ const FirstPageComponent = () => {
             <Header />
 
             <FirstScene />
-            <Recommends />
+            <RecommendsScene />
             <div className=" w-full h-[300svh] bg-black/50">Download App </div>
             <div>Reviews </div>
             <div>Browse By City </div>
