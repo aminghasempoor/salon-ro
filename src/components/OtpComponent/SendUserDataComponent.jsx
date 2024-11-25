@@ -161,6 +161,7 @@ export default function SendUserDataComponent({
                                 <p>{t("RegisterPage.haveAccount")}</p>
                                 <Link href={"/login"} className="text-Light-HaveNoAccount px-1.5">
                                     {t("RegisterPage.loginHere")}
+                                    
                                 </Link>
                             </div>
                         </div>
