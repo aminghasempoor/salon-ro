@@ -169,17 +169,12 @@ export default function SendUserDataComponent({
             </div>
             <div
                 id="leftSide"
-                className="relative hidden lg:flex flex-col invisible lg:visible lg:h-full max-h-[90%] w-full justify-center items-center overflow-hidden"
+                className="relative hidden lg:flex flex-col invisible lg:visible lg:h-full h-full w-full justify-center items-center overflow-hidden"
             >
                 <div
                     id="background 1"
-                    className="absolute flex items-center justify-center z-[1] w-fit h-fit max-w-[90%] aspect-square opacity-70 rounded-[1rem] overflow-hidden dark:mix-blend-plus-lighter"
-                >
-                    <LoginLeftSideBackground />
-                </div>
-                <div id="leftSideFullLogo" className="flex z-[2] w-full max-w-[540px] h-[200px] lg:h-fit p-12">
-                    <LogoFullSVG type={"background"} />
-                </div>
+                    className="absolute flex items-center justify-center z-[1] w-full h-full    overflow-hidden bg-[url(https://www.fresha.com/assets/_next/static/images/Image3-fd3ccd7b3d9946a42a9baf567e5cb7eb.webp)] bg-cover bg-center "
+                ></div>
             </div>
         </div>
     );
