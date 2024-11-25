@@ -159,7 +159,7 @@ export default function SendUserDataComponent({
                             </Button>
                             <div className="flex flex-col items-center text-[.875rem] font-bold ">
                                 <p>{t("RegisterPage.haveAccount")}</p>
-                                <Link href={"/register"} className="text-URLColor px-4">
+                                <Link href={"/login"} className="text-URLColor px-4">
                                     {t("RegisterPage.loginHere")}
                                 </Link>
                             </div>
