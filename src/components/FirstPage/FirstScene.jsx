@@ -7,7 +7,7 @@ const FirstScene = () => {
     const t = useTranslations();
 
     return (
-        <div className="flex flex-col w-full h-[calc(100svh-72px)] justify-center items-center text-Light-TextColor dark:text-Dark-TextColor ">
+        <div className="flex flex-col w-full h-[calc(100svh-72px)] justify-center items-center text-Light-TextColor dark:text-Dark-TextColor  ">
          
                 <h1 className="font-black text-[1.75rem] text-center">
                     لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ
