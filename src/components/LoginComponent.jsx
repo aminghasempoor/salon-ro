@@ -5,7 +5,7 @@ import { Form, FormControl, FormField, FormItem, FormMessage } from "@/component
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useTranslations } from "next-intl";
-import { ArrowLeft, Earth, LogIn } from "lucide-react";
+import { ArrowLeft, LogIn } from "lucide-react";
 import Link from "next/link";
 import { loginFormSchema } from "@/lib/utils/schemas";
 import { ModeToggle } from "@/components/ModeToggle";
