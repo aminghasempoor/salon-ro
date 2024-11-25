@@ -77,9 +77,7 @@ export default function LoginComponent() {
                                         control={form.control}
                                         name="phone_number"
                                         render={({ field }) => (
-                                            <FormItem className="flex flex-col w-full ">
-                                                <div className="flex flex-row justify-between">
-                                                </div>
+                                            <FormItem className="flex flex-col w-full">
                                                 <FormControl>
                                                     <Input
                                                         className="border-2"
@@ -97,9 +95,7 @@ export default function LoginComponent() {
                                         control={form.control}
                                         name="password"
                                         render={({ field }) => (
-                                            <FormItem className="flex flex-col w-full ">
-                                                <div className="flex flex-row justify-between">
-                                                </div>
+                                            <FormItem className="flex flex-col w-full">
                                                 <FormControl>
                                                     <Input
                                                         className="border-2"
@@ -108,7 +104,7 @@ export default function LoginComponent() {
                                                         {...field}
                                                     />
                                                 </FormControl>
-                                                <div className="w-full h-3 ">
+                                                <div className="w-full h-3">
                                                     <FormMessage className="px-4 text-Light-Required dark:text-Dark-Required font-bold" />
                                                 </div>
                                             </FormItem>

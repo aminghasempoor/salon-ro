@@ -22,17 +22,17 @@ export default async function RootLayout({ children, params }) {
     }
     return (
         <html lang={locale} dir={isRtl ? "rtl" : "ltr"}>
-        <head>
-            <link rel="icon" href="/icon.svg" type="image/svg>" sizes="any" />
-        </head>
-        <body>
-            <NextIntlClientProvider messages={messages} className={isRtl ? "rtl" : "ltr"}>
-                <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-                    <main>{children}</main>
-                    <Toaster />
-                </ThemeProvider>
-            </NextIntlClientProvider>
-        </body>
+            <head>
+                <link rel="icon" href="/icon.svg" type="image/svg>" sizes="any" />
+            </head>
+            <body>
+                <NextIntlClientProvider messages={messages} className={isRtl ? "rtl" : "ltr"}>
+                    <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+                        <main>{children}</main>
+                        <Toaster />
+                    </ThemeProvider>
+                </NextIntlClientProvider>
+            </body>
         </html>
     );
 }

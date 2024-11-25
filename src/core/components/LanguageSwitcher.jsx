@@ -5,23 +5,23 @@ import {
     DropdownMenuContent,
     DropdownMenuItem,
     DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from "@/components/ui/dropdown-menu";
 import { usePathname, useRouter } from "next/navigation";
 import { Earth } from "lucide-react";
 
 const LanguageSwitcher = () => {
     const router = useRouter();
     const pathname = usePathname();
-    const locales = ['en', 'fa'];
+    const locales = ["en", "fa"];
 
     const changeLanguage = (locale) => {
         // Remove the current locale prefix from the path
-        const segments = pathname.split('/').filter(Boolean); // Remove empty segments
+        const segments = pathname.split("/").filter(Boolean); // Remove empty segments
         if (locales.includes(segments[0])) {
             segments.shift(); // Remove the current locale
         }
         // Construct new path with the selected locale
-        const newPath = `/${locale}/${segments.join('/')}`;
+        const newPath = `/${locale}/${segments.join("/")}`;
         router.push(newPath);
     };
 
