@@ -5,7 +5,10 @@ import Link from "next/link";
 
 const Header = () => {
     return (
-        <div className="sticky top-0 right-0 flex w-full h-18 justify-between items-center bg-inherit py-4 " dir="ltr">
+        <div
+            className="lg:sticky fixed z-10 top-0 right-0 flex w-full h-18 justify-between items-center bg-Light-BackgroundColor/80  dark:bg-Dark-BackgroundColor/80 backdrop-blur-[10px] shadow-sm shadow-Light-Sec100/30 rounded-b-lg   p-4  "
+            dir="ltr"
+        >
             <Link
                 href={"/"}
                 className="w-44 smallPhone:w-52 h-fit p-2 rounded-lg hover:bg-Light-BackBtnHover hover:dark:bg-Dark-BackBtnHover"
