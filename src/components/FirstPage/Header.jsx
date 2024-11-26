@@ -2,6 +2,7 @@ import { PanelRight } from "lucide-react";
 import React from "react";
 import { Button } from "../ui/button";
 import Link from "next/link";
+import { ModeToggle } from "../ModeToggle";
 
 const Header = () => {
     return (
@@ -18,6 +19,7 @@ const Header = () => {
             <Button variant="ghost" size="icon">
                 <PanelRight />
             </Button>
+            <ModeToggle/>
         </div>
     );
 };
