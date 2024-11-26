@@ -1,9 +1,13 @@
 import DashboardLayout from "@/components/layouts/dashboard";
+import NavbarLayout from "@/components/layouts/navbar";
 
 export default function AuthLayout({ children }) {
-    return(
-        <DashboardLayout>
-            { children }
-        </DashboardLayout>
-    )
+    return (
+        <>
+            {/*<NavbarLayout/>*/}
+            <DashboardLayout>
+                {children}
+            </DashboardLayout>
+        </>
+    );
 }

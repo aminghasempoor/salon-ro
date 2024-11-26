@@ -18,7 +18,7 @@ export function DashboardSidebar() {
     const pathname = usePathname();
     const segments = pathname.split("/").filter(Boolean);
     return (
-        <Sidebar collapsible="icon" variant="floating" side={`${segments[0] === "en" ? "left" : "right"}`}>
+        <Sidebar className={""} collapsible="icon" variant="floating" side={`${segments[0] === "en" ? "left" : "right"}`}>
             <SidebarContent>
                 <SidebarGroup>
                     <SidebarGroupLabel>Application</SidebarGroupLabel>
