@@ -1,7 +1,7 @@
 import { ModeToggle } from "@/components/ModeToggle";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
-export default async function AuthLayout({ children }) {
+export default function AuthLayout({ children }) {
     return (
         <div
             className="flex flex-col-reverse lg:grid lg:grid-cols-2 h-[100svh] w-full items-center justify-center font-Vazirmatn">
