@@ -1,12 +1,10 @@
 import { SidebarFooter, SidebarMenu, SidebarMenuItem } from "@/components/ui/sidebar";
 
-const SidebarFooterComponent = ({title}) => {
+const SidebarFooterComponent = ({ title }) => {
     return (
         <SidebarFooter>
             <SidebarMenu>
-                <SidebarMenuItem>
-                    {title}
-                </SidebarMenuItem>
+                <SidebarMenuItem>{title}</SidebarMenuItem>
             </SidebarMenu>
         </SidebarFooter>
     );

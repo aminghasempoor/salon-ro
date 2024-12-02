@@ -11,7 +11,14 @@ import { InputOTP, InputOTPGroup, InputOTPSlot } from "@/components/ui/input-otp
 import useRequest from "@/lib/hooks/useRequest";
 import ResendToken from "@/core/components/ResendToken";
 
-export default function SendTokenComponent({ PhoneNumber, setOtpToken, timer, setTimer, initialTimerValue }) {
+export default function SendTokenComponent({
+    PhoneNumber,
+    setOtpToken,
+    timer,
+    setTimer,
+    initialTimerValue,
+    setPageNumber,
+}) {
     const t = useTranslations();
     const [resendingOtp, setResendingOtp] = useState(false);
     const requestServer = useRequest({ notification: true });
@@ -28,9 +35,14 @@ export default function SendTokenComponent({ PhoneNumber, setOtpToken, timer, se
         requestServer("/api/fake-sign-up", "post", {
             data: { phone_number: PhoneNumber, otp: values.pin },
             success: { notification: { show: true } },
-        }).then((response) => setOtpToken(response.data.token)).catch(function(error) {
-            console.log(error);
-        });
+        })
+            .then((response) => {
+                setOtpToken(response.data.token);
+                setPageNumber(3);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     }
 
     return (
@@ -51,10 +63,8 @@ export default function SendTokenComponent({ PhoneNumber, setOtpToken, timer, se
                                 name="pin"
                                 render={({ field }) => (
                                     <FormItem className="flex flex-col w-full justify-between  h-full ">
-                                        <div
-                                            className="flex flex-col w-full h-fit largePhone:gap-10 gap-4 py-2 ">
-                                            <FormLabel
-                                                className="flex w-full items-start text-[1.25rem] font-bold">
+                                        <div className="flex flex-col w-full h-fit largePhone:gap-10 gap-4 py-2 ">
+                                            <FormLabel className="flex w-full items-start text-[1.25rem] font-bold">
                                                 {t("OtpPage.otp")}
                                             </FormLabel>
                                             <FormControl>
@@ -79,10 +89,8 @@ export default function SendTokenComponent({ PhoneNumber, setOtpToken, timer, se
                                                 </div>
                                             </FormControl>
                                         </div>
-                                        <div
-                                            className="h-fit w-full flex flex-col justify-end lg:gap-5 gap-4 items-center">
-                                            <FormMessage
-                                                className=" w-full items-center justify-center content-center" />
+                                        <div className="h-fit w-full flex flex-col justify-end lg:gap-5 gap-4 items-center">
+                                            <FormMessage className=" w-full items-center justify-center content-center" />
                                             <Button
                                                 className="flex w-full h-12 gap-2 bg-Light-SubmitBtnColor dark:bg-Dark-SubmitBtnColor hover:bg-opacity-70 hover:dark:bg-opacity-70 text-Light-SubmitBtnTextColor dark:text-Dark-SubmitBtnTextColor"
                                                 type="submit"

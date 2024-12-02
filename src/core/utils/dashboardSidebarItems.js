@@ -25,4 +25,4 @@ export const DashboardSidebarItems = [
         url: "#",
         icon: Settings,
     },
-]
+];

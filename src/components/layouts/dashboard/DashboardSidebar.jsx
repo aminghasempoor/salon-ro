@@ -21,35 +21,38 @@ import SidebarFooterComponent from "@/components/layouts/dashboard/SidebarFooter
 export function DashboardSidebar() {
     const pathname = usePathname();
     const segments = pathname.split("/").filter(Boolean);
-    return (<Sidebar collapsible="icon" variant="inset" side={`${segments[0] === "en" ? "left" : "right"}`}>
-        <SidebarHeaderComponent title={"Logo"} />
-        <SidebarContent>
-            <SidebarGroup>
-                <SidebarGroupLabel>Application</SidebarGroupLabel>
-                <SidebarGroupContent>
-                    <SidebarMenu>
-                        {DashboardSidebarItems.map((item) => (
-                            <Collapsible key={item.title} defaultOpen className="group/collapsible">
-                                <SidebarMenuItem>
-                                    <CollapsibleTrigger asChild>
-                                        <SidebarMenuButton asChild isActive={`${item.url === `/${segments[1]}`}`}>
-                                            <Link href={item.url}>
-                                                <item.icon />
-                                                <span>{item.title}</span>
-                                            </Link>
-                                        </SidebarMenuButton>
-                                    </CollapsibleTrigger>
-                                    <CollapsibleContent>
-                                        <SidebarMenuSub>
-                                            <SidebarMenuSubItem />
-                                        </SidebarMenuSub>
-                                    </CollapsibleContent>
-                                </SidebarMenuItem>
-                            </Collapsible>))}
-                    </SidebarMenu>
-                </SidebarGroupContent>
-            </SidebarGroup>
-        </SidebarContent>
-        {/*<SidebarFooterComponent title={"footer"} />*/}
-    </Sidebar>);
+    return (
+        <Sidebar collapsible="icon" variant="inset" side={`${segments[0] === "en" ? "left" : "right"}`}>
+            <SidebarHeaderComponent title={"Logo"} />
+            <SidebarContent>
+                <SidebarGroup>
+                    <SidebarGroupLabel>Application</SidebarGroupLabel>
+                    <SidebarGroupContent>
+                        <SidebarMenu>
+                            {DashboardSidebarItems.map((item) => (
+                                <Collapsible key={item.title} defaultOpen className="group/collapsible">
+                                    <SidebarMenuItem>
+                                        <CollapsibleTrigger asChild>
+                                            <SidebarMenuButton asChild isActive={`${item.url === `/${segments[1]}`}`}>
+                                                <Link href={item.url}>
+                                                    <item.icon />
+                                                    <span>{item.title}</span>
+                                                </Link>
+                                            </SidebarMenuButton>
+                                        </CollapsibleTrigger>
+                                        <CollapsibleContent>
+                                            <SidebarMenuSub>
+                                                <SidebarMenuSubItem />
+                                            </SidebarMenuSub>
+                                        </CollapsibleContent>
+                                    </SidebarMenuItem>
+                                </Collapsible>
+                            ))}
+                        </SidebarMenu>
+                    </SidebarGroupContent>
+                </SidebarGroup>
+            </SidebarContent>
+            {/*<SidebarFooterComponent title={"footer"} />*/}
+        </Sidebar>
+    );
 }
