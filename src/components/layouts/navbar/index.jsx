@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input";
 import Link from "next/link";
 
 export default function NavbarLayout() {
-    return(
+    return (
         <nav className="flex items-center justify-between bg-white shadow-md px-6 py-4">
             {/* Logo */}
             <div className="flex items-center gap-4">
@@ -55,7 +55,12 @@ export default function NavbarLayout() {
                             <Link href="/settings">Settings</Link>
                         </DropdownMenuItem>
                         <DropdownMenuItem>
-                            <button className="w-full text-left" onClick={() => {/* Add logout logic */}}>
+                            <button
+                                className="w-full text-left"
+                                onClick={() => {
+                                    /* Add logout logic */
+                                }}
+                            >
                                 Logout
                             </button>
                         </DropdownMenuItem>
@@ -63,5 +68,5 @@ export default function NavbarLayout() {
                 </DropdownMenu>
             </div>
         </nav>
-    )
+    );
 }

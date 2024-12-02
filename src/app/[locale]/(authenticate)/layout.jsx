@@ -3,8 +3,7 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 export default function AuthLayout({ children }) {
     return (
-        <div
-            className="flex flex-col-reverse lg:grid lg:grid-cols-2 h-[100svh] w-full items-center justify-center font-Vazirmatn">
+        <div className="flex flex-col-reverse lg:grid lg:grid-cols-2 h-[100svh] w-full items-center justify-center font-Vazirmatn">
             <div id="rightSide" className="relative flex flex-col h-full w-full justify-center items-center p-4">
                 <div
                     id="Header"

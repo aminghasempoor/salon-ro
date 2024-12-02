@@ -11,7 +11,7 @@ export default function OtpComponent() {
     const [timer, setTimer] = useState(initialTimerValue);
 
     switch (pageNumber) {
-        case 1 :
+        case 1:
             return (
                 <SendUserNumberComponent
                     setOtpToken={setOtpToken}
@@ -22,7 +22,7 @@ export default function OtpComponent() {
                     setTimer={setTimer}
                 />
             );
-        case 2 :
+        case 2:
             return (
                 <SendTokenComponent
                     PhoneNumber={PhoneNumber}
@@ -33,14 +33,9 @@ export default function OtpComponent() {
                     setTimer={setTimer}
                 />
             );
-        case 3 :
-            return (
-                <SendUserDataComponent
-                    PhoneNumber={PhoneNumber}
-                    otpToken={otpToken}
-                />
-            );
-        default :
+        case 3:
+            return <SendUserDataComponent PhoneNumber={PhoneNumber} otpToken={otpToken} />;
+        default:
             return (
                 <SendUserNumberComponent
                     setOtpToken={setOtpToken}

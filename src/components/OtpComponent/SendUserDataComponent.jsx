@@ -41,14 +41,14 @@ const SendUserDataComponent = () => {
                 notification: { show: true },
             },
         })
-            .then(function(response) {
+            .then(function (response) {
                 console.log(response);
             })
-            .catch(function(error) {
+            .catch(function (error) {
                 console.log(error);
             });
     }
-    return(
+    return (
         <Form {...form}>
             <form
                 onSubmit={form.handleSubmit(onSubmit)}
@@ -59,121 +59,113 @@ const SendUserDataComponent = () => {
                     <p>{t("Global.motto")}</p>
                 </div>
                 <div className="w-full flex flex-col gap-16">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
-                            <FormField
-                                control={form.control}
-                                name="first_name"
-                                render={({ field }) => (
-                                    <FormItem className="flex flex-col w-full">
-                                        <FormControl>
-                                            <Input
-                                                className="border-2"
-                                                placeholder={t("UserDataPage.first_name")}
-                                                {...field}
-                                            />
-                                        </FormControl>
-                                        <FormMessage className="px-4 text-Light-Required dark:text-Dark-Required font-bold" />
-                                    </FormItem>
-                                )}
-                            />
-                            <FormField
-                                control={form.control}
-                                name="last_name"
-                                render={({ field }) => (
-                                    <FormItem className="flex flex-col w-full">
-                                        <FormControl>
-                                            <Input
-                                                className="border-2"
-                                                placeholder={t("UserDataPage.last_name")}
-                                                {...field}
-                                            />
-                                        </FormControl>
-                                        <FormMessage className="px-4 text-Light-Required dark:text-Dark-Required font-bold" />
-                                    </FormItem>
-                                )}
-                            />
-                            <FormField
-                                control={form.control}
-                                name="national_id"
-                                render={({ field }) => (
-                                    <FormItem className="flex flex-col w-full">
-                                        <FormControl>
-                                            <Input
-                                                className="border-2"
-                                                placeholder={t("UserDataPage.national_id")}
-                                                {...field}
-                                            />
-                                        </FormControl>
-                                        <FormMessage className="px-4 text-Light-Required dark:text-Dark-Required font-bold" />
-                                    </FormItem>
-                                )}
-                            />
-                            <FormField
-                                control={form.control}
-                                name="birthday"
-                                render={({ field }) => (
-                                    <FormItem className="flex flex-col w-full">
-                                        <FormControl>
-                                            <Input
-                                                className="border-2"
-                                                placeholder={t("UserDataPage.birthday")}
-                                                {...field}
-                                            />
-                                        </FormControl>
-                                        <FormMessage className="px-4 text-Light-Required dark:text-Dark-Required font-bold" />
-                                    </FormItem>
-                                )}
-                            />
-                            <FormField
-                                control={form.control}
-                                name="gender"
-                                render={({ field }) => (
-                                    <FormItem className="flex flex-col w-full">
-                                        <FormControl>
-                                            <Input
-                                                className="border-2"
-                                                placeholder={t("UserDataPage.gender")}
-                                                {...field}
-                                            />
-                                        </FormControl>
-                                        <FormMessage className="px-4 text-Light-Required dark:text-Dark-Required font-bold" />
-                                    </FormItem>
-                                )}
-                            />
-                            <FormField
-                                control={form.control}
-                                name="province"
-                                render={({ field }) => (
-                                    <FormItem className="flex flex-col w-full">
-                                        <FormControl>
-                                            <Input
-                                                className="border-2"
-                                                placeholder={t("UserDataPage.province")}
-                                                {...field}
-                                            />
-                                        </FormControl>
-                                        <FormMessage className="px-4 text-Light-Required dark:text-Dark-Required font-bold" />
-                                    </FormItem>
-                                )}
-                            />
-                            <FormField
-                                control={form.control}
-                                name="city"
-                                render={({ field }) => (
-                                    <FormItem className="flex flex-col w-full">
-                                        <FormControl>
-                                            <Input
-                                                className="border-2"
-                                                placeholder={t("UserDataPage.city")}
-                                                {...field}
-                                            />
-                                        </FormControl>
-                                        <FormMessage className="px-4 text-Light-Required dark:text-Dark-Required font-bold" />
-                                    </FormItem>
-                                )}
-                            />
-                        </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+                        <FormField
+                            control={form.control}
+                            name="first_name"
+                            render={({ field }) => (
+                                <FormItem className="flex flex-col w-full">
+                                    <FormControl>
+                                        <Input
+                                            className="border-2"
+                                            placeholder={t("UserDataPage.first_name")}
+                                            {...field}
+                                        />
+                                    </FormControl>
+                                    <FormMessage className="px-4 text-Light-Required dark:text-Dark-Required font-bold" />
+                                </FormItem>
+                            )}
+                        />
+                        <FormField
+                            control={form.control}
+                            name="last_name"
+                            render={({ field }) => (
+                                <FormItem className="flex flex-col w-full">
+                                    <FormControl>
+                                        <Input
+                                            className="border-2"
+                                            placeholder={t("UserDataPage.last_name")}
+                                            {...field}
+                                        />
+                                    </FormControl>
+                                    <FormMessage className="px-4 text-Light-Required dark:text-Dark-Required font-bold" />
+                                </FormItem>
+                            )}
+                        />
+                        <FormField
+                            control={form.control}
+                            name="national_id"
+                            render={({ field }) => (
+                                <FormItem className="flex flex-col w-full">
+                                    <FormControl>
+                                        <Input
+                                            className="border-2"
+                                            placeholder={t("UserDataPage.national_id")}
+                                            {...field}
+                                        />
+                                    </FormControl>
+                                    <FormMessage className="px-4 text-Light-Required dark:text-Dark-Required font-bold" />
+                                </FormItem>
+                            )}
+                        />
+                        <FormField
+                            control={form.control}
+                            name="birthday"
+                            render={({ field }) => (
+                                <FormItem className="flex flex-col w-full">
+                                    <FormControl>
+                                        <Input
+                                            className="border-2"
+                                            placeholder={t("UserDataPage.birthday")}
+                                            {...field}
+                                        />
+                                    </FormControl>
+                                    <FormMessage className="px-4 text-Light-Required dark:text-Dark-Required font-bold" />
+                                </FormItem>
+                            )}
+                        />
+                        <FormField
+                            control={form.control}
+                            name="gender"
+                            render={({ field }) => (
+                                <FormItem className="flex flex-col w-full">
+                                    <FormControl>
+                                        <Input className="border-2" placeholder={t("UserDataPage.gender")} {...field} />
+                                    </FormControl>
+                                    <FormMessage className="px-4 text-Light-Required dark:text-Dark-Required font-bold" />
+                                </FormItem>
+                            )}
+                        />
+                        <FormField
+                            control={form.control}
+                            name="province"
+                            render={({ field }) => (
+                                <FormItem className="flex flex-col w-full">
+                                    <FormControl>
+                                        <Input
+                                            className="border-2"
+                                            placeholder={t("UserDataPage.province")}
+                                            {...field}
+                                        />
+                                    </FormControl>
+                                    <FormMessage className="px-4 text-Light-Required dark:text-Dark-Required font-bold" />
+                                </FormItem>
+                            )}
+                        />
+                        <FormField
+                            control={form.control}
+                            name="city"
+                            render={({ field }) => (
+                                <FormItem className="flex flex-col w-full">
+                                    <FormControl>
+                                        <Input className="border-2" placeholder={t("UserDataPage.city")} {...field} />
+                                    </FormControl>
+                                    <FormMessage className="px-4 text-Light-Required dark:text-Dark-Required font-bold" />
+                                </FormItem>
+                            )}
+                        />
                     </div>
+                </div>
                 <div className="h-fit w-full flex flex-col lg:gap-5 gap-4 items-center">
                     <Button
                         className="flex w-full h-12 gap-2 bg-Light-SubmitBtnColor dark:bg-Dark-SubmitBtnColor hover:bg-opacity-70 hover:dark:bg-opacity-70 text-Light-SubmitBtnTextColor dark:text-Dark-SubmitBtnTextColor"
@@ -192,6 +184,6 @@ const SendUserDataComponent = () => {
                 </div>
             </form>
         </Form>
-    )
-}
-export default SendUserDataComponent
+    );
+};
+export default SendUserDataComponent;

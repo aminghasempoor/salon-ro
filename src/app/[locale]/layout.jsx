@@ -4,7 +4,7 @@ import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { ThemeProvider } from "@/lib/utils/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
-import favicon from "@/assets/images/favicon.svg"
+import favicon from "@/assets/images/favicon.svg";
 
 export const metadata = {
     title: "SalonRo | سالن رو",

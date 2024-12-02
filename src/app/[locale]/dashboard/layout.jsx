@@ -5,9 +5,7 @@ export default function AuthLayout({ children }) {
     return (
         <>
             {/*<NavbarLayout/>*/}
-            <DashboardLayout>
-                {children}
-            </DashboardLayout>
+            <DashboardLayout>{children}</DashboardLayout>
         </>
     );
 }

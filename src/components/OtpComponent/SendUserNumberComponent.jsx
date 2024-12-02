@@ -11,13 +11,13 @@ import { RegisterFormSchema } from "@/lib/utils/schemas";
 import useRequest from "@/lib/hooks/useRequest";
 
 export default function SendUserNumberComponent({
-                                                  setOtpToken,
-                                                  setPhoneNumber,
-                                                  PhoneNumber,
-                                                  setTimer,
-                                                  initialTimerValue,
-                                                  setPageNumber
-                                              }) {
+    setOtpToken,
+    setPhoneNumber,
+    PhoneNumber,
+    setTimer,
+    initialTimerValue,
+    setPageNumber,
+}) {
     const t = useTranslations();
     const requestServer = useRequest({ notification: true });
     const form = useForm({
@@ -37,13 +37,13 @@ export default function SendUserNumberComponent({
                 notification: { show: true },
             },
         })
-            .then(function(response) {
+            .then(function (response) {
                 setPhoneNumber(values.phone_number);
                 setOtpToken(true);
                 setTimer(initialTimerValue);
-                setPageNumber(2)
+                setPageNumber(2);
             })
-            .catch(function(error) {
+            .catch(function (error) {
                 console.log(error);
             });
     }
@@ -73,8 +73,7 @@ export default function SendUserNumberComponent({
                                                 {...field}
                                             />
                                         </FormControl>
-                                        <FormMessage
-                                            className="px-4 text-Light-Required dark:text-Dark-Required font-bold" />
+                                        <FormMessage className="px-4 text-Light-Required dark:text-Dark-Required font-bold" />
                                     </FormItem>
                                 )}
                             />

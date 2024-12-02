@@ -34,11 +34,13 @@ export default function Index() {
             success: {
                 notification: { show: true },
             },
-        }).then((response) => {
-            setToken(response.data.token);
-        }).catch(function(error) {
-            console.log(error);
-        });
+        })
+            .then((response) => {
+                setToken(response.data.token);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     }
 
     return (
@@ -67,8 +69,7 @@ export default function Index() {
                                             />
                                         </FormControl>
                                         <div className="w-full h-3 ">
-                                            <FormMessage
-                                                className="px-4 text-Light-Required dark:text-Dark-Required font-bold" />
+                                            <FormMessage className="px-4 text-Light-Required dark:text-Dark-Required font-bold" />
                                         </div>
                                     </FormItem>
                                 )}
@@ -87,14 +88,12 @@ export default function Index() {
                                             />
                                         </FormControl>
                                         <div className="w-full h-3">
-                                            <FormMessage
-                                                className="px-4 text-Light-Required dark:text-Dark-Required font-bold" />
+                                            <FormMessage className="px-4 text-Light-Required dark:text-Dark-Required font-bold" />
                                         </div>
                                     </FormItem>
                                 )}
                             />
-                            <div
-                                className="flex justify-between items-center w-full h-fit text-[.875rem] font-medium mb-4 mt-4">
+                            <div className="flex justify-between items-center w-full h-fit text-[.875rem] font-medium mb-4 mt-4">
                                 <div className="flex items-center justify-center gap-2">
                                     <Checkbox id="terms" />
                                     <label htmlFor="terms" className="cursor-pointer pt-1">

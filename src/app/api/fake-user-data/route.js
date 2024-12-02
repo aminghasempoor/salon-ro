@@ -11,10 +11,7 @@ export async function POST(req) {
 
         // Validate national_id strength (optional but recommended)
         if (national_id.length < 10) {
-            return NextResponse.json(
-                { message: "National Id should be 10 characters long ." },
-                { status: 400 }
-            );
+            return NextResponse.json({ message: "National Id should be 10 characters long ." }, { status: 400 });
         }
 
         // Simulate successful response (you can add additional logic as needed)
