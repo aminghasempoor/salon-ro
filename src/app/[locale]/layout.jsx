@@ -4,6 +4,7 @@ import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { ThemeProvider } from "@/lib/utils/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
+import favicon from "@/assets/images/favicon.svg"
 
 export const metadata = {
     title: "SalonRo | سالن رو",
@@ -23,7 +24,7 @@ export default async function RootLayout({ children, params }) {
     return (
         <html lang={locale} dir={isRtl ? "rtl" : "ltr"}>
             <head>
-                <link rel="icon" href="/icon.svg" type="image/svg>" sizes="any" />
+                <link rel="icon" href={favicon.src} type="image/svg" sizes="any" />
             </head>
             <body>
                 <NextIntlClientProvider messages={messages} className={isRtl ? "rtl" : "ltr"}>

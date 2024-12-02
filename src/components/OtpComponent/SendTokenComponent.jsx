@@ -11,7 +11,7 @@ import { InputOTP, InputOTPGroup, InputOTPSlot } from "@/components/ui/input-otp
 import useRequest from "@/lib/hooks/useRequest";
 import ResendToken from "@/core/components/ResendToken";
 
-export default function SendTokenComponent({ PhoneNumber, setOtpToken, timer, setTimer, initialTimerValue }) {
+export default function SendTokenComponent({ PhoneNumber, setOtpToken, timer, setTimer, initialTimerValue, setPageNumber }) {
     const t = useTranslations();
     const [resendingOtp, setResendingOtp] = useState(false);
     const requestServer = useRequest({ notification: true });
@@ -28,7 +28,10 @@ export default function SendTokenComponent({ PhoneNumber, setOtpToken, timer, se
         requestServer("/api/fake-sign-up", "post", {
             data: { phone_number: PhoneNumber, otp: values.pin },
             success: { notification: { show: true } },
-        }).then((response) => setOtpToken(response.data.token)).catch(function(error) {
+        }).then((response) => {
+            setOtpToken(response.data.token);
+            setPageNumber(3)
+        }).catch(function(error) {
             console.log(error);
         });
     }

@@ -49,6 +49,25 @@
     "last_name": "نام خانوادگی",
     "ask_otp": "دریافت رمز یکبار مصرف"
   },
+  "UserDataPage": {
+    "first_name": "نام",
+    "last_name": "نام خانوادگی",
+    "national_id": "کد ملی",
+    "birthday": "تاریخ تولد",
+    "gender": "جنسیت",
+    "province": "استان",
+    "city": "شهر",
+    "submit": "ارسال",
+    "loginHere": "وارد شو!",
+    "haveAccount": "اکانت داری ؟",
+    "first_name_required" : "وارد کردن نام ضروریست!!!",
+    "last_name_required" : "وارد کردن نام خانوادگی ضروریست!!!",
+    "national_id_required" : "وارد کردن کد ملی ضروریست!!!",
+    "birthday_required" : "وارد کردن تاریخ تولد ضروریست!!!",
+    "gender_required" : "وارد کردن جنسیت ضروریست!!!",
+    "province_required" : "وارد کردن استان ضروریست!!!",
+    "city_required" : "وارد کردن شهر ضروریست!!!"
+  },
   "OtpPage": {
     "otp": "رمز یکبار مصرف را وارد کنید:",
     "timer": "ارسال مجدد؟",

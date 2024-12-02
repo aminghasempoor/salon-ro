@@ -25,3 +25,27 @@ export const OtpFormSchema = (t) =>
             message: t("OtpPage.pin_required"),
         }),
     });
+export const UserDataFormSchema = (t) =>
+    z.object({
+        first_name: z.string().min(1, {
+            message: t("UserDataPage.first_name_required"),
+        }),
+        last_name: z.string().min(1, {
+            message: t("UserDataPage.last_name_required"),
+        }),
+        national_id: z.string().min(1, {
+            message: t("UserDataPage.national_id_required"),
+        }),
+        birthday: z.string().min(1, {
+            message: t("UserDataPage.birthday_required"),
+        }),
+        gender: z.string().min(1, {
+            message: t("UserDataPage.gender_required"),
+        }),
+        province: z.string().min(1, {
+            message: t("UserDataPage.province_required"),
+        }),
+        city: z.string().min(1, {
+            message: t("UserDataPage.city_required"),
+        }),
+    });
