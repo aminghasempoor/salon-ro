@@ -16,10 +16,12 @@ const Header = () => {
             >
                 <LogoText />
             </Link>
-            <Button variant="ghost" size="icon">
-                <PanelRight />
-            </Button>
-            <ModeToggle/>
+            <span className="flex gap-2  items-center">
+                <ModeToggle />
+                <Button variant="ghost" size="icon">
+                    <PanelRight />
+                </Button>
+            </span>
         </div>
     );
 };

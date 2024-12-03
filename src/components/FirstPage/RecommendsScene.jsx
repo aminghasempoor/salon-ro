@@ -3,22 +3,22 @@ import React from "react";
 
 const RecommendsScene = () => {
     return (
-        <div className="flex flex-col w-full min-h-[calc(100svh-72px)] justify-start items-start text-Light-TextColor dark:text-Dark-TextColor  gap-2">
-            <div className="w-full h-fit">
+        <div className="flex flex-col w-full justify-start items-start text-Light-TextColor dark:text-Dark-TextColor  gap-4">
+            <div className="flex flex-col w-full h-fit gap-4">
                 <h2 className="font-black text-[1.25rem] ">پیشنهاد ها</h2>
-                <div className="w-full h-[400px]">
-                    <BasicCarousel slides={slides1}  />
+                <div className="w-full ">
+                    <BasicCarousel slides={slides1} />
                 </div>
             </div>
-            <div className="w-full h-fit">
+            <div className="flex flex-col w-full h-fit gap-4">
                 <h2 className="font-black text-[1.25rem] ">بیشترین بازدید ها</h2>
-                <div className="w-full h-[400px]">
+                <div className="w-full ">
                     <BasicCarousel slides={slides2} />
                 </div>
             </div>
-            <div className="w-full h-fit">
+            <div className="flex flex-col w-full h-fit gap-4">
                 <h2 className="font-black text-[1.25rem] ">بالاترین امتیاز ها</h2>
-                <div className="w-full h-[400px]">
+                <div className="w-full ">
                     <BasicCarousel slides={slides3} />
                 </div>
             </div>
@@ -28,6 +28,8 @@ const RecommendsScene = () => {
 
 export default RecommendsScene;
 
+
+// DUMMY SLIDES
 const slides1 = [
     {
         image: "https://picsum.photos/536/354",

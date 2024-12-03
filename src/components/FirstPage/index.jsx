@@ -7,7 +7,7 @@ import RecommendsScene from "./RecommendsScene";
 
 const FirstPageComponent = () => {
     return (
-        <div className="relative w-full max-w-[1440px] place-self-center h-full flex flex-col bg-Light-BackgroundColor dark:bg-Dark-BackgroundColor px-4  ">
+        <div className="relative w-full max-w-[1440px] place-self-center h-full flex flex-col bg-Light-BackgroundColor dark:bg-Dark-BackgroundColor px-4 font-Vazirmatn ">
             <Header />
 
             <FirstScene />
