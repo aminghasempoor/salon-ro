@@ -28,7 +28,6 @@ const RecommendsScene = () => {
 
 export default RecommendsScene;
 
-
 // DUMMY SLIDES
 const slides1 = [
     {
