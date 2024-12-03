@@ -2,59 +2,185 @@ import BasicCarousel from "@/core/components/carousel/BasicCarousel";
 import React from "react";
 
 const RecommendsScene = () => {
-    const slides = [
-        {
-          image: 'https://picsum.photos/536/354',
-          title: 'Slide 1 Title',
-          description: 'This is the description for slide 1.',
-          // Add more text fields as needed
-        },
-        {
-          image: 'https://picsum.photos/820/500',
-          title: 'Slide 1 Title',
-          description: 'This is the description for slide 1.',
-          // Add more text fields as needed
-        },
-        {
-          image: 'https://picsum.photos/500/800',
-          title: 'Slide 1 Title',
-          description: 'This is the description for slide 1.',
-          // Add more text fields as needed
-        },
-        {
-          image: 'https://picsum.photos/1360/900',
-          title: 'Slide 1 Title',
-          description: 'This is the description for slide 1.',
-          // Add more text fields as needed
-        },
-        {
-            image: 'https://fastly.picsum.photos/id/1021/536/354.jpg?hmac=XeUbyCXoxX2IrSELemo2mRl4zVXzhjFyxtj3GTVZ8xo',
-          title: 'Slide 2 Title',
-          description: 'This is the description for slide 2.',
-          // Add more text fields as needed
-        },
-        {
-            image: 'https://fastly.picsum.photos/id/764/536/354.jpg?hmac=tUClndcsRR7YYrBLrohEXgy_1dVqdKAzhNf4fCyN1O0',
-          title: 'Slide 2 Title',
-          description: 'This is the description for slide 2.',
-          // Add more text fields as needed
-        },
-        {
-            image: 'https://fastly.picsum.photos/id/628/536/354.jpg?hmac=W_-CeOM1wK13bBoAisLYOEJaIZwd9r2wM5VpQBb7uKA',
-          title: 'Slide 2 Title',
-          description: 'This is the description for slide 2.',
-          // Add more text fields as needed
-        },
-        // ... more slides
-      ];
     return (
-        <div className="flex flex-col w-full h-[calc(100svh-72px)] justify-start items-start text-Light-TextColor dark:text-Dark-TextColor border ">
-            <h2 className="font-black text-[1.25rem] ">پیشنهادات</h2>
-            <div className="w-full h-[400px]">
-                <BasicCarousel slides={slides} />
+        <div className="flex flex-col w-full min-h-[calc(100svh-72px)] justify-start items-start text-Light-TextColor dark:text-Dark-TextColor  gap-2">
+            <div className="w-full h-fit">
+                <h2 className="font-black text-[1.25rem] ">پیشنهاد ها</h2>
+                <div className="w-full h-[400px]">
+                    <BasicCarousel slides={slides1}  />
+                </div>
+            </div>
+            <div className="w-full h-fit">
+                <h2 className="font-black text-[1.25rem] ">بیشترین بازدید ها</h2>
+                <div className="w-full h-[400px]">
+                    <BasicCarousel slides={slides2} />
+                </div>
+            </div>
+            <div className="w-full h-fit">
+                <h2 className="font-black text-[1.25rem] ">بالاترین امتیاز ها</h2>
+                <div className="w-full h-[400px]">
+                    <BasicCarousel slides={slides3} />
+                </div>
             </div>
         </div>
     );
 };
 
 export default RecommendsScene;
+
+const slides1 = [
+    {
+        image: "https://picsum.photos/536/354",
+        title: "نام سالن نام سالن",
+        description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ",
+        address: "اصفهان، رباط دوم، میرفندرسکی، ک 26، پ 51، ساختمان رندوم، واحد 12",
+        services: ["ناخن", "لیزر موی زائد", "ماساژ", "Skin Care"],
+    },
+    {
+        image: "https://picsum.photos/820/500",
+        title: "نام سالن نام سالن",
+        description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ",
+        address: "اصفهان، رباط دوم، میرفندرسکی، ک 26، پ 51، ساختمان رندوم، واحد 12",
+        services: ["ناخن", "لیزر موی زائد", "ماساژ", "Skin Care"],
+    },
+    {
+        image: "https://picsum.photos/500/800",
+        title: "نام سالن نام سالن",
+        description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ",
+        address: "اصفهان، رباط دوم، میرفندرسکی، ک 26، پ 51، ساختمان رندوم، واحد 12",
+        services: ["ناخن", "لیزر موی زائد", "ماساژ", "Skin Care"],
+    },
+    {
+        image: "https://picsum.photos/1360/900",
+        title: "نام سالن نام سالن",
+        description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ",
+        address: "اصفهان، رباط دوم، میرفندرسکی، ک 26، پ 51، ساختمان رندوم، واحد 12",
+        services: ["ناخن", "لیزر موی زائد", "ماساژ", "Skin Care"],
+    },
+    {
+        image: "https://fastly.picsum.photos/id/1021/536/354.jpg?hmac=XeUbyCXoxX2IrSELemo2mRl4zVXzhjFyxtj3GTVZ8xo",
+        title: "نام سالن نام سالن",
+        description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ",
+        address: "اصفهان، رباط دوم، میرفندرسکی، ک 26، پ 51، ساختمان رندوم، واحد 12",
+        services: ["ناخن", "لیزر موی زائد", "ماساژ", "Skin Care"],
+    },
+    {
+        image: "https://fastly.picsum.photos/id/764/536/354.jpg?hmac=tUClndcsRR7YYrBLrohEXgy_1dVqdKAzhNf4fCyN1O0",
+        title: "نام سالن نام سالن",
+        description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ",
+        address: "اصفهان، رباط دوم، میرفندرسکی، ک 26، پ 51، ساختمان رندوم، واحد 12",
+        services: ["ناخن", "لیزر موی زائد", "ماساژ", "Skin Care"],
+    },
+    {
+        image: "https://fastly.picsum.photos/id/628/536/354.jpg?hmac=W_-CeOM1wK13bBoAisLYOEJaIZwd9r2wM5VpQBb7uKA",
+        title: "نام سالن نام سالن",
+        description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ",
+        address: "اصفهان، رباط دوم، میرفندرسکی، ک 26، پ 51، ساختمان رندوم، واحد 12",
+        services: ["ناخن", "لیزر موی زائد", "ماساژ", "Skin Care"],
+    },
+    // ... more slides
+];
+const slides2 = [
+    {
+        image: "https://picsum.photos/537/354",
+        title: "نام سالن نام سالن",
+        description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ",
+        address: "اصفهان، رباط دوم، میرفندرسکی، ک 26، پ 51، ساختمان رندوم، واحد 12",
+        services: ["ناخن", "لیزر موی زائد", "ماساژ", "Skin Care"],
+    },
+    {
+        image: "https://picsum.photos/821/500",
+        title: "نام سالن نام سالن",
+        description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ",
+        address: "اصفهان، رباط دوم، میرفندرسکی، ک 26، پ 51، ساختمان رندوم، واحد 12",
+        services: ["ناخن", "لیزر موی زائد", "ماساژ", "Skin Care"],
+    },
+    {
+        image: "https://picsum.photos/501/800",
+        title: "نام سالن نام سالن",
+        description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ",
+        address: "اصفهان، رباط دوم، میرفندرسکی، ک 26، پ 51، ساختمان رندوم، واحد 12",
+        services: ["ناخن", "لیزر موی زائد", "ماساژ", "Skin Care"],
+    },
+    {
+        image: "https://picsum.photos/1361/900",
+        title: "نام سالن نام سالن",
+        description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ",
+        address: "اصفهان، رباط دوم، میرفندرسکی، ک 26، پ 51، ساختمان رندوم، واحد 12",
+        services: ["ناخن", "لیزر موی زائد", "ماساژ", "Skin Care"],
+    },
+    {
+        image: "https://fastly.picsum.photos/id/1021/536/354.jpg?hmac=XeUbyCXoxX2IrSELemo2mRl4zVXzhjFyxtj3GTVZ8xo",
+        title: "نام سالن نام سالن",
+        description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ",
+        address: "اصفهان، رباط دوم، میرفندرسکی، ک 26، پ 51، ساختمان رندوم، واحد 12",
+        services: ["ناخن", "لیزر موی زائد", "ماساژ", "Skin Care"],
+    },
+    {
+        image: "https://fastly.picsum.photos/id/764/536/354.jpg?hmac=tUClndcsRR7YYrBLrohEXgy_1dVqdKAzhNf4fCyN1O0",
+        title: "نام سالن نام سالن",
+        description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ",
+        address: "اصفهان، رباط دوم، میرفندرسکی، ک 26، پ 51، ساختمان رندوم، واحد 12",
+        services: ["ناخن", "لیزر موی زائد", "ماساژ", "Skin Care"],
+    },
+    {
+        image: "https://fastly.picsum.photos/id/628/536/354.jpg?hmac=W_-CeOM1wK13bBoAisLYOEJaIZwd9r2wM5VpQBb7uKA",
+        title: "نام سالن نام سالن",
+        description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ",
+        address: "اصفهان، رباط دوم، میرفندرسکی، ک 26، پ 51، ساختمان رندوم، واحد 12",
+        services: ["ناخن", "لیزر موی زائد", "ماساژ", "Skin Care"],
+    },
+    // ... more slides
+];
+const slides3 = [
+    {
+        image: "https://picsum.photos/538/354",
+        title: "نام سالن نام سالن",
+        description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ",
+        address: "اصفهان، رباط دوم، میرفندرسکی، ک 26، پ 51، ساختمان رندوم، واحد 12",
+        services: ["ناخن", "لیزر موی زائد", "ماساژ", "Skin Care"],
+    },
+    {
+        image: "https://picsum.photos/822/500",
+        title: "نام سالن نام سالن",
+        description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ",
+        address: "اصفهان، رباط دوم، میرفندرسکی، ک 26، پ 51، ساختمان رندوم، واحد 12",
+        services: ["ناخن", "لیزر موی زائد", "ماساژ", "Skin Care"],
+    },
+    {
+        image: "https://picsum.photos/502/800",
+        title: "نام سالن نام سالن",
+        description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ",
+        address: "اصفهان، رباط دوم، میرفندرسکی، ک 26، پ 51، ساختمان رندوم، واحد 12",
+        services: ["ناخن", "لیزر موی زائد", "ماساژ", "Skin Care"],
+    },
+    {
+        image: "https://picsum.photos/1362/900",
+        title: "نام سالن نام سالن",
+        description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ",
+        address: "اصفهان، رباط دوم، میرفندرسکی، ک 26، پ 51، ساختمان رندوم، واحد 12",
+        services: ["ناخن", "لیزر موی زائد", "ماساژ", "Skin Care"],
+    },
+    {
+        image: "https://fastly.picsum.photos/id/1021/536/354.jpg?hmac=XeUbyCXoxX2IrSELemo2mRl4zVXzhjFyxtj3GTVZ8xo",
+        title: "نام سالن نام سالن",
+        description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ",
+        address: "اصفهان، رباط دوم، میرفندرسکی، ک 26، پ 51، ساختمان رندوم، واحد 12",
+        services: ["ناخن", "لیزر موی زائد", "ماساژ", "Skin Care"],
+    },
+    {
+        image: "https://fastly.picsum.photos/id/764/536/354.jpg?hmac=tUClndcsRR7YYrBLrohEXgy_1dVqdKAzhNf4fCyN1O0",
+        title: "نام سالن نام سالن",
+        description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ",
+        address: "اصفهان، رباط دوم، میرفندرسکی، ک 26، پ 51، ساختمان رندوم، واحد 12",
+        services: ["ناخن", "لیزر موی زائد", "ماساژ", "Skin Care"],
+    },
+    {
+        image: "https://fastly.picsum.photos/id/628/536/354.jpg?hmac=W_-CeOM1wK13bBoAisLYOEJaIZwd9r2wM5VpQBb7uKA",
+        title: "نام سالن نام سالن",
+        description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ",
+        address: "اصفهان، رباط دوم، میرفندرسکی، ک 26، پ 51، ساختمان رندوم، واحد 12",
+        services: ["ناخن", "لیزر موی زائد", "ماساژ", "Skin Care"],
+    },
+    // ... more slides
+];
