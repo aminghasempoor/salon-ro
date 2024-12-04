@@ -10,6 +10,7 @@ import { SendHorizontal } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import ReactMultiDatePicker from "@/core/components/ReactMultiDatePicker";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 const SendUserDataComponent = () => {
     const t = useTranslations();
@@ -138,9 +139,21 @@ const SendUserDataComponent = () => {
                             name="gender"
                             render={({ field }) => (
                                 <FormItem className="flex flex-col w-full">
-                                    <FormControl>
-                                        <Input className="border-2" placeholder={t("UserDataPage.gender")} {...field} />
-                                    </FormControl>
+                                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                        <FormControl>
+                                            <SelectTrigger>
+                                                <SelectValue placeholder={t("UserDataPage.gender")} />
+                                            </SelectTrigger>
+                                        </FormControl>
+                                        <SelectContent>
+                                            <SelectItem value="m@example.com">m@example.com</SelectItem>
+                                            <SelectItem value="m@google.com">m@google.com</SelectItem>
+                                            <SelectItem value="m@support.com">m@support.com</SelectItem>
+                                        </SelectContent>
+                                    </Select>
+                                    {/*<FormControl>*/}
+                                    {/*    <Input className="border-2" placeholder={t("UserDataPage.gender")} {...field} />*/}
+                                    {/*</FormControl>*/}
                                     <FormMessage className="px-4 text-Light-Required dark:text-Dark-Required font-bold" />
                                 </FormItem>
                             )}
