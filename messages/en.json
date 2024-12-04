@@ -27,6 +27,7 @@
     "last_name_required" : "Last name required",
     "national_id_required" : "National ID required",
     "birthday_required" : "Birthday required",
+    "birthday_invalid" : "Invalid Birthday Format",
     "gender_required" : "Gender required",
     "province_required" : "Province required",
     "city_required" : "City required"

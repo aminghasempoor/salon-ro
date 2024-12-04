@@ -36,9 +36,15 @@ export const UserDataFormSchema = (t) =>
         national_id: z.string().min(1, {
             message: t("UserDataPage.national_id_required"),
         }),
-        birthday: z.string().min(1, {
-            message: t("UserDataPage.birthday_required"),
-        }),
+        birthday: z
+            .string({message : t("UserDataPage.birthday_invalid")})
+            .min(1, {
+                message: t("UserDataPage.birthday_required"),
+            })
+            .refine(
+                (value) => !isNaN(Date.parse(value)), // Ensure it's a valid date string
+                { message: t("UserDataPage.birthday_invalid") }
+            ),
         gender: z.string().min(1, {
             message: t("UserDataPage.gender_required"),
         }),
