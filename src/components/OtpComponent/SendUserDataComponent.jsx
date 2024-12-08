@@ -1,6 +1,7 @@
+"use client"
 import { useTranslations } from "next-intl";
 import useRequest from "@/lib/hooks/useRequest";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { UserDataFormSchema } from "@/lib/utils/schemas";
 import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
@@ -8,6 +9,8 @@ import { Button } from "@/components/ui/button";
 import { SendHorizontal } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
+import ReactMultiDatePicker from "@/core/components/ReactMultiDatePicker";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 const SendUserDataComponent = () => {
     const t = useTranslations();
@@ -48,6 +51,7 @@ const SendUserDataComponent = () => {
                 console.log(error);
             });
     }
+
     return (
         <Form {...form}>
             <form
@@ -108,20 +112,26 @@ const SendUserDataComponent = () => {
                                 </FormItem>
                             )}
                         />
-                        <FormField
-                            control={form.control}
+                        <Controller
                             name="birthday"
+                            control={form.control}
                             render={({ field }) => (
-                                <FormItem className="flex flex-col w-full">
+                                <div className="flex flex-col w-full">
                                     <FormControl>
-                                        <Input
-                                            className="border-2"
-                                            placeholder={t("UserDataPage.birthday")}
+                                        <ReactMultiDatePicker
                                             {...field}
+                                            className="border-2 h-10 w-full rounded-lg"
+                                            value={field.value}
+                                            placeholder={t("UserDataPage.birthday")}
+                                            onChange={(formattedDate) => field.onChange(formattedDate)}
                                         />
                                     </FormControl>
-                                    <FormMessage className="px-4 text-Light-Required dark:text-Dark-Required font-bold" />
-                                </FormItem>
+                                    {form.formState.errors.birthday && (
+                                        <FormMessage className="px-4 text-Light-Required dark:text-Dark-Required font-bold" >
+                                            {form.formState.errors.birthday.message}
+                                        </FormMessage>
+                                    )}
+                                </div>
                             )}
                         />
                         <FormField
@@ -129,9 +139,21 @@ const SendUserDataComponent = () => {
                             name="gender"
                             render={({ field }) => (
                                 <FormItem className="flex flex-col w-full">
-                                    <FormControl>
-                                        <Input className="border-2" placeholder={t("UserDataPage.gender")} {...field} />
-                                    </FormControl>
+                                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                        <FormControl>
+                                            <SelectTrigger>
+                                                <SelectValue placeholder={t("UserDataPage.gender")} />
+                                            </SelectTrigger>
+                                        </FormControl>
+                                        <SelectContent>
+                                            <SelectItem value="m@example.com">m@example.com</SelectItem>
+                                            <SelectItem value="m@google.com">m@google.com</SelectItem>
+                                            <SelectItem value="m@support.com">m@support.com</SelectItem>
+                                        </SelectContent>
+                                    </Select>
+                                    {/*<FormControl>*/}
+                                    {/*    <Input className="border-2" placeholder={t("UserDataPage.gender")} {...field} />*/}
+                                    {/*</FormControl>*/}
                                     <FormMessage className="px-4 text-Light-Required dark:text-Dark-Required font-bold" />
                                 </FormItem>
                             )}

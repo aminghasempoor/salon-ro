@@ -64,6 +64,7 @@
     "last_name_required" : "وارد کردن نام خانوادگی ضروریست!!!",
     "national_id_required" : "وارد کردن کد ملی ضروریست!!!",
     "birthday_required" : "وارد کردن تاریخ تولد ضروریست!!!",
+    "birthday_invalid" : "فرمت تاریخ تولد صحیح نمی باشد!!!",
     "gender_required" : "وارد کردن جنسیت ضروریست!!!",
     "province_required" : "وارد کردن استان ضروریست!!!",
     "city_required" : "وارد کردن شهر ضروریست!!!"

@@ -6,7 +6,7 @@ import SendUserDataComponent from "./SendUserDataComponent";
 export default function OtpComponent() {
     const initialTimerValue = 3;
     const [otpToken, setOtpToken] = useState(false);
-    const [pageNumber, setPageNumber] = useState(1);
+    const [pageNumber, setPageNumber] = useState(3);
     const [PhoneNumber, setPhoneNumber] = useState("");
     const [timer, setTimer] = useState(initialTimerValue);
 
