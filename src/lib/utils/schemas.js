@@ -37,7 +37,7 @@ export const UserDataFormSchema = (t) =>
             message: t("UserDataPage.national_id_required"),
         }),
         birthday: z
-            .string({message : t("UserDataPage.birthday_invalid")})
+            .string({ message: t("UserDataPage.birthday_invalid") })
             .min(1, {
                 message: t("UserDataPage.birthday_required"),
             })

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useTranslations } from "next-intl";
 import useRequest from "@/lib/hooks/useRequest";
 import { Controller, useForm } from "react-hook-form";
@@ -127,7 +127,7 @@ const SendUserDataComponent = () => {
                                         />
                                     </FormControl>
                                     {form.formState.errors.birthday && (
-                                        <FormMessage className="px-4 text-Light-Required dark:text-Dark-Required font-bold" >
+                                        <FormMessage className="px-4 text-Light-Required dark:text-Dark-Required font-bold">
                                             {form.formState.errors.birthday.message}
                                         </FormMessage>
                                     )}
