@@ -12,6 +12,26 @@
     "title": "Hello world!",
     "about": "Go to the about page"
   },
+  "UserDataPage": {
+    "first_name": "First Name",
+    "last_name": "Last Name",
+    "national_id": "National ID",
+    "birthday": "Birthday",
+    "gender": "Gender",
+    "province": "Province",
+    "city": "City",
+    "submit": "Submit",
+    "loginHere": "Login here!",
+    "haveAccount": "Have account?",
+    "first_name_required" : "First name required",
+    "last_name_required" : "Last name required",
+    "national_id_required" : "National ID required",
+    "birthday_required" : "Birthday required",
+    "birthday_invalid" : "Invalid Birthday Format",
+    "gender_required" : "Gender required",
+    "province_required" : "Province required",
+    "city_required" : "City required"
+  },
   "Notifications": {
     "code": "Code",
     "error": "Error",

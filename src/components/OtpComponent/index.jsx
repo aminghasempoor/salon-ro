@@ -1,34 +1,50 @@
 "use client";
 import { useState } from "react";
-import SendUserDataComponent from "@/components/OtpComponent/SendUserDataComponent";
-import SendTokenComponent from "@/components/OtpComponent/SendTokenComponent";
+import SendTokenComponent from "./SendTokenComponent";
+import SendUserNumberComponent from "./SendUserNumberComponent";
+import SendUserDataComponent from "./SendUserDataComponent";
 export default function OtpComponent() {
-    const [otpToken, setOtpToken] = useState(false);
-    const [PhoneNumber, setPhoneNumber] = useState("");
-
-    // For Resend Token (read ResendToken Component Doc)
     const initialTimerValue = 3;
+    const [otpToken, setOtpToken] = useState(false);
+    const [pageNumber, setPageNumber] = useState(3);
+    const [PhoneNumber, setPhoneNumber] = useState("");
     const [timer, setTimer] = useState(initialTimerValue);
-    // End For Resend Token
-    if (!otpToken) {
-        return (
-            <SendUserDataComponent
-                setOtpToken={setOtpToken}
-                setPhoneNumber={setPhoneNumber}
-                PhoneNumber={PhoneNumber}
-                initialTimerValue={initialTimerValue}
-                setTimer={setTimer}
-            />
-        );
-    } else {
-        return (
-            <SendTokenComponent
-                PhoneNumber={PhoneNumber}
-                setOtpToken={setOtpToken}
-                timer={timer}
-                initialTimerValue={initialTimerValue}
-                setTimer={setTimer}
-            />
-        );
+
+    switch (pageNumber) {
+        case 1:
+            return (
+                <SendUserNumberComponent
+                    setOtpToken={setOtpToken}
+                    setPhoneNumber={setPhoneNumber}
+                    setPageNumber={setPageNumber}
+                    PhoneNumber={PhoneNumber}
+                    initialTimerValue={initialTimerValue}
+                    setTimer={setTimer}
+                />
+            );
+        case 2:
+            return (
+                <SendTokenComponent
+                    PhoneNumber={PhoneNumber}
+                    setOtpToken={setOtpToken}
+                    setPageNumber={setPageNumber}
+                    timer={timer}
+                    initialTimerValue={initialTimerValue}
+                    setTimer={setTimer}
+                />
+            );
+        case 3:
+            return <SendUserDataComponent PhoneNumber={PhoneNumber} otpToken={otpToken} />;
+        default:
+            return (
+                <SendUserNumberComponent
+                    setOtpToken={setOtpToken}
+                    setPhoneNumber={setPhoneNumber}
+                    setPageNumber={setPageNumber}
+                    PhoneNumber={PhoneNumber}
+                    initialTimerValue={initialTimerValue}
+                    setTimer={setTimer}
+                />
+            );
     }
 }
