@@ -32,7 +32,7 @@ const BasicCarousel = ({ slides }) => {
             className=" "
             dir="ltr"
             modules={[Navigation, Pagination, Scrollbar, A11y]}
-            spaceBetween={0}
+            spaceBetween={8}
             slidesPerView={"auto"}
             navigation={navigationEnable}
             pagination={{ clickable: true }}
@@ -44,14 +44,14 @@ const BasicCarousel = ({ slides }) => {
         >
             {slides?.map((slide, index) => (
                 <SwiperSlide key={index} className="absolute items-center  ">
-                    <div className="relative  flex flex-col border rounded-2xl  overflow-hidden h-full">
+                    <div className="relative  flex flex-col border rounded-2xl  overflow-hidden h-full ">
                         <img src={slide.image} alt={`Slide ${index + 1}`} className=" " />
                         <div className="flex flex-col p-4 w-full gap-2 text-[.75rem]   " dir="rtl">
                             <h2 className="text-2xl font-bold ">{slide.title}</h2>
-                            <p className="w-full h-10  text-gray-700  overflow-hidden text-ellipsis ">
+                            <p className="w-full h-12  text-gray-700  overflow-hidden text-ellipsis ">
                                 {slide?.description}
                             </p>
-                            <p className="w-full h-10  text-gray-700 line-clamp-1 overflow-hidden text-ellipsis ">
+                            <p className="w-full h-12  text-gray-700 line-clamp-1 overflow-hidden text-ellipsis  ">
                                 {slide?.address}
                             </p>
 
