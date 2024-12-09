@@ -11,7 +11,7 @@ const HeroScene = () => {
     const animate = { scale: 1 };
     // 2 animations for h3 tags
     const textAnimation2 = {
-        initial: { scale: 0.5 },
+        initial: { scale: 0.8 },
         animate: { scale: 1 },
         exit: { y: -30, opacity: 0 },
         transition: { type: "spring" },
@@ -98,7 +98,7 @@ const HeroScene = () => {
                 initial={{ ...textAnimation2.initial, opacity: 0 }}
                 animate={{ ...textAnimation2.animate, opacity: 1 }}
                 exit={textAnimation2.exit}
-                transition={{ type: "spring", delay: 0.0, duration: 2 }}
+                transition={{ delay: 0.0, duration: 0.5 }}
             >
                 <div
                     className="flex flex-col justify-center items-center  rounded-lg 
