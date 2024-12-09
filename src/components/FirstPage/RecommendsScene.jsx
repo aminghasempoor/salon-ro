@@ -1,27 +1,94 @@
 import BasicCarousel from "@/core/components/carousel/BasicCarousel";
 import React from "react";
+import { motion, useMotionValueEvent, useScroll } from "motion/react";
 
 const RecommendsScene = () => {
+    const carouselAnimation = {
+        initial: { opacity: 0.7, scaleX: 0.95 },
+        whileInView: { opacity: 1, scaleX: 1 },
+        viewPort: {
+            once: true,
+            // margin: "-150px 0px",
+            amount: 0.3,
+        },
+        transition: { duration: 0.5 },
+    };
+    const textAnimation1 = {
+        initial: { y: 20, opacity: 0 },
+        whileInView: { y: 0, opacity: 1 },
+        viewport: {
+            once: true,
+            margin: "-50px 0px",
+            //  amount: 0.3
+        },
+        exit: { y: -50, opacity: 0 },
+        transition: { duration: 1 },
+    };
     return (
-        <div className="flex flex-col w-full justify-start items-start text-Light-TextColor dark:text-Dark-TextColor  gap-4">
-            <div className="flex flex-col w-full h-fit gap-4">
-                <h2 className="font-black text-[1.25rem] ">پیشنهاد ها</h2>
+        <div className="flex flex-col w-full  px-4 py-4  z-0 justify-start items-start text-Light-TextColor dark:text-Dark-TextColor rounded-[16px] gap-4 shadow-[0px_0px_8px_0px_rgba(0,_0,_0,_0.2)] shadow-Light-Sec100/30 ">
+            <motion.h2
+                className="font-black text-[1.25rem] px-4"
+                initial={textAnimation1.initial}
+                exit={textAnimation1.exit}
+                transition={textAnimation1.transition}
+                whileInView={textAnimation1.whileInView}
+                viewport={textAnimation1.viewport}
+            >
+                پیشنهاد ها
+            </motion.h2>
+            <motion.div
+                initial={carouselAnimation.initial}
+                whileInView={carouselAnimation.whileInView}
+                viewport={carouselAnimation.viewPort}
+                transition={carouselAnimation.transition}
+                className="flex flex-col w-full h-fit gap-4"
+            >
                 <div className="w-full ">
                     <BasicCarousel slides={slides1} />
                 </div>
-            </div>
-            <div className="flex flex-col w-full h-fit gap-4">
-                <h2 className="font-black text-[1.25rem] ">بیشترین بازدید ها</h2>
+            </motion.div>
+            <motion.h2
+                className="font-black text-[1.25rem] px-4"
+                initial={textAnimation1.initial}
+                exit={textAnimation1.exit}
+                transition={textAnimation1.transition}
+                whileInView={textAnimation1.whileInView}
+                viewport={textAnimation1.viewport}
+            >
+                بیشترین بازدید ها
+            </motion.h2>
+            <motion.div
+                initial={carouselAnimation.initial}
+                whileInView={carouselAnimation.whileInView}
+                viewport={carouselAnimation.viewPort}
+                transition={carouselAnimation.transition}
+                className="flex flex-col w-full h-fit gap-4"
+            >
                 <div className="w-full ">
                     <BasicCarousel slides={slides2} />
                 </div>
-            </div>
-            <div className="flex flex-col w-full h-fit gap-4">
-                <h2 className="font-black text-[1.25rem] ">بالاترین امتیاز ها</h2>
+            </motion.div>
+            <motion.h2
+                className="font-black text-[1.25rem] px-4"
+                initial={textAnimation1.initial}
+                exit={textAnimation1.exit}
+                transition={textAnimation1.transition}
+                whileInView={textAnimation1.whileInView}
+                viewport={textAnimation1.viewport}
+            >
+                بالاترین امتیاز ها
+            </motion.h2>
+            <motion.div
+                initial={carouselAnimation.initial}
+                whileInView={carouselAnimation.whileInView}
+                viewport={carouselAnimation.viewPort}
+                transition={carouselAnimation.transition}
+                className="flex flex-col w-full h-fit gap-4"
+            >
                 <div className="w-full ">
                     <BasicCarousel slides={slides3} />
                 </div>
-            </div>
+            </motion.div>
         </div>
     );
 };
