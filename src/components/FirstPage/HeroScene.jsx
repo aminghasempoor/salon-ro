@@ -103,7 +103,7 @@ const HeroScene = () => {
                 <div
                     className="flex flex-col justify-center items-center  rounded-lg 
                     w-full min-w-[200px] lg:max-w-[80%] h-fit pb-4
-             ring-[6px] ring-gray-100
+             ring-[6px] ring-gray-100 dark:ring-opacity-10
            bg-Light-BackgroundColor dark:bg-Dark-BackgroundColor bg-opacity-40 backdrop-blur-[40px]
                 "
                 >

@@ -24,7 +24,7 @@ const Header = () => {
         <div
             className={
                 "sticky  z-10 top-0 right-0 flex w-full h-18 justify-between items-center      p-4  " +
-                `${scrollYPosition > 20 ? "bg-Light-BackgroundColor  dark:bg-Dark-BackgroundColor shadow-[0px_0px_8px_0px_rgba(0,_0,_0,_0.2)] shadow-Light-Sec100/30 lg:rounded-b-lg" : "bg-transparent"}`
+                `${scrollYPosition > 20 ? "bg-Light-BackgroundColor  dark:bg-Dark-BackgroundColor shadow-[0px_0px_8px_0px_rgba(0,_0,_0,_0.2)] shadow-Light-Sec100/30 dark:shadow-Light-Sec100/10 lg:rounded-b-lg" : "bg-transparent"}`
             }
             dir="ltr"
         >

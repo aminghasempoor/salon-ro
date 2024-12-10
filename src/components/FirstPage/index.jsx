@@ -28,10 +28,10 @@ const FirstPageComponent = () => {
 
             <RecommendsScene />
             <Services />
-            <div className=" w-full h-[300svh] bg-gray-300 z-0">Download App </div>
+            {/* <div className=" w-full h-[300svh] bg-gray-300 z-0">Download App </div>
             <div>Reviews </div>
             <div>Browse By City </div>
-            <div>Footer </div>
+            <div>Footer </div> */}
         </div>
     );
 };

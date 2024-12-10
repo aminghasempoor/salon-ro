@@ -77,7 +77,7 @@ const ServiceCarousel = ({ slides }) => {
         transition: { duration: 1 },
     };
     return (
-        <div className="w-full flex flex-col " style={{ paddingBottom: "4px" }}>
+        <div className="w-full flex flex-col " style={{ paddingBottom: "8px" }}>
             <Swiper
                 onSliderMove={() => {
                     checkSwiperStatus();
@@ -95,7 +95,12 @@ const ServiceCarousel = ({ slides }) => {
                 spaceBetween={10}
                 slidesPerView={"auto"}
                 // navigation={navigationEnable}
-                pagination={{ clickable: true, dynamicBullets: true, dynamicMainBullets: 5 }}
+                pagination={{
+                    clickable: true,
+                    dynamicBullets: true,
+                    dynamicMainBullets: 5,
+                    bulletClass: "swiper-pagination-bullet",
+                }}
                 a11y={true}
                 resistance={true}
                 resistanceRatio={0.8}
@@ -143,8 +148,8 @@ const ServiceCarousel = ({ slides }) => {
                 ))}
             </Swiper>
             <div
-                className={`" flex w-fit h-full gap-2 z-10 invisible  " ${swiperStatus?.isBeginning && swiperStatus.isEnd ? "lg:invisible" : "lg:visible"} `}
-                style={{ padding: "0px 20px", translate: "0px -40px", height: "20px", overflow: "visible" }}
+                className={`" flex w-fit h-full gap-2 z-10 invisible " ${swiperStatus?.isBeginning && swiperStatus.isEnd ? "lg:invisible" : "lg:visible"} `}
+                style={{ padding: "0px 20px", translate: "0px -20px", height: "40px", overflow: "visible" }}
             >
                 <Button
                     className="border rounded-full hover:bg-accent  "
