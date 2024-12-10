@@ -29,7 +29,7 @@ const HeroScene = () => {
       
          "
         >
-            <h1 className="sr-only">سالنرو</h1>
+            <h1 className="sr-only">سالنرو رزرو آنلاین سالن زیبایی و آرایشگاه</h1>
             <span className="absolute w-full h-[100svh] overflow-hidden  -z-10  top-0   dark:hidden blur-[80px]">
                 <div
                     className="fixed w-[600px] h-[600px] overflow-hidden   bg-[#FFD7FF] dark:bg-[#e7ab9c10] rounded-[20%]"
@@ -69,7 +69,7 @@ const HeroScene = () => {
             <motion.div
                 initial={{ y: 50, opacity: 1 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 3, duration: 1, type: "easeOut" }}
+                transition={{ delay: 2.8, duration: 1, type: "easeOut" }}
             >
                 <motion.h3
                     className="font-bold text-center mb-8"
@@ -89,7 +89,7 @@ const HeroScene = () => {
                 initial={textAnimation1.initial}
                 animate={textAnimation1.animate}
                 exit={textAnimation1.exit}
-                transition={{ ...textAnimation1.transition, delay: 3.5 }}
+                transition={{ ...textAnimation1.transition, delay: 2.5 }}
             >
                 نوبتت رو بگیر.
             </motion.h3>
@@ -129,10 +129,10 @@ const HeroScene = () => {
                 <motion.p
                     className=" font-semibold"
                     style={{ fontSize: "clamp(1.5rem,2vw,30px)" }}
-                    initial={textAnimation1.initial}
+                    initial={{ ...textAnimation1.initial, y: 20 }}
                     animate={textAnimation1.animate}
                     exit={textAnimation1.exit}
-                    transition={{ ...textAnimation1.transition, delay: 2 }}
+                    transition={{ ...textAnimation1.transition, delay: 1 }}
                 >
                     وقتت مهم ترین داراییه!
                 </motion.p>
