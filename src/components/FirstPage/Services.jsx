@@ -5,9 +5,10 @@ import { Button } from "../ui/button";
 
 const Services = () => {
     return (
-        <div className="flex flex-col w-full h-fit items-center justify-center mt-4 gap-4"
-        // flex flex-col w-full h-fit items-center justify-center mt-4 gap-4
-        // flex flex-col w-full  px-4 py-4  z-0 justify-start items-start text-Light-TextColor dark:text-Dark-TextColor rounded-[16px] gap-4 shadow-[0px_0px_8px_0px_rgba(0,_0,_0,_0.2)] shadow-Light-Sec100/30 my-4
+        <div
+            className="flex flex-col w-full h-fit items-center justify-center mt-4 gap-4"
+            // flex flex-col w-full h-fit items-center justify-center mt-4 gap-4
+            // flex flex-col w-full  px-4 py-4  z-0 justify-start items-start text-Light-TextColor dark:text-Dark-TextColor rounded-[16px] gap-4 shadow-[0px_0px_8px_0px_rgba(0,_0,_0,_0.2)] shadow-Light-Sec100/30 my-4
         >
             <h3 className="text-[1.5rem] font-bold">بر اساس خدمات</h3>
             <ServiceCarousel slides={slides1} />
@@ -120,7 +121,7 @@ const slides1 = [
     //     image: "https://picsum.photos/200/200",
     //     title: " لورم ایپسوم",
     // },
-   
+
     // ... more slides
 ];
 

@@ -88,7 +88,7 @@ const ServiceCarousel = ({ slides }) => {
                 grid={{ fill: "row", rows: 1 }}
                 onSwiper={setSwiperRef}
                 speed={800}
-                style={{ paddingBottom: "40px",padding:"0px 16px" }}
+                style={{ paddingBottom: "40px", padding: "0px 16px" }}
                 className="select-none"
                 dir="ltr"
                 modules={[Navigation, Pagination, Scrollbar, A11y, Grid]}

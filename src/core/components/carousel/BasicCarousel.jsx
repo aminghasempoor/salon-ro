@@ -55,7 +55,7 @@ const BasicCarousel = ({ slides }) => {
                     >
                         <div className="relative  flex flex-col border rounded-[16px]  overflow-hidden h-full ">
                             <div className="overflow-hidden">
-                                <img src={slide.image} alt={`Slide ${index + 1}`} className="basic" loading="lazy"/>
+                                <img src={slide.image} alt={`Slide ${index + 1}`} className="basic" loading="lazy" />
                             </div>
                             <div className="flex flex-col p-4 w-full gap-2 text-[.75rem]   " dir="rtl">
                                 <h6 className="textClamp2 text-xl font-bold ">{slide.title}</h6>
