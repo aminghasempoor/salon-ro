@@ -15,7 +15,7 @@ const Header = () => {
     const WindowHeight = useWindowSize().height; // gives window height
     const { scrollY } = useScroll();
     useMotionValueEvent(scrollY, "change", (latest) => {
-        console.log("Page scroll: ", latest);
+        // console.log("Page scroll: ", latest);
         // console.log("ratio", Math.round((latest / (WindowHeight - window.innerHeight)) * 100));
         setScrollRatio(Math.round((latest / (WindowHeight - window.innerHeight)) * 100));
         setScrollYPosition(latest);

@@ -7,6 +7,7 @@ import RecommendsScene from "./RecommendsScene";
 import { motion, useMotionValueEvent, useScroll } from "motion/react";
 import useWindowSize from "@/core/components/windowSize/WindowSize";
 import HeroScene from "./HeroScene";
+import Services from "./Services";
 
 const FirstPageComponent = () => {
     const [scrollYPosition, setScrollYPosition] = useState(0);
@@ -26,7 +27,7 @@ const FirstPageComponent = () => {
             <HeroScene />
 
             <RecommendsScene />
-
+            <Services />
             <div className=" w-full h-[300svh] bg-gray-300 z-0">Download App </div>
             <div>Reviews </div>
             <div>Browse By City </div>

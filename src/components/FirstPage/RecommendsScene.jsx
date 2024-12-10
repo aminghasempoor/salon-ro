@@ -1,6 +1,7 @@
 import BasicCarousel from "@/core/components/carousel/BasicCarousel";
 import React from "react";
 import { motion, useMotionValueEvent, useScroll } from "motion/react";
+import { Flame, Megaphone, Ribbon, Sparkles, Tag, ThumbsUp } from "lucide-react";
 
 const RecommendsScene = () => {
     const carouselAnimation = {
@@ -26,16 +27,19 @@ const RecommendsScene = () => {
     };
     return (
         <div className="flex flex-col w-full  px-4 py-4  z-0 justify-start items-start text-Light-TextColor dark:text-Dark-TextColor rounded-[16px] gap-4 shadow-[0px_0px_8px_0px_rgba(0,_0,_0,_0.2)] shadow-Light-Sec100/30 ">
-            <motion.h2
-                className="font-black text-[1.25rem] px-4"
+            <motion.div
+                className="flex items-center gap-2 font-black text-[1.25rem] px-4"
                 initial={textAnimation1.initial}
                 exit={textAnimation1.exit}
                 transition={textAnimation1.transition}
                 whileInView={textAnimation1.whileInView}
                 viewport={textAnimation1.viewport}
             >
-                پیشنهاد ها
-            </motion.h2>
+                <span>
+                    <Ribbon color="#00f" />
+                </span>
+                <h3> پیشنهاد ها</h3>
+            </motion.div>
             <motion.div
                 initial={carouselAnimation.initial}
                 whileInView={carouselAnimation.whileInView}
@@ -47,16 +51,19 @@ const RecommendsScene = () => {
                     <BasicCarousel slides={slides1} />
                 </div>
             </motion.div>
-            <motion.h2
-                className="font-black text-[1.25rem] px-4"
+            <motion.div
+                className="flex items-center gap-2 font-black text-[1.25rem] px-4"
                 initial={textAnimation1.initial}
                 exit={textAnimation1.exit}
                 transition={textAnimation1.transition}
                 whileInView={textAnimation1.whileInView}
                 viewport={textAnimation1.viewport}
             >
-                بیشترین بازدید ها
-            </motion.h2>
+                <span>
+                    <Flame color="#F97025" fill="#F97025" />
+                </span>
+                <h3> بیشترین بازدید ها</h3>
+            </motion.div>
             <motion.div
                 initial={carouselAnimation.initial}
                 whileInView={carouselAnimation.whileInView}
@@ -68,16 +75,19 @@ const RecommendsScene = () => {
                     <BasicCarousel slides={slides2} />
                 </div>
             </motion.div>
-            <motion.h2
-                className="font-black text-[1.25rem] px-4"
+            <motion.div
+                className="flex items-center gap-2 font-black text-[1.25rem] px-4"
                 initial={textAnimation1.initial}
                 exit={textAnimation1.exit}
                 transition={textAnimation1.transition}
                 whileInView={textAnimation1.whileInView}
                 viewport={textAnimation1.viewport}
             >
-                بالاترین امتیاز ها
-            </motion.h2>
+                <span>
+                    <Sparkles color="#F9BD02" />
+                </span>
+                <h3> بالاترین امتیاز ها</h3>
+            </motion.div>
             <motion.div
                 initial={carouselAnimation.initial}
                 whileInView={carouselAnimation.whileInView}
