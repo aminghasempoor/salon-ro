@@ -28,13 +28,13 @@ const LanguageSwitcher = () => {
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="text-URLColor w-fit p-2 mt-4">
-                    <Earth size={"20px"} className="-translate-y-0.5" />
+                <Button variant="ghost" className=" w-12 h-12 p-0 ">
+                    <Earth size={"22px"} className="-translate-y-0.5 w-fit h-fit  " />
                 </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-32">
+            <DropdownMenuContent className="w-32 min-w-[0px] ">
                 {locales.map((locale) => (
-                    <DropdownMenuItem key={locale} onClick={() => changeLanguage(locale)}>
+                    <DropdownMenuItem className="" key={locale} onClick={() => changeLanguage(locale)}>
                         {locale === "en" ? "English" : "فارسی"}
                     </DropdownMenuItem>
                 ))}

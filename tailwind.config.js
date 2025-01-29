@@ -11,7 +11,6 @@ module.exports = {
             colors: {
                 PrimaryColor: {
                     100: "#5E2419",
-
                     White: "#FFFFFF",
                 },
                 SecondaryColor: {
@@ -54,7 +53,6 @@ module.exports = {
                     BackgroundColor: "#1E1E1E",
                     HaveNoAccount: "#E7AB9C",
                 },
-
                 background: "hsl(var(--background))",
                 foreground: "hsl(var(--foreground))",
                 card: {
@@ -95,6 +93,16 @@ module.exports = {
                     4: "hsl(var(--chart-4))",
                     5: "hsl(var(--chart-5))",
                 },
+                sidebar: {
+                    DEFAULT: "hsl(var(--sidebar-background))",
+                    foreground: "hsl(var(--sidebar-foreground))",
+                    primary: "hsl(var(--sidebar-primary))",
+                    "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
+                    accent: "hsl(var(--sidebar-accent))",
+                    "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
+                    border: "hsl(var(--sidebar-border))",
+                    ring: "hsl(var(--sidebar-ring))",
+                },
             },
             borderRadius: {
                 default: "var(--radius)",
@@ -103,6 +111,7 @@ module.exports = {
                 sm: "calc(var(--radius) - 4px)",
             },
             screens: {
+                1080: "1080px",
                 verySmall: "300px",
                 smallPhone: "360px",
                 mediumPhone: "420px",
@@ -110,7 +119,6 @@ module.exports = {
                 "480px": "480px",
                 "720px": "720px",
                 "960px": "960px",
-                1080: "1080px",
             },
             animation: {
                 "background-animation": "background-animation 25s ease infinite both",
@@ -138,9 +146,15 @@ module.exports = {
             },
             keyframes: {
                 "background-animation": {
-                    "0%": { backgroundPosition: "80% 80%" },
-                    "50%": { backgroundPosition: "00% 30%" },
-                    "100%": { backgroundPosition: "80% 80%" },
+                    "0%": {
+                        backgroundPosition: "80% 80%",
+                    },
+                    "50%": {
+                        backgroundPosition: "00% 30%",
+                    },
+                    "100%": {
+                        backgroundPosition: "80% 80%",
+                    },
                 },
                 "swing-in-left-fwd": {
                     "0%": {
