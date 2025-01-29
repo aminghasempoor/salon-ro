@@ -10,6 +10,7 @@ export default function OtpComponent() {
     const [PhoneNumber, setPhoneNumber] = useState("");
     const [timer, setTimer] = useState(initialTimerValue);
 
+
     switch (pageNumber) {
         case 1:
             return (
