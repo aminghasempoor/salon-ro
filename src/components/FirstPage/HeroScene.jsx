@@ -1,10 +1,8 @@
 import React from "react";
-
 import { QrCode } from "lucide-react";
 import { Button } from "../ui/button";
 import { useTranslations } from "next-intl";
-import { motion, useMotionValueEvent, useScroll } from "motion/react";
-import { animate } from "motion";
+import { motion } from "motion/react";
 const HeroScene = () => {
     const t = useTranslations();
 
@@ -22,7 +20,6 @@ const HeroScene = () => {
         exit: { y: -50, opacity: 0 },
         transition: { duration: 1 },
     };
-    //   bg-[url(https://www.fresha.com/assets/_next/static/media/spotlight1.71dc283c.svg)] bg-no-repeat bg-contain bg-top
     return (
         <div
             className="flex flex-col w-full lg:min-h-[calc(100svh-72px)] min-h-[100svh] h-fit justify-center items-center text-Light-TextColor dark:text-Dark-TextColor font-Vazirmatn pt-[24px]
@@ -33,8 +30,6 @@ const HeroScene = () => {
             <span className="absolute w-full h-[100svh] overflow-hidden  -z-10  top-0   dark:hidden blur-[80px]">
                 <div
                     className="fixed w-[600px] h-[600px] overflow-hidden   bg-[#FFD7FF] dark:bg-[#e7ab9c10] rounded-[20%]"
-                    // alt="bg"
-                    // src="https://www.fresha.com/assets/_next/static/media/spotlight1.71dc283c.svg"
                     style={{
                         animation: "spin 10s ease-out infinite reverse",
                         scale: 0.8,
@@ -44,8 +39,6 @@ const HeroScene = () => {
                 />
                 <div
                     className="fixed w-[600px] h-[600px] overflow-hidden   bg-[#FFD7FF] dark:bg-[#e7ab9c10] rounded-[20%]"
-                    // alt="bg"
-                    // src="https://www.fresha.com/assets/_next/static/media/spotlight1.71dc283c.svg"
                     style={{
                         animation: "spin 40s linear infinite reverse",
                         scale: 0.8,
@@ -55,8 +48,6 @@ const HeroScene = () => {
                 />
                 <div
                     className="fixed w-[400px] h-[800px] overflow-hidden  origin-center   bg-[#FFD7FF] dark:bg-[#e7ab9c10] rounded-[100%]"
-                    // alt="bg"
-                    // src="https://www.fresha.com/assets/_next/static/media/spotlight1.71dc283c.svg"
                     style={{
                         animation: "spin 20s ease infinite ",
                         scale: 0.8,
@@ -147,5 +138,4 @@ const HeroScene = () => {
         </div>
     );
 };
-
 export default HeroScene;

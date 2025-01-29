@@ -1,10 +1,9 @@
 "use client";
-import { PanelRight } from "lucide-react";
 import React, { useState } from "react";
 import { Button } from "../ui/button";
 import Link from "next/link";
 import { ModeToggle } from "../ModeToggle";
-import { motion, useMotionValueEvent, useScroll } from "motion/react";
+import { useMotionValueEvent, useScroll } from "motion/react";
 import useWindowSize from "@/core/components/windowSize/WindowSize";
 import LanguageSwitcher from "@/core/components/LanguageSwitcher";
 import { useTheme } from "next-themes";
@@ -15,15 +14,13 @@ const Header = () => {
     const WindowHeight = useWindowSize().height; // gives window height
     const { scrollY } = useScroll();
     useMotionValueEvent(scrollY, "change", (latest) => {
-        // console.log("Page scroll: ", latest);
-        // console.log("ratio", Math.round((latest / (WindowHeight - window.innerHeight)) * 100));
         setScrollRatio(Math.round((latest / (WindowHeight - window.innerHeight)) * 100));
         setScrollYPosition(latest);
     });
     return (
         <div
             className={
-                "sticky  z-10 top-0 right-0 flex w-full h-18 justify-between items-center      p-4  " +
+                "sticky z-10 top-0 right-0 flex w-full h-18 justify-between items-center p-4" +
                 `${scrollYPosition > 20 ? "bg-Light-BackgroundColor  dark:bg-Dark-BackgroundColor shadow-[0px_0px_8px_0px_rgba(0,_0,_0,_0.2)] shadow-Light-Sec100/30 dark:shadow-Light-Sec100/10 lg:rounded-b-lg" : "bg-transparent"}`
             }
             dir="ltr"
@@ -34,10 +31,10 @@ const Header = () => {
             >
                 <LogoText />
             </Link>
-            <span className="flex gap-2  items-center">
+            <span className="flex gap-2 items-center">
                 <LanguageSwitcher />
                 <ModeToggle />
-                <Button variant="" className="lg:w-24 w-12 gap-2 text-[1rem]  " size="icon">
+                <Button variant="" className="lg:w-24 w-12 gap-2 text-[1rem]" size="icon">
                     ورود
                 </Button>
             </span>

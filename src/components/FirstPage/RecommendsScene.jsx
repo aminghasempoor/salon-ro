@@ -1,7 +1,7 @@
 import BasicCarousel from "@/core/components/carousel/BasicCarousel";
 import React from "react";
-import { motion, useMotionValueEvent, useScroll } from "motion/react";
-import { Flame, Megaphone, Ribbon, Sparkles, Tag, ThumbsUp } from "lucide-react";
+import { motion } from "motion/react";
+import { Flame, Ribbon, Sparkles } from "lucide-react";
 
 const RecommendsScene = () => {
     const carouselAnimation = {
